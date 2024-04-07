@@ -5,7 +5,7 @@ let currentTransport, streamNumber, currentTransportDatagramWriter;
 
 // "Connect" button handler.
 async function connect() {
-  const url = document.getElementById('url').value;
+  const url = "https://dilate.ai:4433/counter";
   try {
     var transport = new WebTransport(url);
     addToEventLog('Initiating connection...');
@@ -43,6 +43,10 @@ async function connect() {
   acceptUnidirectionalStreams(transport);
   document.forms.sending.elements.send.disabled = false;
   document.getElementById('connect').disabled = true;
+}
+
+async function runPreformanceTests() {
+  
 }
 
 // "Send data" button handler.

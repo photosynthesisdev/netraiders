@@ -52,7 +52,7 @@ class CounterHandler:
             # logic here for processing new player inputs
             #received_data = json.loads(event.data)
             self._iterator += 1
-            payload = str(self._iterator).encode('ascii')
+            payload = str(f"ACK: {self._iterator}").encode('ascii')
             self._http.send_datagram(self._session_id, payload)
 
     def stream_closed(self, stream_id: int) -> None:
