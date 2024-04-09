@@ -40,7 +40,6 @@ BIND_PORT = 4433
 logger = logging.getLogger(__name__)
 
 class CounterHandler:
-
     def __init__(self, session_id, http: H3Connection) -> None:
         self._session_id = session_id
         self._http = http
