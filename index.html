@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+  <title>Netraiders</title>
+  <meta charset="utf-8">
+  <script src="https://dilate.ai/client.js"></script>
+    <link rel="stylesheet" href="https://dilate.ai/client.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <body>
+  <div id="top">
+    <div id="tool">
+    <h1>NetRaiders over WebTransport client - Diagnostics Testing</h1>
+    <div>
+      <h2>Establish WebTransport connection</h2>
+      <input type="button" id="connect" value="Connect WebTransport" onclick="connect()">
+    </div>
+    <div>
+        <h2>Establish WebSocket connection</h2>
+        <input type="button" id="connectWS" value="Connect WebSocket" onclick="connectWS()">
+      </div>
+    <div>
+        <h2>Send data over WebSocket</h2>
+        <form name="sendWebsocket">
+        <input type="button" id="Websocket Send" name="sendWebsocket" value="Run Websocket" disabled onclick="runPerformanceTestWebsocket()">
+        </form>
+      <h2>Send data over WebTransport</h2>
+      <form name="sending">
+      <div>
+        <input type="radio" name="sendtype" value="datagram"
+               id="datagram" checked>
+        <label for="datagram">Send a datagram</label>
+      </div>
+      <input type="button" id="send" name="send" value="Run WebTransport" disabled onclick="runPerformanceTests()">
+      </form>
+    </div>
+    <div>
+      <h2>Event log</h2>
+      <ul id="event-log">
+      </ul>
+    </div>
+    </div>
+  </div>
+  </body>
+</html>
