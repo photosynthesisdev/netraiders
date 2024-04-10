@@ -1,4 +1,4 @@
-#!/root/netraiders/venv/bin/python3
+#!/users/dorlando/netraiders/venv/bin/python
 # -*- coding: utf-8 -*-
 import re
 import sys

@@ -1,5 +1,5 @@
 #!/bin/bash -xe
 
 ROOT="/users/dorlando/netraiders"
-# source "/root/stageapi/venv/bin/activate"
-/usr/bin/gunicorn -c gunicorn_conf.py netraiders_server:app 
+source "/users/dorlando/netraiders/venv/bin/activate"
+/users/dorlando/netraiders/venv/bin/gunicorn -c webserver/gunicorn_conf.py webserver.netraiders_server:app

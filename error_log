@@ -1,0 +1,1867 @@
+[2024-04-10 15:54:47 -0400] [24892] [DEBUG] Current configuration:
+  config: gunicorn_conf.py
+  bind: ['unix:/tmp/gunicorn.sock']
+  backlog: 2048
+  workers: 21
+  worker_class: uvicorn.workers.UvicornWorker
+  threads: 1
+  worker_connections: 1000
+  max_requests: 0
+  max_requests_jitter: 0
+  timeout: 30
+  graceful_timeout: 30
+  keepalive: 2
+  limit_request_line: 4094
+  limit_request_fields: 100
+  limit_request_field_size: 8190
+  reload: False
+  reload_engine: auto
+  reload_extra_files: []
+  spew: False
+  check_config: False
+  preload_app: False
+  sendfile: None
+  reuse_port: False
+  chdir: /users/dorlando/netraiders
+  daemon: False
+  raw_env: []
+  pidfile: None
+  worker_tmp_dir: None
+  user: 0
+  group: 0
+  umask: 0
+  initgroups: False
+  tmp_upload_dir: None
+  secure_scheme_headers: {'X-FORWARDED-PROTOCOL': 'ssl', 'X-FORWARDED-PROTO': 'https', 'X-FORWARDED-SSL': 'on'}
+  forwarded_allow_ips: ['127.0.0.1']
+  accesslog: None
+  disable_redirect_access_to_syslog: False
+  access_log_format: %(h)s %(l)s %(u)s %(t)s "%(r)s" %(s)s %(b)s "%(f)s" "%(a)s"
+  errorlog: /users/dorlando/netraiders/error_log
+  loglevel: debug
+  capture_output: False
+  logger_class: gunicorn.glogging.Logger
+  logconfig: None
+  logconfig_dict: {}
+  syslog_addr: udp://localhost:514
+  syslog: False
+  syslog_prefix: None
+  syslog_facility: user
+  enable_stdio_inheritance: False
+  statsd_host: None
+  dogstatsd_tags: 
+  statsd_prefix: 
+  proc_name: None
+  default_proc_name: netraiders_server:app
+  pythonpath: None
+  paste: None
+  on_starting: <function OnStarting.on_starting at 0x7fb7d1575e50>
+  on_reload: <function OnReload.on_reload at 0x7fb7d1575f70>
+  when_ready: <function WhenReady.when_ready at 0x7fb7d15540d0>
+  pre_fork: <function Prefork.pre_fork at 0x7fb7d15541f0>
+  post_fork: <function Postfork.post_fork at 0x7fb7d1554310>
+  post_worker_init: <function PostWorkerInit.post_worker_init at 0x7fb7d1554430>
+  worker_int: <function WorkerInt.worker_int at 0x7fb7d1554550>
+  worker_abort: <function WorkerAbort.worker_abort at 0x7fb7d1554670>
+  pre_exec: <function PreExec.pre_exec at 0x7fb7d1554790>
+  pre_request: <function PreRequest.pre_request at 0x7fb7d15548b0>
+  post_request: <function PostRequest.post_request at 0x7fb7d1554940>
+  child_exit: <function ChildExit.child_exit at 0x7fb7d1554a60>
+  worker_exit: <function WorkerExit.worker_exit at 0x7fb7d1554b80>
+  nworkers_changed: <function NumWorkersChanged.nworkers_changed at 0x7fb7d1554ca0>
+  on_exit: <function OnExit.on_exit at 0x7fb7d1554dc0>
+  proxy_protocol: False
+  proxy_allow_ips: ['127.0.0.1']
+  keyfile: None
+  certfile: None
+  ssl_version: 2
+  cert_reqs: 0
+  ca_certs: None
+  suppress_ragged_eofs: True
+  do_handshake_on_connect: False
+  ciphers: None
+  raw_paste_global_conf: []
+  strip_header_spaces: False
+[2024-04-10 15:54:47 -0400] [24892] [INFO] Starting gunicorn 20.0.4
+[2024-04-10 15:54:47 -0400] [24892] [DEBUG] Arbiter booted
+[2024-04-10 15:54:47 -0400] [24892] [INFO] Listening at: unix:/tmp/gunicorn.sock (24892)
+[2024-04-10 15:54:47 -0400] [24892] [INFO] Using worker: uvicorn.workers.UvicornWorker
+[2024-04-10 15:54:47 -0400] [24903] [INFO] Booting worker with pid: 24903
+[2024-04-10 15:54:47 -0400] [24903] [ERROR] Exception in worker process
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/gunicorn/arbiter.py", line 583, in spawn_worker
+    worker.init_process()
+  File "/usr/lib/python3/dist-packages/uvicorn/workers.py", line 56, in init_process
+    self.config.setup_event_loop()
+  File "/usr/lib/python3/dist-packages/uvicorn/config.py", line 321, in setup_event_loop
+    loop_setup = import_from_string(LOOP_SETUPS[self.loop])
+  File "/usr/lib/python3/dist-packages/uvicorn/importer.py", line 23, in import_from_string
+    raise exc from None
+  File "/usr/lib/python3/dist-packages/uvicorn/importer.py", line 20, in import_from_string
+    module = importlib.import_module(module_str)
+  File "/usr/lib/python3.8/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1014, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 991, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 975, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 671, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 783, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/usr/lib/python3/dist-packages/uvicorn/loops/uvloop.py", line 3, in <module>
+    import uvloop
+ModuleNotFoundError: No module named 'uvloop'
+[2024-04-10 15:54:47 -0400] [24903] [INFO] Worker exiting (pid: 24903)
+[2024-04-10 15:54:47 -0400] [24892] [INFO] Shutting down: Master
+[2024-04-10 15:54:47 -0400] [24892] [INFO] Reason: Worker failed to boot.
+[2024-04-10 15:55:00 -0400] [24977] [DEBUG] Current configuration:
+  config: gunicorn_conf.py
+  bind: ['unix:/tmp/gunicorn.sock']
+  backlog: 2048
+  workers: 21
+  worker_class: uvicorn.workers.UvicornWorker
+  threads: 1
+  worker_connections: 1000
+  max_requests: 0
+  max_requests_jitter: 0
+  timeout: 30
+  graceful_timeout: 30
+  keepalive: 2
+  limit_request_line: 4094
+  limit_request_fields: 100
+  limit_request_field_size: 8190
+  reload: False
+  reload_engine: auto
+  reload_extra_files: []
+  spew: False
+  check_config: False
+  preload_app: False
+  sendfile: None
+  reuse_port: False
+  chdir: /users/dorlando/netraiders
+  daemon: False
+  raw_env: []
+  pidfile: None
+  worker_tmp_dir: None
+  user: 0
+  group: 0
+  umask: 0
+  initgroups: False
+  tmp_upload_dir: None
+  secure_scheme_headers: {'X-FORWARDED-PROTOCOL': 'ssl', 'X-FORWARDED-PROTO': 'https', 'X-FORWARDED-SSL': 'on'}
+  forwarded_allow_ips: ['127.0.0.1']
+  accesslog: None
+  disable_redirect_access_to_syslog: False
+  access_log_format: %(h)s %(l)s %(u)s %(t)s "%(r)s" %(s)s %(b)s "%(f)s" "%(a)s"
+  errorlog: /users/dorlando/netraiders/error_log
+  loglevel: debug
+  capture_output: False
+  logger_class: gunicorn.glogging.Logger
+  logconfig: None
+  logconfig_dict: {}
+  syslog_addr: udp://localhost:514
+  syslog: False
+  syslog_prefix: None
+  syslog_facility: user
+  enable_stdio_inheritance: False
+  statsd_host: None
+  dogstatsd_tags: 
+  statsd_prefix: 
+  proc_name: None
+  default_proc_name: netraiders_server:app
+  pythonpath: None
+  paste: None
+  on_starting: <function OnStarting.on_starting at 0x7f2285175e50>
+  on_reload: <function OnReload.on_reload at 0x7f2285175f70>
+  when_ready: <function WhenReady.when_ready at 0x7f22851540d0>
+  pre_fork: <function Prefork.pre_fork at 0x7f22851541f0>
+  post_fork: <function Postfork.post_fork at 0x7f2285154310>
+  post_worker_init: <function PostWorkerInit.post_worker_init at 0x7f2285154430>
+  worker_int: <function WorkerInt.worker_int at 0x7f2285154550>
+  worker_abort: <function WorkerAbort.worker_abort at 0x7f2285154670>
+  pre_exec: <function PreExec.pre_exec at 0x7f2285154790>
+  pre_request: <function PreRequest.pre_request at 0x7f22851548b0>
+  post_request: <function PostRequest.post_request at 0x7f2285154940>
+  child_exit: <function ChildExit.child_exit at 0x7f2285154a60>
+  worker_exit: <function WorkerExit.worker_exit at 0x7f2285154b80>
+  nworkers_changed: <function NumWorkersChanged.nworkers_changed at 0x7f2285154ca0>
+  on_exit: <function OnExit.on_exit at 0x7f2285154dc0>
+  proxy_protocol: False
+  proxy_allow_ips: ['127.0.0.1']
+  keyfile: None
+  certfile: None
+  ssl_version: 2
+  cert_reqs: 0
+  ca_certs: None
+  suppress_ragged_eofs: True
+  do_handshake_on_connect: False
+  ciphers: None
+  raw_paste_global_conf: []
+  strip_header_spaces: False
+[2024-04-10 15:55:00 -0400] [24977] [INFO] Starting gunicorn 20.0.4
+[2024-04-10 15:55:00 -0400] [24977] [DEBUG] Arbiter booted
+[2024-04-10 15:55:00 -0400] [24977] [INFO] Listening at: unix:/tmp/gunicorn.sock (24977)
+[2024-04-10 15:55:00 -0400] [24977] [INFO] Using worker: uvicorn.workers.UvicornWorker
+[2024-04-10 15:55:00 -0400] [24987] [INFO] Booting worker with pid: 24987
+[2024-04-10 15:55:00 -0400] [24987] [ERROR] Exception in worker process
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/gunicorn/arbiter.py", line 583, in spawn_worker
+    worker.init_process()
+  File "/usr/lib/python3/dist-packages/uvicorn/workers.py", line 56, in init_process
+    self.config.setup_event_loop()
+  File "/usr/lib/python3/dist-packages/uvicorn/config.py", line 321, in setup_event_loop
+    loop_setup = import_from_string(LOOP_SETUPS[self.loop])
+  File "/usr/lib/python3/dist-packages/uvicorn/importer.py", line 23, in import_from_string
+    raise exc from None
+  File "/usr/lib/python3/dist-packages/uvicorn/importer.py", line 20, in import_from_string
+    module = importlib.import_module(module_str)
+  File "/usr/lib/python3.8/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1014, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 991, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 975, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 671, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 783, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/usr/lib/python3/dist-packages/uvicorn/loops/uvloop.py", line 3, in <module>
+    import uvloop
+ModuleNotFoundError: No module named 'uvloop'
+[2024-04-10 15:55:00 -0400] [24987] [INFO] Worker exiting (pid: 24987)
+[2024-04-10 15:55:00 -0400] [24988] [INFO] Booting worker with pid: 24988
+[2024-04-10 15:55:00 -0400] [24988] [ERROR] Exception in worker process
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/gunicorn/arbiter.py", line 583, in spawn_worker
+    worker.init_process()
+  File "/usr/lib/python3/dist-packages/uvicorn/workers.py", line 56, in init_process
+    self.config.setup_event_loop()
+  File "/usr/lib/python3/dist-packages/uvicorn/config.py", line 321, in setup_event_loop
+    loop_setup = import_from_string(LOOP_SETUPS[self.loop])
+  File "/usr/lib/python3/dist-packages/uvicorn/importer.py", line 23, in import_from_string
+    raise exc from None
+  File "/usr/lib/python3/dist-packages/uvicorn/importer.py", line 20, in import_from_string
+    module = importlib.import_module(module_str)
+  File "/usr/lib/python3.8/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1014, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 991, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 975, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 671, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 783, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/usr/lib/python3/dist-packages/uvicorn/loops/uvloop.py", line 3, in <module>
+    import uvloop
+ModuleNotFoundError: No module named 'uvloop'
+[2024-04-10 15:55:00 -0400] [24988] [INFO] Worker exiting (pid: 24988)
+[2024-04-10 15:55:01 -0400] [24977] [INFO] Shutting down: Master
+[2024-04-10 15:55:01 -0400] [24977] [INFO] Reason: Worker failed to boot.
+[2024-04-10 16:11:41 -0400] [25446] [DEBUG] Current configuration:
+  config: gunicorn_conf.py
+  bind: ['unix:/tmp/gunicorn.sock']
+  backlog: 2048
+  workers: 21
+  worker_class: uvicorn.workers.UvicornWorker
+  threads: 1
+  worker_connections: 1000
+  max_requests: 0
+  max_requests_jitter: 0
+  timeout: 30
+  graceful_timeout: 30
+  keepalive: 2
+  limit_request_line: 4094
+  limit_request_fields: 100
+  limit_request_field_size: 8190
+  reload: False
+  reload_engine: auto
+  reload_extra_files: []
+  spew: False
+  check_config: False
+  preload_app: False
+  sendfile: None
+  reuse_port: False
+  chdir: /users/dorlando/netraiders
+  daemon: False
+  raw_env: []
+  pidfile: None
+  worker_tmp_dir: None
+  user: 0
+  group: 0
+  umask: 0
+  initgroups: False
+  tmp_upload_dir: None
+  secure_scheme_headers: {'X-FORWARDED-PROTOCOL': 'ssl', 'X-FORWARDED-PROTO': 'https', 'X-FORWARDED-SSL': 'on'}
+  forwarded_allow_ips: ['127.0.0.1']
+  accesslog: None
+  disable_redirect_access_to_syslog: False
+  access_log_format: %(h)s %(l)s %(u)s %(t)s "%(r)s" %(s)s %(b)s "%(f)s" "%(a)s"
+  errorlog: /users/dorlando/netraiders/error_log
+  loglevel: debug
+  capture_output: False
+  logger_class: gunicorn.glogging.Logger
+  logconfig: None
+  logconfig_dict: {}
+  syslog_addr: udp://localhost:514
+  syslog: False
+  syslog_prefix: None
+  syslog_facility: user
+  enable_stdio_inheritance: False
+  statsd_host: None
+  dogstatsd_tags: 
+  statsd_prefix: 
+  proc_name: None
+  default_proc_name: netraiders_server:app
+  pythonpath: None
+  paste: None
+  on_starting: <function OnStarting.on_starting at 0x7f9d809e7e50>
+  on_reload: <function OnReload.on_reload at 0x7f9d809e7f70>
+  when_ready: <function WhenReady.when_ready at 0x7f9d809c60d0>
+  pre_fork: <function Prefork.pre_fork at 0x7f9d809c61f0>
+  post_fork: <function Postfork.post_fork at 0x7f9d809c6310>
+  post_worker_init: <function PostWorkerInit.post_worker_init at 0x7f9d809c6430>
+  worker_int: <function WorkerInt.worker_int at 0x7f9d809c6550>
+  worker_abort: <function WorkerAbort.worker_abort at 0x7f9d809c6670>
+  pre_exec: <function PreExec.pre_exec at 0x7f9d809c6790>
+  pre_request: <function PreRequest.pre_request at 0x7f9d809c68b0>
+  post_request: <function PostRequest.post_request at 0x7f9d809c6940>
+  child_exit: <function ChildExit.child_exit at 0x7f9d809c6a60>
+  worker_exit: <function WorkerExit.worker_exit at 0x7f9d809c6b80>
+  nworkers_changed: <function NumWorkersChanged.nworkers_changed at 0x7f9d809c6ca0>
+  on_exit: <function OnExit.on_exit at 0x7f9d809c6dc0>
+  proxy_protocol: False
+  proxy_allow_ips: ['127.0.0.1']
+  keyfile: None
+  certfile: None
+  ssl_version: 2
+  cert_reqs: 0
+  ca_certs: None
+  suppress_ragged_eofs: True
+  do_handshake_on_connect: False
+  ciphers: None
+  raw_paste_global_conf: []
+  strip_header_spaces: False
+[2024-04-10 16:11:41 -0400] [25446] [INFO] Starting gunicorn 20.0.4
+[2024-04-10 16:11:41 -0400] [25446] [DEBUG] Arbiter booted
+[2024-04-10 16:11:41 -0400] [25446] [INFO] Listening at: unix:/tmp/gunicorn.sock (25446)
+[2024-04-10 16:11:41 -0400] [25446] [INFO] Using worker: uvicorn.workers.UvicornWorker
+[2024-04-10 16:11:41 -0400] [25458] [INFO] Booting worker with pid: 25458
+[2024-04-10 16:11:41 -0400] [25458] [ERROR] Exception in worker process
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/gunicorn/arbiter.py", line 583, in spawn_worker
+    worker.init_process()
+  File "/usr/lib/python3/dist-packages/uvicorn/workers.py", line 56, in init_process
+    self.config.setup_event_loop()
+  File "/usr/lib/python3/dist-packages/uvicorn/config.py", line 321, in setup_event_loop
+    loop_setup = import_from_string(LOOP_SETUPS[self.loop])
+  File "/usr/lib/python3/dist-packages/uvicorn/importer.py", line 23, in import_from_string
+    raise exc from None
+  File "/usr/lib/python3/dist-packages/uvicorn/importer.py", line 20, in import_from_string
+    module = importlib.import_module(module_str)
+  File "/usr/lib/python3.8/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1014, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 991, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 975, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 671, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 783, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/usr/lib/python3/dist-packages/uvicorn/loops/uvloop.py", line 3, in <module>
+    import uvloop
+ModuleNotFoundError: No module named 'uvloop'
+[2024-04-10 16:11:41 -0400] [25458] [INFO] Worker exiting (pid: 25458)
+[2024-04-10 16:11:41 -0400] [25459] [INFO] Booting worker with pid: 25459
+[2024-04-10 16:11:41 -0400] [25459] [ERROR] Exception in worker process
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/gunicorn/arbiter.py", line 583, in spawn_worker
+    worker.init_process()
+  File "/usr/lib/python3/dist-packages/uvicorn/workers.py", line 56, in init_process
+    self.config.setup_event_loop()
+  File "/usr/lib/python3/dist-packages/uvicorn/config.py", line 321, in setup_event_loop
+    loop_setup = import_from_string(LOOP_SETUPS[self.loop])
+  File "/usr/lib/python3/dist-packages/uvicorn/importer.py", line 23, in import_from_string
+    raise exc from None
+  File "/usr/lib/python3/dist-packages/uvicorn/importer.py", line 20, in import_from_string
+    module = importlib.import_module(module_str)
+  File "/usr/lib/python3.8/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1014, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 991, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 975, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 671, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 783, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/usr/lib/python3/dist-packages/uvicorn/loops/uvloop.py", line 3, in <module>
+    import uvloop
+ModuleNotFoundError: No module named 'uvloop'
+[2024-04-10 16:11:41 -0400] [25459] [INFO] Worker exiting (pid: 25459)
+[2024-04-10 16:11:43 -0400] [25481] [DEBUG] Current configuration:
+  config: gunicorn_conf.py
+  bind: ['unix:/tmp/gunicorn.sock']
+  backlog: 2048
+  workers: 21
+  worker_class: uvicorn.workers.UvicornWorker
+  threads: 1
+  worker_connections: 1000
+  max_requests: 0
+  max_requests_jitter: 0
+  timeout: 30
+  graceful_timeout: 30
+  keepalive: 2
+  limit_request_line: 4094
+  limit_request_fields: 100
+  limit_request_field_size: 8190
+  reload: False
+  reload_engine: auto
+  reload_extra_files: []
+  spew: False
+  check_config: False
+  preload_app: False
+  sendfile: None
+  reuse_port: False
+  chdir: /users/dorlando/netraiders
+  daemon: False
+  raw_env: []
+  pidfile: None
+  worker_tmp_dir: None
+  user: 0
+  group: 0
+  umask: 0
+  initgroups: False
+  tmp_upload_dir: None
+  secure_scheme_headers: {'X-FORWARDED-PROTOCOL': 'ssl', 'X-FORWARDED-PROTO': 'https', 'X-FORWARDED-SSL': 'on'}
+  forwarded_allow_ips: ['127.0.0.1']
+  accesslog: None
+  disable_redirect_access_to_syslog: False
+  access_log_format: %(h)s %(l)s %(u)s %(t)s "%(r)s" %(s)s %(b)s "%(f)s" "%(a)s"
+  errorlog: /users/dorlando/netraiders/error_log
+  loglevel: debug
+  capture_output: False
+  logger_class: gunicorn.glogging.Logger
+  logconfig: None
+  logconfig_dict: {}
+  syslog_addr: udp://localhost:514
+  syslog: False
+  syslog_prefix: None
+  syslog_facility: user
+  enable_stdio_inheritance: False
+  statsd_host: None
+  dogstatsd_tags: 
+  statsd_prefix: 
+  proc_name: None
+  default_proc_name: netraiders_server:app
+  pythonpath: None
+  paste: None
+  on_starting: <function OnStarting.on_starting at 0x7efcf0f62e50>
+  on_reload: <function OnReload.on_reload at 0x7efcf0f62f70>
+  when_ready: <function WhenReady.when_ready at 0x7efcf0f410d0>
+  pre_fork: <function Prefork.pre_fork at 0x7efcf0f411f0>
+  post_fork: <function Postfork.post_fork at 0x7efcf0f41310>
+  post_worker_init: <function PostWorkerInit.post_worker_init at 0x7efcf0f41430>
+  worker_int: <function WorkerInt.worker_int at 0x7efcf0f41550>
+  worker_abort: <function WorkerAbort.worker_abort at 0x7efcf0f41670>
+  pre_exec: <function PreExec.pre_exec at 0x7efcf0f41790>
+  pre_request: <function PreRequest.pre_request at 0x7efcf0f418b0>
+  post_request: <function PostRequest.post_request at 0x7efcf0f41940>
+  child_exit: <function ChildExit.child_exit at 0x7efcf0f41a60>
+  worker_exit: <function WorkerExit.worker_exit at 0x7efcf0f41b80>
+  nworkers_changed: <function NumWorkersChanged.nworkers_changed at 0x7efcf0f41ca0>
+  on_exit: <function OnExit.on_exit at 0x7efcf0f41dc0>
+  proxy_protocol: False
+  proxy_allow_ips: ['127.0.0.1']
+  keyfile: None
+  certfile: None
+  ssl_version: 2
+  cert_reqs: 0
+  ca_certs: None
+  suppress_ragged_eofs: True
+  do_handshake_on_connect: False
+  ciphers: None
+  raw_paste_global_conf: []
+  strip_header_spaces: False
+[2024-04-10 16:11:43 -0400] [25481] [INFO] Starting gunicorn 20.0.4
+[2024-04-10 16:11:43 -0400] [25481] [DEBUG] Arbiter booted
+[2024-04-10 16:11:43 -0400] [25481] [INFO] Listening at: unix:/tmp/gunicorn.sock (25481)
+[2024-04-10 16:11:43 -0400] [25481] [INFO] Using worker: uvicorn.workers.UvicornWorker
+[2024-04-10 16:11:43 -0400] [25488] [INFO] Booting worker with pid: 25488
+[2024-04-10 16:11:43 -0400] [25488] [ERROR] Exception in worker process
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/gunicorn/arbiter.py", line 583, in spawn_worker
+    worker.init_process()
+  File "/usr/lib/python3/dist-packages/uvicorn/workers.py", line 56, in init_process
+    self.config.setup_event_loop()
+  File "/usr/lib/python3/dist-packages/uvicorn/config.py", line 321, in setup_event_loop
+    loop_setup = import_from_string(LOOP_SETUPS[self.loop])
+  File "/usr/lib/python3/dist-packages/uvicorn/importer.py", line 23, in import_from_string
+    raise exc from None
+  File "/usr/lib/python3/dist-packages/uvicorn/importer.py", line 20, in import_from_string
+    module = importlib.import_module(module_str)
+  File "/usr/lib/python3.8/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1014, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 991, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 975, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 671, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 783, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/usr/lib/python3/dist-packages/uvicorn/loops/uvloop.py", line 3, in <module>
+    import uvloop
+ModuleNotFoundError: No module named 'uvloop'
+[2024-04-10 16:11:43 -0400] [25488] [INFO] Worker exiting (pid: 25488)
+[2024-04-10 16:11:43 -0400] [25489] [INFO] Booting worker with pid: 25489
+[2024-04-10 16:11:43 -0400] [25489] [ERROR] Exception in worker process
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/gunicorn/arbiter.py", line 583, in spawn_worker
+    worker.init_process()
+  File "/usr/lib/python3/dist-packages/uvicorn/workers.py", line 56, in init_process
+    self.config.setup_event_loop()
+  File "/usr/lib/python3/dist-packages/uvicorn/config.py", line 321, in setup_event_loop
+    loop_setup = import_from_string(LOOP_SETUPS[self.loop])
+  File "/usr/lib/python3/dist-packages/uvicorn/importer.py", line 23, in import_from_string
+    raise exc from None
+  File "/usr/lib/python3/dist-packages/uvicorn/importer.py", line 20, in import_from_string
+    module = importlib.import_module(module_str)
+  File "/usr/lib/python3.8/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1014, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 991, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 975, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 671, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 783, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/usr/lib/python3/dist-packages/uvicorn/loops/uvloop.py", line 3, in <module>
+    import uvloop
+ModuleNotFoundError: No module named 'uvloop'
+[2024-04-10 16:11:43 -0400] [25489] [INFO] Worker exiting (pid: 25489)
+[2024-04-10 16:11:43 -0400] [25481] [INFO] Shutting down: Master
+[2024-04-10 16:11:43 -0400] [25481] [INFO] Reason: Worker failed to boot.
+[2024-04-10 16:12:17 -0400] [25567] [DEBUG] Current configuration:
+  config: gunicorn_conf.py
+  bind: ['unix:/tmp/gunicorn.sock']
+  backlog: 2048
+  workers: 21
+  worker_class: uvicorn.workers.UvicornWorker
+  threads: 1
+  worker_connections: 1000
+  max_requests: 0
+  max_requests_jitter: 0
+  timeout: 30
+  graceful_timeout: 30
+  keepalive: 2
+  limit_request_line: 4094
+  limit_request_fields: 100
+  limit_request_field_size: 8190
+  reload: False
+  reload_engine: auto
+  reload_extra_files: []
+  spew: False
+  check_config: False
+  preload_app: False
+  sendfile: None
+  reuse_port: False
+  chdir: /users/dorlando/netraiders
+  daemon: False
+  raw_env: []
+  pidfile: None
+  worker_tmp_dir: None
+  user: 0
+  group: 0
+  umask: 0
+  initgroups: False
+  tmp_upload_dir: None
+  secure_scheme_headers: {'X-FORWARDED-PROTOCOL': 'ssl', 'X-FORWARDED-PROTO': 'https', 'X-FORWARDED-SSL': 'on'}
+  forwarded_allow_ips: ['127.0.0.1']
+  accesslog: None
+  disable_redirect_access_to_syslog: False
+  access_log_format: %(h)s %(l)s %(u)s %(t)s "%(r)s" %(s)s %(b)s "%(f)s" "%(a)s"
+  errorlog: /users/dorlando/netraiders/error_log
+  loglevel: debug
+  capture_output: False
+  logger_class: gunicorn.glogging.Logger
+  logconfig: None
+  logconfig_dict: {}
+  syslog_addr: udp://localhost:514
+  syslog: False
+  syslog_prefix: None
+  syslog_facility: user
+  enable_stdio_inheritance: False
+  statsd_host: None
+  dogstatsd_tags: 
+  statsd_prefix: 
+  proc_name: None
+  default_proc_name: netraiders_server:app
+  pythonpath: None
+  paste: None
+  on_starting: <function OnStarting.on_starting at 0x7f693e8f4e50>
+  on_reload: <function OnReload.on_reload at 0x7f693e8f4f70>
+  when_ready: <function WhenReady.when_ready at 0x7f693e8d30d0>
+  pre_fork: <function Prefork.pre_fork at 0x7f693e8d31f0>
+  post_fork: <function Postfork.post_fork at 0x7f693e8d3310>
+  post_worker_init: <function PostWorkerInit.post_worker_init at 0x7f693e8d3430>
+  worker_int: <function WorkerInt.worker_int at 0x7f693e8d3550>
+  worker_abort: <function WorkerAbort.worker_abort at 0x7f693e8d3670>
+  pre_exec: <function PreExec.pre_exec at 0x7f693e8d3790>
+  pre_request: <function PreRequest.pre_request at 0x7f693e8d38b0>
+  post_request: <function PostRequest.post_request at 0x7f693e8d3940>
+  child_exit: <function ChildExit.child_exit at 0x7f693e8d3a60>
+  worker_exit: <function WorkerExit.worker_exit at 0x7f693e8d3b80>
+  nworkers_changed: <function NumWorkersChanged.nworkers_changed at 0x7f693e8d3ca0>
+  on_exit: <function OnExit.on_exit at 0x7f693e8d3dc0>
+  proxy_protocol: False
+  proxy_allow_ips: ['127.0.0.1']
+  keyfile: None
+  certfile: None
+  ssl_version: 2
+  cert_reqs: 0
+  ca_certs: None
+  suppress_ragged_eofs: True
+  do_handshake_on_connect: False
+  ciphers: None
+  raw_paste_global_conf: []
+  strip_header_spaces: False
+[2024-04-10 16:12:17 -0400] [25567] [INFO] Starting gunicorn 20.0.4
+[2024-04-10 16:12:17 -0400] [25567] [DEBUG] Arbiter booted
+[2024-04-10 16:12:17 -0400] [25567] [INFO] Listening at: unix:/tmp/gunicorn.sock (25567)
+[2024-04-10 16:12:17 -0400] [25567] [INFO] Using worker: uvicorn.workers.UvicornWorker
+[2024-04-10 16:12:17 -0400] [25577] [INFO] Booting worker with pid: 25577
+[2024-04-10 16:12:17 -0400] [25577] [ERROR] Exception in worker process
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/gunicorn/arbiter.py", line 583, in spawn_worker
+    worker.init_process()
+  File "/usr/lib/python3/dist-packages/uvicorn/workers.py", line 56, in init_process
+    self.config.setup_event_loop()
+  File "/usr/lib/python3/dist-packages/uvicorn/config.py", line 321, in setup_event_loop
+    loop_setup = import_from_string(LOOP_SETUPS[self.loop])
+  File "/usr/lib/python3/dist-packages/uvicorn/importer.py", line 23, in import_from_string
+    raise exc from None
+  File "/usr/lib/python3/dist-packages/uvicorn/importer.py", line 20, in import_from_string
+    module = importlib.import_module(module_str)
+  File "/usr/lib/python3.8/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1014, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 991, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 975, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 671, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 783, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/usr/lib/python3/dist-packages/uvicorn/loops/uvloop.py", line 3, in <module>
+    import uvloop
+ModuleNotFoundError: No module named 'uvloop'
+[2024-04-10 16:12:17 -0400] [25577] [INFO] Worker exiting (pid: 25577)
+[2024-04-10 16:12:17 -0400] [25567] [INFO] Shutting down: Master
+[2024-04-10 16:12:17 -0400] [25567] [INFO] Reason: Worker failed to boot.
+[2024-04-10 16:13:52 -0400] [25734] [DEBUG] Current configuration:
+  config: gunicorn_conf.py
+  bind: ['unix:/tmp/gunicorn.sock']
+  backlog: 2048
+  workers: 21
+  worker_class: uvicorn.workers.UvicornWorker
+  threads: 1
+  worker_connections: 1000
+  max_requests: 0
+  max_requests_jitter: 0
+  timeout: 30
+  graceful_timeout: 30
+  keepalive: 2
+  limit_request_line: 4094
+  limit_request_fields: 100
+  limit_request_field_size: 8190
+  reload: False
+  reload_engine: auto
+  reload_extra_files: []
+  spew: False
+  check_config: False
+  preload_app: False
+  sendfile: None
+  reuse_port: False
+  chdir: /users/dorlando/netraiders
+  daemon: False
+  raw_env: []
+  pidfile: None
+  worker_tmp_dir: None
+  user: 0
+  group: 0
+  umask: 0
+  initgroups: False
+  tmp_upload_dir: None
+  secure_scheme_headers: {'X-FORWARDED-PROTOCOL': 'ssl', 'X-FORWARDED-PROTO': 'https', 'X-FORWARDED-SSL': 'on'}
+  forwarded_allow_ips: ['127.0.0.1']
+  accesslog: None
+  disable_redirect_access_to_syslog: False
+  access_log_format: %(h)s %(l)s %(u)s %(t)s "%(r)s" %(s)s %(b)s "%(f)s" "%(a)s"
+  errorlog: /users/dorlando/netraiders/error_log
+  loglevel: debug
+  capture_output: False
+  logger_class: gunicorn.glogging.Logger
+  logconfig: None
+  logconfig_dict: {}
+  syslog_addr: udp://localhost:514
+  syslog: False
+  syslog_prefix: None
+  syslog_facility: user
+  enable_stdio_inheritance: False
+  statsd_host: None
+  dogstatsd_tags: 
+  statsd_prefix: 
+  proc_name: None
+  default_proc_name: netraiders_server:app
+  pythonpath: None
+  paste: None
+  on_starting: <function OnStarting.on_starting at 0x7fddd4be2e50>
+  on_reload: <function OnReload.on_reload at 0x7fddd4be2f70>
+  when_ready: <function WhenReady.when_ready at 0x7fddd4bc10d0>
+  pre_fork: <function Prefork.pre_fork at 0x7fddd4bc11f0>
+  post_fork: <function Postfork.post_fork at 0x7fddd4bc1310>
+  post_worker_init: <function PostWorkerInit.post_worker_init at 0x7fddd4bc1430>
+  worker_int: <function WorkerInt.worker_int at 0x7fddd4bc1550>
+  worker_abort: <function WorkerAbort.worker_abort at 0x7fddd4bc1670>
+  pre_exec: <function PreExec.pre_exec at 0x7fddd4bc1790>
+  pre_request: <function PreRequest.pre_request at 0x7fddd4bc18b0>
+  post_request: <function PostRequest.post_request at 0x7fddd4bc1940>
+  child_exit: <function ChildExit.child_exit at 0x7fddd4bc1a60>
+  worker_exit: <function WorkerExit.worker_exit at 0x7fddd4bc1b80>
+  nworkers_changed: <function NumWorkersChanged.nworkers_changed at 0x7fddd4bc1ca0>
+  on_exit: <function OnExit.on_exit at 0x7fddd4bc1dc0>
+  proxy_protocol: False
+  proxy_allow_ips: ['127.0.0.1']
+  keyfile: None
+  certfile: None
+  ssl_version: 2
+  cert_reqs: 0
+  ca_certs: None
+  suppress_ragged_eofs: True
+  do_handshake_on_connect: False
+  ciphers: None
+  raw_paste_global_conf: []
+  strip_header_spaces: False
+[2024-04-10 16:13:52 -0400] [25734] [INFO] Starting gunicorn 20.0.4
+[2024-04-10 16:13:52 -0400] [25734] [DEBUG] Arbiter booted
+[2024-04-10 16:13:52 -0400] [25734] [INFO] Listening at: unix:/tmp/gunicorn.sock (25734)
+[2024-04-10 16:13:52 -0400] [25734] [INFO] Using worker: uvicorn.workers.UvicornWorker
+[2024-04-10 16:13:52 -0400] [25745] [INFO] Booting worker with pid: 25745
+[2024-04-10 16:13:52 -0400] [25745] [ERROR] Exception in worker process
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/gunicorn/arbiter.py", line 583, in spawn_worker
+    worker.init_process()
+  File "/usr/lib/python3/dist-packages/uvicorn/workers.py", line 56, in init_process
+    self.config.setup_event_loop()
+  File "/usr/lib/python3/dist-packages/uvicorn/config.py", line 321, in setup_event_loop
+    loop_setup = import_from_string(LOOP_SETUPS[self.loop])
+  File "/usr/lib/python3/dist-packages/uvicorn/importer.py", line 23, in import_from_string
+    raise exc from None
+  File "/usr/lib/python3/dist-packages/uvicorn/importer.py", line 20, in import_from_string
+    module = importlib.import_module(module_str)
+  File "/usr/lib/python3.8/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1014, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 991, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 975, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 671, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 783, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/usr/lib/python3/dist-packages/uvicorn/loops/uvloop.py", line 3, in <module>
+    import uvloop
+ModuleNotFoundError: No module named 'uvloop'
+[2024-04-10 16:13:52 -0400] [25745] [INFO] Worker exiting (pid: 25745)
+[2024-04-10 16:13:52 -0400] [25734] [INFO] Shutting down: Master
+[2024-04-10 16:13:52 -0400] [25734] [INFO] Reason: Worker failed to boot.
+[2024-04-10 16:14:50 -0400] [25975] [DEBUG] Current configuration:
+  config: gunicorn_conf.py
+  bind: ['unix:/tmp/gunicorn.sock']
+  backlog: 2048
+  workers: 21
+  worker_class: uvicorn.workers.UvicornWorker
+  threads: 1
+  worker_connections: 1000
+  max_requests: 0
+  max_requests_jitter: 0
+  timeout: 30
+  graceful_timeout: 30
+  keepalive: 2
+  limit_request_line: 4094
+  limit_request_fields: 100
+  limit_request_field_size: 8190
+  reload: False
+  reload_engine: auto
+  reload_extra_files: []
+  spew: False
+  check_config: False
+  preload_app: False
+  sendfile: None
+  reuse_port: False
+  chdir: /users/dorlando/netraiders
+  daemon: False
+  raw_env: []
+  pidfile: None
+  worker_tmp_dir: None
+  user: 0
+  group: 0
+  umask: 0
+  initgroups: False
+  tmp_upload_dir: None
+  secure_scheme_headers: {'X-FORWARDED-PROTOCOL': 'ssl', 'X-FORWARDED-PROTO': 'https', 'X-FORWARDED-SSL': 'on'}
+  forwarded_allow_ips: ['127.0.0.1']
+  accesslog: None
+  disable_redirect_access_to_syslog: False
+  access_log_format: %(h)s %(l)s %(u)s %(t)s "%(r)s" %(s)s %(b)s "%(f)s" "%(a)s"
+  errorlog: /users/dorlando/netraiders/error_log
+  loglevel: debug
+  capture_output: False
+  logger_class: gunicorn.glogging.Logger
+  logconfig: None
+  logconfig_dict: {}
+  syslog_addr: udp://localhost:514
+  syslog: False
+  syslog_prefix: None
+  syslog_facility: user
+  enable_stdio_inheritance: False
+  statsd_host: None
+  dogstatsd_tags: 
+  statsd_prefix: 
+  proc_name: None
+  default_proc_name: netraiders_server:app
+  pythonpath: None
+  paste: None
+  on_starting: <function OnStarting.on_starting at 0x7f294843ae50>
+  on_reload: <function OnReload.on_reload at 0x7f294843af70>
+  when_ready: <function WhenReady.when_ready at 0x7f29484190d0>
+  pre_fork: <function Prefork.pre_fork at 0x7f29484191f0>
+  post_fork: <function Postfork.post_fork at 0x7f2948419310>
+  post_worker_init: <function PostWorkerInit.post_worker_init at 0x7f2948419430>
+  worker_int: <function WorkerInt.worker_int at 0x7f2948419550>
+  worker_abort: <function WorkerAbort.worker_abort at 0x7f2948419670>
+  pre_exec: <function PreExec.pre_exec at 0x7f2948419790>
+  pre_request: <function PreRequest.pre_request at 0x7f29484198b0>
+  post_request: <function PostRequest.post_request at 0x7f2948419940>
+  child_exit: <function ChildExit.child_exit at 0x7f2948419a60>
+  worker_exit: <function WorkerExit.worker_exit at 0x7f2948419b80>
+  nworkers_changed: <function NumWorkersChanged.nworkers_changed at 0x7f2948419ca0>
+  on_exit: <function OnExit.on_exit at 0x7f2948419dc0>
+  proxy_protocol: False
+  proxy_allow_ips: ['127.0.0.1']
+  keyfile: None
+  certfile: None
+  ssl_version: 2
+  cert_reqs: 0
+  ca_certs: None
+  suppress_ragged_eofs: True
+  do_handshake_on_connect: False
+  ciphers: None
+  raw_paste_global_conf: []
+  strip_header_spaces: False
+[2024-04-10 16:14:50 -0400] [25975] [INFO] Starting gunicorn 20.0.4
+[2024-04-10 16:14:50 -0400] [25975] [DEBUG] Arbiter booted
+[2024-04-10 16:14:50 -0400] [25975] [INFO] Listening at: unix:/tmp/gunicorn.sock (25975)
+[2024-04-10 16:14:50 -0400] [25975] [INFO] Using worker: uvicorn.workers.UvicornWorker
+[2024-04-10 16:14:50 -0400] [25985] [INFO] Booting worker with pid: 25985
+[2024-04-10 16:14:50 -0400] [25985] [ERROR] Exception in worker process
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/gunicorn/arbiter.py", line 583, in spawn_worker
+    worker.init_process()
+  File "/usr/lib/python3/dist-packages/uvicorn/workers.py", line 56, in init_process
+    self.config.setup_event_loop()
+  File "/usr/lib/python3/dist-packages/uvicorn/config.py", line 321, in setup_event_loop
+    loop_setup = import_from_string(LOOP_SETUPS[self.loop])
+  File "/usr/lib/python3/dist-packages/uvicorn/importer.py", line 23, in import_from_string
+    raise exc from None
+  File "/usr/lib/python3/dist-packages/uvicorn/importer.py", line 20, in import_from_string
+    module = importlib.import_module(module_str)
+  File "/usr/lib/python3.8/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1014, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 991, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 975, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 671, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 783, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/usr/lib/python3/dist-packages/uvicorn/loops/uvloop.py", line 3, in <module>
+    import uvloop
+ModuleNotFoundError: No module named 'uvloop'
+[2024-04-10 16:14:50 -0400] [25985] [INFO] Worker exiting (pid: 25985)
+[2024-04-10 16:14:50 -0400] [25975] [INFO] Shutting down: Master
+[2024-04-10 16:14:50 -0400] [25975] [INFO] Reason: Worker failed to boot.
+[2024-04-10 16:15:44 -0400] [26121] [DEBUG] Current configuration:
+  config: gunicorn_conf.py
+  bind: ['unix:/tmp/gunicorn.sock']
+  backlog: 2048
+  workers: 21
+  worker_class: uvicorn.workers.UvicornWorker
+  threads: 1
+  worker_connections: 1000
+  max_requests: 0
+  max_requests_jitter: 0
+  timeout: 30
+  graceful_timeout: 30
+  keepalive: 2
+  limit_request_line: 4094
+  limit_request_fields: 100
+  limit_request_field_size: 8190
+  reload: False
+  reload_engine: auto
+  reload_extra_files: []
+  spew: False
+  check_config: False
+  preload_app: False
+  sendfile: None
+  reuse_port: False
+  chdir: /users/dorlando/netraiders
+  daemon: False
+  raw_env: []
+  pidfile: None
+  worker_tmp_dir: None
+  user: 0
+  group: 0
+  umask: 0
+  initgroups: False
+  tmp_upload_dir: None
+  secure_scheme_headers: {'X-FORWARDED-PROTOCOL': 'ssl', 'X-FORWARDED-PROTO': 'https', 'X-FORWARDED-SSL': 'on'}
+  forwarded_allow_ips: ['127.0.0.1']
+  accesslog: None
+  disable_redirect_access_to_syslog: False
+  access_log_format: %(h)s %(l)s %(u)s %(t)s "%(r)s" %(s)s %(b)s "%(f)s" "%(a)s"
+  errorlog: /users/dorlando/netraiders/error_log
+  loglevel: debug
+  capture_output: False
+  logger_class: gunicorn.glogging.Logger
+  logconfig: None
+  logconfig_dict: {}
+  syslog_addr: udp://localhost:514
+  syslog: False
+  syslog_prefix: None
+  syslog_facility: user
+  enable_stdio_inheritance: False
+  statsd_host: None
+  dogstatsd_tags: 
+  statsd_prefix: 
+  proc_name: None
+  default_proc_name: netraiders_server:app
+  pythonpath: None
+  paste: None
+  on_starting: <function OnStarting.on_starting at 0x7f884f865e50>
+  on_reload: <function OnReload.on_reload at 0x7f884f865f70>
+  when_ready: <function WhenReady.when_ready at 0x7f884f8440d0>
+  pre_fork: <function Prefork.pre_fork at 0x7f884f8441f0>
+  post_fork: <function Postfork.post_fork at 0x7f884f844310>
+  post_worker_init: <function PostWorkerInit.post_worker_init at 0x7f884f844430>
+  worker_int: <function WorkerInt.worker_int at 0x7f884f844550>
+  worker_abort: <function WorkerAbort.worker_abort at 0x7f884f844670>
+  pre_exec: <function PreExec.pre_exec at 0x7f884f844790>
+  pre_request: <function PreRequest.pre_request at 0x7f884f8448b0>
+  post_request: <function PostRequest.post_request at 0x7f884f844940>
+  child_exit: <function ChildExit.child_exit at 0x7f884f844a60>
+  worker_exit: <function WorkerExit.worker_exit at 0x7f884f844b80>
+  nworkers_changed: <function NumWorkersChanged.nworkers_changed at 0x7f884f844ca0>
+  on_exit: <function OnExit.on_exit at 0x7f884f844dc0>
+  proxy_protocol: False
+  proxy_allow_ips: ['127.0.0.1']
+  keyfile: None
+  certfile: None
+  ssl_version: 2
+  cert_reqs: 0
+  ca_certs: None
+  suppress_ragged_eofs: True
+  do_handshake_on_connect: False
+  ciphers: None
+  raw_paste_global_conf: []
+  strip_header_spaces: False
+[2024-04-10 16:15:44 -0400] [26121] [INFO] Starting gunicorn 20.0.4
+[2024-04-10 16:15:44 -0400] [26121] [DEBUG] Arbiter booted
+[2024-04-10 16:15:44 -0400] [26121] [INFO] Listening at: unix:/tmp/gunicorn.sock (26121)
+[2024-04-10 16:15:44 -0400] [26121] [INFO] Using worker: uvicorn.workers.UvicornWorker
+[2024-04-10 16:15:44 -0400] [26134] [INFO] Booting worker with pid: 26134
+[2024-04-10 16:15:44 -0400] [26134] [ERROR] Exception in worker process
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/gunicorn/arbiter.py", line 583, in spawn_worker
+    worker.init_process()
+  File "/usr/lib/python3/dist-packages/uvicorn/workers.py", line 56, in init_process
+    self.config.setup_event_loop()
+  File "/usr/lib/python3/dist-packages/uvicorn/config.py", line 321, in setup_event_loop
+    loop_setup = import_from_string(LOOP_SETUPS[self.loop])
+  File "/usr/lib/python3/dist-packages/uvicorn/importer.py", line 23, in import_from_string
+    raise exc from None
+  File "/usr/lib/python3/dist-packages/uvicorn/importer.py", line 20, in import_from_string
+    module = importlib.import_module(module_str)
+  File "/usr/lib/python3.8/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1014, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 991, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 975, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 671, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 783, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/usr/lib/python3/dist-packages/uvicorn/loops/uvloop.py", line 3, in <module>
+    import uvloop
+ModuleNotFoundError: No module named 'uvloop'
+[2024-04-10 16:15:44 -0400] [26134] [INFO] Worker exiting (pid: 26134)
+[2024-04-10 16:15:44 -0400] [26135] [INFO] Booting worker with pid: 26135
+[2024-04-10 16:15:44 -0400] [26135] [ERROR] Exception in worker process
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/gunicorn/arbiter.py", line 583, in spawn_worker
+    worker.init_process()
+  File "/usr/lib/python3/dist-packages/uvicorn/workers.py", line 56, in init_process
+    self.config.setup_event_loop()
+  File "/usr/lib/python3/dist-packages/uvicorn/config.py", line 321, in setup_event_loop
+    loop_setup = import_from_string(LOOP_SETUPS[self.loop])
+  File "/usr/lib/python3/dist-packages/uvicorn/importer.py", line 23, in import_from_string
+    raise exc from None
+  File "/usr/lib/python3/dist-packages/uvicorn/importer.py", line 20, in import_from_string
+    module = importlib.import_module(module_str)
+  File "/usr/lib/python3.8/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1014, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 991, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 975, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 671, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 783, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/usr/lib/python3/dist-packages/uvicorn/loops/uvloop.py", line 3, in <module>
+    import uvloop
+ModuleNotFoundError: No module named 'uvloop'
+[2024-04-10 16:15:44 -0400] [26135] [INFO] Worker exiting (pid: 26135)
+[2024-04-10 16:15:44 -0400] [26136] [INFO] Booting worker with pid: 26136
+[2024-04-10 16:15:44 -0400] [26136] [ERROR] Exception in worker process
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/gunicorn/arbiter.py", line 583, in spawn_worker
+    worker.init_process()
+  File "/usr/lib/python3/dist-packages/uvicorn/workers.py", line 56, in init_process
+    self.config.setup_event_loop()
+  File "/usr/lib/python3/dist-packages/uvicorn/config.py", line 321, in setup_event_loop
+    loop_setup = import_from_string(LOOP_SETUPS[self.loop])
+  File "/usr/lib/python3/dist-packages/uvicorn/importer.py", line 23, in import_from_string
+    raise exc from None
+  File "/usr/lib/python3/dist-packages/uvicorn/importer.py", line 20, in import_from_string
+    module = importlib.import_module(module_str)
+  File "/usr/lib/python3.8/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1014, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 991, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 975, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 671, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 783, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/usr/lib/python3/dist-packages/uvicorn/loops/uvloop.py", line 3, in <module>
+    import uvloop
+ModuleNotFoundError: No module named 'uvloop'
+[2024-04-10 16:15:44 -0400] [26136] [INFO] Worker exiting (pid: 26136)
+[2024-04-10 16:15:44 -0400] [26121] [INFO] Shutting down: Master
+[2024-04-10 16:15:44 -0400] [26121] [INFO] Reason: Worker failed to boot.
+[2024-04-10 16:16:28 -0400] [26239] [DEBUG] Current configuration:
+  config: gunicorn_conf.py
+  bind: ['unix:/tmp/gunicorn.sock']
+  backlog: 2048
+  workers: 21
+  worker_class: uvicorn.workers.UvicornWorker
+  threads: 1
+  worker_connections: 1000
+  max_requests: 0
+  max_requests_jitter: 0
+  timeout: 30
+  graceful_timeout: 30
+  keepalive: 2
+  limit_request_line: 4094
+  limit_request_fields: 100
+  limit_request_field_size: 8190
+  reload: False
+  reload_engine: auto
+  reload_extra_files: []
+  spew: False
+  check_config: False
+  preload_app: False
+  sendfile: None
+  reuse_port: False
+  chdir: /users/dorlando/netraiders
+  daemon: False
+  raw_env: []
+  pidfile: None
+  worker_tmp_dir: None
+  user: 0
+  group: 0
+  umask: 0
+  initgroups: False
+  tmp_upload_dir: None
+  secure_scheme_headers: {'X-FORWARDED-PROTOCOL': 'ssl', 'X-FORWARDED-PROTO': 'https', 'X-FORWARDED-SSL': 'on'}
+  forwarded_allow_ips: ['127.0.0.1']
+  accesslog: None
+  disable_redirect_access_to_syslog: False
+  access_log_format: %(h)s %(l)s %(u)s %(t)s "%(r)s" %(s)s %(b)s "%(f)s" "%(a)s"
+  errorlog: /users/dorlando/netraiders/error_log
+  loglevel: debug
+  capture_output: False
+  logger_class: gunicorn.glogging.Logger
+  logconfig: None
+  logconfig_dict: {}
+  syslog_addr: udp://localhost:514
+  syslog: False
+  syslog_prefix: None
+  syslog_facility: user
+  enable_stdio_inheritance: False
+  statsd_host: None
+  dogstatsd_tags: 
+  statsd_prefix: 
+  proc_name: None
+  default_proc_name: netraiders_server:app
+  pythonpath: None
+  paste: None
+  on_starting: <function OnStarting.on_starting at 0x7f3bf0011e50>
+  on_reload: <function OnReload.on_reload at 0x7f3bf0011f70>
+  when_ready: <function WhenReady.when_ready at 0x7f3befff00d0>
+  pre_fork: <function Prefork.pre_fork at 0x7f3befff01f0>
+  post_fork: <function Postfork.post_fork at 0x7f3befff0310>
+  post_worker_init: <function PostWorkerInit.post_worker_init at 0x7f3befff0430>
+  worker_int: <function WorkerInt.worker_int at 0x7f3befff0550>
+  worker_abort: <function WorkerAbort.worker_abort at 0x7f3befff0670>
+  pre_exec: <function PreExec.pre_exec at 0x7f3befff0790>
+  pre_request: <function PreRequest.pre_request at 0x7f3befff08b0>
+  post_request: <function PostRequest.post_request at 0x7f3befff0940>
+  child_exit: <function ChildExit.child_exit at 0x7f3befff0a60>
+  worker_exit: <function WorkerExit.worker_exit at 0x7f3befff0b80>
+  nworkers_changed: <function NumWorkersChanged.nworkers_changed at 0x7f3befff0ca0>
+  on_exit: <function OnExit.on_exit at 0x7f3befff0dc0>
+  proxy_protocol: False
+  proxy_allow_ips: ['127.0.0.1']
+  keyfile: None
+  certfile: None
+  ssl_version: 2
+  cert_reqs: 0
+  ca_certs: None
+  suppress_ragged_eofs: True
+  do_handshake_on_connect: False
+  ciphers: None
+  raw_paste_global_conf: []
+  strip_header_spaces: False
+[2024-04-10 16:16:28 -0400] [26239] [INFO] Starting gunicorn 20.0.4
+[2024-04-10 16:16:28 -0400] [26239] [DEBUG] Arbiter booted
+[2024-04-10 16:16:28 -0400] [26239] [INFO] Listening at: unix:/tmp/gunicorn.sock (26239)
+[2024-04-10 16:16:28 -0400] [26239] [INFO] Using worker: uvicorn.workers.UvicornWorker
+[2024-04-10 16:16:28 -0400] [26249] [INFO] Booting worker with pid: 26249
+[2024-04-10 16:16:28 -0400] [26249] [ERROR] Exception in worker process
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/gunicorn/arbiter.py", line 583, in spawn_worker
+    worker.init_process()
+  File "/usr/lib/python3/dist-packages/uvicorn/workers.py", line 56, in init_process
+    self.config.setup_event_loop()
+  File "/usr/lib/python3/dist-packages/uvicorn/config.py", line 321, in setup_event_loop
+    loop_setup = import_from_string(LOOP_SETUPS[self.loop])
+  File "/usr/lib/python3/dist-packages/uvicorn/importer.py", line 23, in import_from_string
+    raise exc from None
+  File "/usr/lib/python3/dist-packages/uvicorn/importer.py", line 20, in import_from_string
+    module = importlib.import_module(module_str)
+  File "/usr/lib/python3.8/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1014, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 991, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 975, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 671, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 783, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/usr/lib/python3/dist-packages/uvicorn/loops/uvloop.py", line 3, in <module>
+    import uvloop
+ModuleNotFoundError: No module named 'uvloop'
+[2024-04-10 16:16:28 -0400] [26249] [INFO] Worker exiting (pid: 26249)
+[2024-04-10 16:16:28 -0400] [26239] [INFO] Shutting down: Master
+[2024-04-10 16:16:28 -0400] [26239] [INFO] Reason: Worker failed to boot.
+[2024-04-10 16:27:57 -0400] [27635] [DEBUG] Current configuration:
+  config: gunicorn_conf.py
+  bind: ['unix:/tmp/gunicorn.sock']
+  backlog: 2048
+  workers: 21
+  worker_class: uvicorn.workers.UvicornWorker
+  threads: 1
+  worker_connections: 1000
+  max_requests: 0
+  max_requests_jitter: 0
+  timeout: 30
+  graceful_timeout: 30
+  keepalive: 2
+  limit_request_line: 4094
+  limit_request_fields: 100
+  limit_request_field_size: 8190
+  reload: False
+  reload_engine: auto
+  reload_extra_files: []
+  spew: False
+  check_config: False
+  preload_app: False
+  sendfile: None
+  reuse_port: False
+  chdir: /users/dorlando/netraiders
+  daemon: False
+  raw_env: []
+  pidfile: None
+  worker_tmp_dir: None
+  user: 0
+  group: 0
+  umask: 0
+  initgroups: False
+  tmp_upload_dir: None
+  secure_scheme_headers: {'X-FORWARDED-PROTOCOL': 'ssl', 'X-FORWARDED-PROTO': 'https', 'X-FORWARDED-SSL': 'on'}
+  forwarded_allow_ips: ['127.0.0.1']
+  accesslog: None
+  disable_redirect_access_to_syslog: False
+  access_log_format: %(h)s %(l)s %(u)s %(t)s "%(r)s" %(s)s %(b)s "%(f)s" "%(a)s"
+  errorlog: /users/dorlando/netraiders/error_log
+  loglevel: debug
+  capture_output: False
+  logger_class: gunicorn.glogging.Logger
+  logconfig: None
+  logconfig_dict: {}
+  syslog_addr: udp://localhost:514
+  syslog: False
+  syslog_prefix: None
+  syslog_facility: user
+  enable_stdio_inheritance: False
+  statsd_host: None
+  dogstatsd_tags: 
+  statsd_prefix: 
+  proc_name: None
+  default_proc_name: netraiders_server:app
+  pythonpath: None
+  paste: None
+  on_starting: <function OnStarting.on_starting at 0x7fe2737cde50>
+  on_reload: <function OnReload.on_reload at 0x7fe2737cdf70>
+  when_ready: <function WhenReady.when_ready at 0x7fe2737ac0d0>
+  pre_fork: <function Prefork.pre_fork at 0x7fe2737ac1f0>
+  post_fork: <function Postfork.post_fork at 0x7fe2737ac310>
+  post_worker_init: <function PostWorkerInit.post_worker_init at 0x7fe2737ac430>
+  worker_int: <function WorkerInt.worker_int at 0x7fe2737ac550>
+  worker_abort: <function WorkerAbort.worker_abort at 0x7fe2737ac670>
+  pre_exec: <function PreExec.pre_exec at 0x7fe2737ac790>
+  pre_request: <function PreRequest.pre_request at 0x7fe2737ac8b0>
+  post_request: <function PostRequest.post_request at 0x7fe2737ac940>
+  child_exit: <function ChildExit.child_exit at 0x7fe2737aca60>
+  worker_exit: <function WorkerExit.worker_exit at 0x7fe2737acb80>
+  nworkers_changed: <function NumWorkersChanged.nworkers_changed at 0x7fe2737acca0>
+  on_exit: <function OnExit.on_exit at 0x7fe2737acdc0>
+  proxy_protocol: False
+  proxy_allow_ips: ['127.0.0.1']
+  keyfile: None
+  certfile: None
+  ssl_version: 2
+  cert_reqs: 0
+  ca_certs: None
+  suppress_ragged_eofs: True
+  do_handshake_on_connect: False
+  ciphers: None
+  raw_paste_global_conf: []
+  strip_header_spaces: False
+[2024-04-10 16:27:57 -0400] [27635] [INFO] Starting gunicorn 20.0.4
+[2024-04-10 16:27:57 -0400] [27635] [DEBUG] Arbiter booted
+[2024-04-10 16:27:57 -0400] [27635] [INFO] Listening at: unix:/tmp/gunicorn.sock (27635)
+[2024-04-10 16:27:57 -0400] [27635] [INFO] Using worker: uvicorn.workers.UvicornWorker
+[2024-04-10 16:27:57 -0400] [27645] [INFO] Booting worker with pid: 27645
+[2024-04-10 16:27:57 -0400] [27645] [ERROR] Exception in worker process
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/gunicorn/arbiter.py", line 583, in spawn_worker
+    worker.init_process()
+  File "/usr/lib/python3/dist-packages/uvicorn/workers.py", line 56, in init_process
+    self.config.setup_event_loop()
+  File "/usr/lib/python3/dist-packages/uvicorn/config.py", line 321, in setup_event_loop
+    loop_setup = import_from_string(LOOP_SETUPS[self.loop])
+  File "/usr/lib/python3/dist-packages/uvicorn/importer.py", line 23, in import_from_string
+    raise exc from None
+  File "/usr/lib/python3/dist-packages/uvicorn/importer.py", line 20, in import_from_string
+    module = importlib.import_module(module_str)
+  File "/usr/lib/python3.8/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1014, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 991, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 975, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 671, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 783, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/usr/lib/python3/dist-packages/uvicorn/loops/uvloop.py", line 3, in <module>
+    import uvloop
+ModuleNotFoundError: No module named 'uvloop'
+[2024-04-10 16:27:57 -0400] [27645] [INFO] Worker exiting (pid: 27645)
+[2024-04-10 16:27:57 -0400] [27635] [INFO] Shutting down: Master
+[2024-04-10 16:27:57 -0400] [27635] [INFO] Reason: Worker failed to boot.
+[2024-04-10 16:29:50 -0400] [27859] [DEBUG] Current configuration:
+  config: gunicorn_conf.py
+  bind: ['unix:/tmp/gunicorn.sock']
+  backlog: 2048
+  workers: 21
+  worker_class: uvicorn.workers.UvicornWorker
+  threads: 1
+  worker_connections: 1000
+  max_requests: 0
+  max_requests_jitter: 0
+  timeout: 30
+  graceful_timeout: 30
+  keepalive: 2
+  limit_request_line: 4094
+  limit_request_fields: 100
+  limit_request_field_size: 8190
+  reload: False
+  reload_engine: auto
+  reload_extra_files: []
+  spew: False
+  check_config: False
+  preload_app: False
+  sendfile: None
+  reuse_port: False
+  chdir: /users/dorlando/netraiders
+  daemon: False
+  raw_env: []
+  pidfile: None
+  worker_tmp_dir: None
+  user: 0
+  group: 0
+  umask: 0
+  initgroups: False
+  tmp_upload_dir: None
+  secure_scheme_headers: {'X-FORWARDED-PROTOCOL': 'ssl', 'X-FORWARDED-PROTO': 'https', 'X-FORWARDED-SSL': 'on'}
+  forwarded_allow_ips: ['127.0.0.1']
+  accesslog: None
+  disable_redirect_access_to_syslog: False
+  access_log_format: %(h)s %(l)s %(u)s %(t)s "%(r)s" %(s)s %(b)s "%(f)s" "%(a)s"
+  errorlog: /users/dorlando/netraiders/error_log
+  loglevel: debug
+  capture_output: False
+  logger_class: gunicorn.glogging.Logger
+  logconfig: None
+  logconfig_dict: {}
+  syslog_addr: udp://localhost:514
+  syslog: False
+  syslog_prefix: None
+  syslog_facility: user
+  enable_stdio_inheritance: False
+  statsd_host: None
+  dogstatsd_tags: 
+  statsd_prefix: 
+  proc_name: None
+  default_proc_name: netraiders_server:app
+  pythonpath: None
+  paste: None
+  on_starting: <function OnStarting.on_starting at 0x7f471f815e50>
+  on_reload: <function OnReload.on_reload at 0x7f471f815f70>
+  when_ready: <function WhenReady.when_ready at 0x7f471f7f30d0>
+  pre_fork: <function Prefork.pre_fork at 0x7f471f7f31f0>
+  post_fork: <function Postfork.post_fork at 0x7f471f7f3310>
+  post_worker_init: <function PostWorkerInit.post_worker_init at 0x7f471f7f3430>
+  worker_int: <function WorkerInt.worker_int at 0x7f471f7f3550>
+  worker_abort: <function WorkerAbort.worker_abort at 0x7f471f7f3670>
+  pre_exec: <function PreExec.pre_exec at 0x7f471f7f3790>
+  pre_request: <function PreRequest.pre_request at 0x7f471f7f38b0>
+  post_request: <function PostRequest.post_request at 0x7f471f7f3940>
+  child_exit: <function ChildExit.child_exit at 0x7f471f7f3a60>
+  worker_exit: <function WorkerExit.worker_exit at 0x7f471f7f3b80>
+  nworkers_changed: <function NumWorkersChanged.nworkers_changed at 0x7f471f7f3ca0>
+  on_exit: <function OnExit.on_exit at 0x7f471f7f3dc0>
+  proxy_protocol: False
+  proxy_allow_ips: ['127.0.0.1']
+  keyfile: None
+  certfile: None
+  ssl_version: 2
+  cert_reqs: 0
+  ca_certs: None
+  suppress_ragged_eofs: True
+  do_handshake_on_connect: False
+  ciphers: None
+  raw_paste_global_conf: []
+  strip_header_spaces: False
+[2024-04-10 16:29:50 -0400] [27859] [INFO] Starting gunicorn 20.0.4
+[2024-04-10 16:29:50 -0400] [27859] [DEBUG] Arbiter booted
+[2024-04-10 16:29:50 -0400] [27859] [INFO] Listening at: unix:/tmp/gunicorn.sock (27859)
+[2024-04-10 16:29:50 -0400] [27859] [INFO] Using worker: uvicorn.workers.UvicornWorker
+[2024-04-10 16:29:50 -0400] [27870] [INFO] Booting worker with pid: 27870
+[2024-04-10 16:29:50 -0400] [27870] [ERROR] Exception in worker process
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/gunicorn/arbiter.py", line 583, in spawn_worker
+    worker.init_process()
+  File "/usr/lib/python3/dist-packages/uvicorn/workers.py", line 56, in init_process
+    self.config.setup_event_loop()
+  File "/usr/lib/python3/dist-packages/uvicorn/config.py", line 321, in setup_event_loop
+    loop_setup = import_from_string(LOOP_SETUPS[self.loop])
+  File "/usr/lib/python3/dist-packages/uvicorn/importer.py", line 23, in import_from_string
+    raise exc from None
+  File "/usr/lib/python3/dist-packages/uvicorn/importer.py", line 20, in import_from_string
+    module = importlib.import_module(module_str)
+  File "/usr/lib/python3.8/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1014, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 991, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 975, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 671, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 783, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/usr/lib/python3/dist-packages/uvicorn/loops/uvloop.py", line 3, in <module>
+    import uvloop
+ModuleNotFoundError: No module named 'uvloop'
+[2024-04-10 16:29:50 -0400] [27870] [INFO] Worker exiting (pid: 27870)
+[2024-04-10 16:29:50 -0400] [27859] [INFO] Shutting down: Master
+[2024-04-10 16:29:50 -0400] [27859] [INFO] Reason: Worker failed to boot.
+[2024-04-10 16:29:56 -0400] [27919] [DEBUG] Current configuration:
+  config: gunicorn_conf.py
+  wsgi_app: None
+  bind: ['unix:/tmp/gunicorn.sock']
+  backlog: 2048
+  workers: 21
+  worker_class: uvicorn.workers.UvicornWorker
+  threads: 1
+  worker_connections: 1000
+  max_requests: 0
+  max_requests_jitter: 0
+  timeout: 30
+  graceful_timeout: 30
+  keepalive: 2
+  limit_request_line: 4094
+  limit_request_fields: 100
+  limit_request_field_size: 8190
+  reload: False
+  reload_engine: auto
+  reload_extra_files: []
+  spew: False
+  check_config: False
+  print_config: False
+  preload_app: False
+  sendfile: None
+  reuse_port: False
+  chdir: /users/dorlando/netraiders
+  daemon: False
+  raw_env: []
+  pidfile: None
+  worker_tmp_dir: None
+  user: 0
+  group: 0
+  umask: 0
+  initgroups: False
+  tmp_upload_dir: None
+  secure_scheme_headers: {'X-FORWARDED-PROTOCOL': 'ssl', 'X-FORWARDED-PROTO': 'https', 'X-FORWARDED-SSL': 'on'}
+  forwarded_allow_ips: ['127.0.0.1']
+  accesslog: None
+  disable_redirect_access_to_syslog: False
+  access_log_format: %(h)s %(l)s %(u)s %(t)s "%(r)s" %(s)s %(b)s "%(f)s" "%(a)s"
+  errorlog: /users/dorlando/netraiders/error_log
+  loglevel: debug
+  capture_output: False
+  logger_class: gunicorn.glogging.Logger
+  logconfig: None
+  logconfig_dict: {}
+  syslog_addr: udp://localhost:514
+  syslog: False
+  syslog_prefix: None
+  syslog_facility: user
+  enable_stdio_inheritance: False
+  statsd_host: None
+  dogstatsd_tags: 
+  statsd_prefix: 
+  proc_name: None
+  default_proc_name: netraiders_server:app
+  pythonpath: None
+  paste: None
+  on_starting: <function OnStarting.on_starting at 0x7f8c7c7c58b0>
+  on_reload: <function OnReload.on_reload at 0x7f8c7c7c59d0>
+  when_ready: <function WhenReady.when_ready at 0x7f8c7c7c5af0>
+  pre_fork: <function Prefork.pre_fork at 0x7f8c7c7c5c10>
+  post_fork: <function Postfork.post_fork at 0x7f8c7c7c5d30>
+  post_worker_init: <function PostWorkerInit.post_worker_init at 0x7f8c7c7c5e50>
+  worker_int: <function WorkerInt.worker_int at 0x7f8c7c7c5f70>
+  worker_abort: <function WorkerAbort.worker_abort at 0x7f8c7c7380d0>
+  pre_exec: <function PreExec.pre_exec at 0x7f8c7c7381f0>
+  pre_request: <function PreRequest.pre_request at 0x7f8c7c738310>
+  post_request: <function PostRequest.post_request at 0x7f8c7c7383a0>
+  child_exit: <function ChildExit.child_exit at 0x7f8c7c7384c0>
+  worker_exit: <function WorkerExit.worker_exit at 0x7f8c7c7385e0>
+  nworkers_changed: <function NumWorkersChanged.nworkers_changed at 0x7f8c7c738700>
+  on_exit: <function OnExit.on_exit at 0x7f8c7c738820>
+  proxy_protocol: False
+  proxy_allow_ips: ['127.0.0.1']
+  keyfile: None
+  certfile: None
+  ssl_version: 2
+  cert_reqs: 0
+  ca_certs: None
+  suppress_ragged_eofs: True
+  do_handshake_on_connect: False
+  ciphers: None
+  raw_paste_global_conf: []
+  strip_header_spaces: False
+[2024-04-10 16:29:56 -0400] [27919] [INFO] Starting gunicorn 20.1.0
+[2024-04-10 16:29:56 -0400] [27919] [DEBUG] Arbiter booted
+[2024-04-10 16:29:56 -0400] [27919] [INFO] Listening at: unix:/tmp/gunicorn.sock (27919)
+[2024-04-10 16:29:56 -0400] [27919] [INFO] Using worker: uvicorn.workers.UvicornWorker
+[2024-04-10 16:29:56 -0400] [27932] [INFO] Booting worker with pid: 27932
+[2024-04-10 16:29:56 -0400] [27933] [INFO] Booting worker with pid: 27933
+[2024-04-10 16:29:56 -0400] [27934] [INFO] Booting worker with pid: 27934
+[2024-04-10 16:29:56 -0400] [27935] [INFO] Booting worker with pid: 27935
+[2024-04-10 16:29:57 -0400] [27937] [INFO] Booting worker with pid: 27937
+[2024-04-10 16:29:57 -0400] [27938] [INFO] Booting worker with pid: 27938
+[2024-04-10 16:29:57 -0400] [27939] [INFO] Booting worker with pid: 27939
+[2024-04-10 16:29:57 -0400] [27940] [INFO] Booting worker with pid: 27940
+[2024-04-10 16:29:57 -0400] [27941] [INFO] Booting worker with pid: 27941
+[2024-04-10 16:29:57 -0400] [27946] [INFO] Booting worker with pid: 27946
+[2024-04-10 16:29:57 -0400] [27948] [INFO] Booting worker with pid: 27948
+[2024-04-10 16:29:57 -0400] [27950] [INFO] Booting worker with pid: 27950
+[2024-04-10 16:29:57 -0400] [27934] [INFO] Started server process [27934]
+[2024-04-10 16:29:57 -0400] [27934] [INFO] Waiting for application startup.
+[2024-04-10 16:29:57 -0400] [27932] [INFO] Started server process [27932]
+[2024-04-10 16:29:57 -0400] [27934] [INFO] Application startup complete.
+[2024-04-10 16:29:57 -0400] [27932] [INFO] Waiting for application startup.
+[2024-04-10 16:29:57 -0400] [27933] [INFO] Started server process [27933]
+[2024-04-10 16:29:57 -0400] [27932] [INFO] Application startup complete.
+[2024-04-10 16:29:57 -0400] [27952] [INFO] Booting worker with pid: 27952
+[2024-04-10 16:29:57 -0400] [27933] [INFO] Waiting for application startup.
+[2024-04-10 16:29:57 -0400] [27933] [INFO] Application startup complete.
+[2024-04-10 16:29:57 -0400] [27935] [INFO] Started server process [27935]
+[2024-04-10 16:29:57 -0400] [27935] [INFO] Waiting for application startup.
+[2024-04-10 16:29:57 -0400] [27935] [INFO] Application startup complete.
+[2024-04-10 16:29:57 -0400] [27954] [INFO] Booting worker with pid: 27954
+[2024-04-10 16:29:57 -0400] [27937] [INFO] Started server process [27937]
+[2024-04-10 16:29:57 -0400] [27937] [INFO] Waiting for application startup.
+[2024-04-10 16:29:57 -0400] [27937] [INFO] Application startup complete.
+[2024-04-10 16:29:57 -0400] [27956] [INFO] Booting worker with pid: 27956
+[2024-04-10 16:29:57 -0400] [27938] [INFO] Started server process [27938]
+[2024-04-10 16:29:57 -0400] [27938] [INFO] Waiting for application startup.
+[2024-04-10 16:29:57 -0400] [27938] [INFO] Application startup complete.
+[2024-04-10 16:29:57 -0400] [27958] [INFO] Booting worker with pid: 27958
+[2024-04-10 16:29:57 -0400] [27939] [INFO] Started server process [27939]
+[2024-04-10 16:29:57 -0400] [27939] [INFO] Waiting for application startup.
+[2024-04-10 16:29:57 -0400] [27939] [INFO] Application startup complete.
+[2024-04-10 16:29:57 -0400] [27940] [INFO] Started server process [27940]
+[2024-04-10 16:29:57 -0400] [27940] [INFO] Waiting for application startup.
+[2024-04-10 16:29:57 -0400] [27940] [INFO] Application startup complete.
+[2024-04-10 16:29:57 -0400] [27941] [INFO] Started server process [27941]
+[2024-04-10 16:29:57 -0400] [27941] [INFO] Waiting for application startup.
+[2024-04-10 16:29:57 -0400] [27941] [INFO] Application startup complete.
+[2024-04-10 16:29:57 -0400] [27961] [INFO] Booting worker with pid: 27961
+[2024-04-10 16:29:57 -0400] [27963] [INFO] Booting worker with pid: 27963
+[2024-04-10 16:29:57 -0400] [27964] [INFO] Booting worker with pid: 27964
+[2024-04-10 16:29:57 -0400] [27946] [INFO] Started server process [27946]
+[2024-04-10 16:29:57 -0400] [27946] [INFO] Waiting for application startup.
+[2024-04-10 16:29:57 -0400] [27946] [INFO] Application startup complete.
+[2024-04-10 16:29:57 -0400] [27966] [INFO] Booting worker with pid: 27966
+[2024-04-10 16:29:57 -0400] [27968] [INFO] Booting worker with pid: 27968
+[2024-04-10 16:29:57 -0400] [27952] [INFO] Started server process [27952]
+[2024-04-10 16:29:57 -0400] [27952] [INFO] Waiting for application startup.
+[2024-04-10 16:29:57 -0400] [27952] [INFO] Application startup complete.
+[2024-04-10 16:29:57 -0400] [27950] [INFO] Started server process [27950]
+[2024-04-10 16:29:57 -0400] [27950] [INFO] Waiting for application startup.
+[2024-04-10 16:29:57 -0400] [27950] [INFO] Application startup complete.
+[2024-04-10 16:29:57 -0400] [27948] [INFO] Started server process [27948]
+[2024-04-10 16:29:57 -0400] [27948] [INFO] Waiting for application startup.
+[2024-04-10 16:29:57 -0400] [27948] [INFO] Application startup complete.
+[2024-04-10 16:29:57 -0400] [27954] [INFO] Started server process [27954]
+[2024-04-10 16:29:57 -0400] [27954] [INFO] Waiting for application startup.
+[2024-04-10 16:29:57 -0400] [27954] [INFO] Application startup complete.
+[2024-04-10 16:29:57 -0400] [27919] [DEBUG] 21 workers
+[2024-04-10 16:29:58 -0400] [27956] [INFO] Started server process [27956]
+[2024-04-10 16:29:58 -0400] [27956] [INFO] Waiting for application startup.
+[2024-04-10 16:29:58 -0400] [27956] [INFO] Application startup complete.
+[2024-04-10 16:29:58 -0400] [27958] [INFO] Started server process [27958]
+[2024-04-10 16:29:58 -0400] [27958] [INFO] Waiting for application startup.
+[2024-04-10 16:29:58 -0400] [27958] [INFO] Application startup complete.
+[2024-04-10 16:29:58 -0400] [27963] [INFO] Started server process [27963]
+[2024-04-10 16:29:58 -0400] [27963] [INFO] Waiting for application startup.
+[2024-04-10 16:29:58 -0400] [27963] [INFO] Application startup complete.
+[2024-04-10 16:29:58 -0400] [27964] [INFO] Started server process [27964]
+[2024-04-10 16:29:58 -0400] [27964] [INFO] Waiting for application startup.
+[2024-04-10 16:29:58 -0400] [27961] [INFO] Started server process [27961]
+[2024-04-10 16:29:58 -0400] [27961] [INFO] Waiting for application startup.
+[2024-04-10 16:29:58 -0400] [27964] [INFO] Application startup complete.
+[2024-04-10 16:29:58 -0400] [27961] [INFO] Application startup complete.
+[2024-04-10 16:29:58 -0400] [27966] [INFO] Started server process [27966]
+[2024-04-10 16:29:58 -0400] [27966] [INFO] Waiting for application startup.
+[2024-04-10 16:29:58 -0400] [27966] [INFO] Application startup complete.
+[2024-04-10 16:29:58 -0400] [27968] [INFO] Started server process [27968]
+[2024-04-10 16:29:58 -0400] [27968] [INFO] Waiting for application startup.
+[2024-04-10 16:29:58 -0400] [27968] [INFO] Application startup complete.
+[2024-04-10 16:32:04 -0400] [27966] [WARNING] Invalid HTTP request received.
+[2024-04-10 17:09:40 -0400] [27919] [INFO] Handling signal: term
+[2024-04-10 17:09:40 -0400] [27935] [INFO] Shutting down
+[2024-04-10 17:09:40 -0400] [27935] [INFO] Error while closing socket [Errno 9] Bad file descriptor
+[2024-04-10 17:09:40 -0400] [27939] [INFO] Shutting down
+[2024-04-10 17:09:40 -0400] [27939] [INFO] Error while closing socket [Errno 9] Bad file descriptor
+[2024-04-10 17:09:40 -0400] [27937] [INFO] Shutting down
+[2024-04-10 17:09:40 -0400] [27937] [INFO] Error while closing socket [Errno 9] Bad file descriptor
+[2024-04-10 17:09:40 -0400] [27963] [INFO] Shutting down
+[2024-04-10 17:09:40 -0400] [27963] [INFO] Error while closing socket [Errno 9] Bad file descriptor
+[2024-04-10 17:09:40 -0400] [27940] [INFO] Shutting down
+[2024-04-10 17:09:40 -0400] [27940] [INFO] Error while closing socket [Errno 9] Bad file descriptor
+[2024-04-10 17:09:40 -0400] [27938] [INFO] Shutting down
+[2024-04-10 17:09:40 -0400] [27938] [INFO] Error while closing socket [Errno 9] Bad file descriptor
+[2024-04-10 17:09:40 -0400] [27932] [INFO] Shutting down
+[2024-04-10 17:09:40 -0400] [27932] [INFO] Error while closing socket [Errno 9] Bad file descriptor
+[2024-04-10 17:09:40 -0400] [27950] [INFO] Shutting down
+[2024-04-10 17:09:40 -0400] [27950] [INFO] Error while closing socket [Errno 9] Bad file descriptor
+[2024-04-10 17:09:40 -0400] [27954] [INFO] Shutting down
+[2024-04-10 17:09:40 -0400] [27958] [INFO] Shutting down
+[2024-04-10 17:09:40 -0400] [27954] [INFO] Error while closing socket [Errno 9] Bad file descriptor
+[2024-04-10 17:09:40 -0400] [27958] [INFO] Error while closing socket [Errno 9] Bad file descriptor
+[2024-04-10 17:09:40 -0400] [27946] [INFO] Shutting down
+[2024-04-10 17:09:40 -0400] [27946] [INFO] Error while closing socket [Errno 9] Bad file descriptor
+[2024-04-10 17:09:40 -0400] [27933] [INFO] Shutting down
+[2024-04-10 17:09:40 -0400] [27933] [INFO] Error while closing socket [Errno 9] Bad file descriptor
+[2024-04-10 17:09:40 -0400] [27966] [INFO] Shutting down
+[2024-04-10 17:09:40 -0400] [27966] [INFO] Error while closing socket [Errno 9] Bad file descriptor
+[2024-04-10 17:09:40 -0400] [27941] [INFO] Shutting down
+[2024-04-10 17:09:40 -0400] [27964] [INFO] Shutting down
+[2024-04-10 17:09:40 -0400] [27941] [INFO] Error while closing socket [Errno 9] Bad file descriptor
+[2024-04-10 17:09:40 -0400] [27964] [INFO] Error while closing socket [Errno 9] Bad file descriptor
+[2024-04-10 17:09:40 -0400] [27952] [INFO] Shutting down
+[2024-04-10 17:09:40 -0400] [27952] [INFO] Error while closing socket [Errno 9] Bad file descriptor
+[2024-04-10 17:09:40 -0400] [27961] [INFO] Shutting down
+[2024-04-10 17:09:40 -0400] [27961] [INFO] Error while closing socket [Errno 9] Bad file descriptor
+[2024-04-10 17:09:40 -0400] [27948] [INFO] Shutting down
+[2024-04-10 17:09:40 -0400] [27956] [INFO] Shutting down
+[2024-04-10 17:09:40 -0400] [27948] [INFO] Error while closing socket [Errno 9] Bad file descriptor
+[2024-04-10 17:09:40 -0400] [27956] [INFO] Error while closing socket [Errno 9] Bad file descriptor
+[2024-04-10 17:09:40 -0400] [27934] [INFO] Shutting down
+[2024-04-10 17:09:40 -0400] [27934] [INFO] Error while closing socket [Errno 9] Bad file descriptor
+[2024-04-10 17:09:40 -0400] [27968] [INFO] Shutting down
+[2024-04-10 17:09:40 -0400] [27968] [INFO] Error while closing socket [Errno 9] Bad file descriptor
+[2024-04-10 17:09:40 -0400] [27935] [INFO] Waiting for application shutdown.
+[2024-04-10 17:09:40 -0400] [27935] [INFO] Application shutdown complete.
+[2024-04-10 17:09:40 -0400] [27935] [INFO] Finished server process [27935]
+[2024-04-10 17:09:40 -0400] [27935] [INFO] Worker exiting (pid: 27935)
+[2024-04-10 17:09:40 -0400] [27939] [INFO] Waiting for application shutdown.
+[2024-04-10 17:09:40 -0400] [27939] [INFO] Application shutdown complete.
+[2024-04-10 17:09:40 -0400] [27939] [INFO] Finished server process [27939]
+[2024-04-10 17:09:40 -0400] [27939] [INFO] Worker exiting (pid: 27939)
+[2024-04-10 17:09:40 -0400] [27937] [INFO] Waiting for application shutdown.
+[2024-04-10 17:09:40 -0400] [27937] [INFO] Application shutdown complete.
+[2024-04-10 17:09:40 -0400] [27937] [INFO] Finished server process [27937]
+[2024-04-10 17:09:40 -0400] [27937] [INFO] Worker exiting (pid: 27937)
+[2024-04-10 17:09:40 -0400] [27963] [INFO] Waiting for application shutdown.
+[2024-04-10 17:09:40 -0400] [27963] [INFO] Application shutdown complete.
+[2024-04-10 17:09:40 -0400] [27963] [INFO] Finished server process [27963]
+[2024-04-10 17:09:40 -0400] [27940] [INFO] Waiting for application shutdown.
+[2024-04-10 17:09:40 -0400] [27940] [INFO] Application shutdown complete.
+[2024-04-10 17:09:40 -0400] [27940] [INFO] Finished server process [27940]
+[2024-04-10 17:09:40 -0400] [27963] [INFO] Worker exiting (pid: 27963)
+[2024-04-10 17:09:40 -0400] [27940] [INFO] Worker exiting (pid: 27940)
+[2024-04-10 17:09:40 -0400] [27938] [INFO] Waiting for application shutdown.
+[2024-04-10 17:09:40 -0400] [27938] [INFO] Application shutdown complete.
+[2024-04-10 17:09:40 -0400] [27938] [INFO] Finished server process [27938]
+[2024-04-10 17:09:40 -0400] [27938] [INFO] Worker exiting (pid: 27938)
+[2024-04-10 17:09:40 -0400] [27932] [INFO] Waiting for application shutdown.
+[2024-04-10 17:09:40 -0400] [27932] [INFO] Application shutdown complete.
+[2024-04-10 17:09:40 -0400] [27932] [INFO] Finished server process [27932]
+[2024-04-10 17:09:40 -0400] [27932] [INFO] Worker exiting (pid: 27932)
+[2024-04-10 17:09:40 -0400] [27950] [INFO] Waiting for application shutdown.
+[2024-04-10 17:09:40 -0400] [27950] [INFO] Application shutdown complete.
+[2024-04-10 17:09:40 -0400] [27954] [INFO] Waiting for application shutdown.
+[2024-04-10 17:09:40 -0400] [27958] [INFO] Waiting for application shutdown.
+[2024-04-10 17:09:40 -0400] [27950] [INFO] Finished server process [27950]
+[2024-04-10 17:09:40 -0400] [27958] [INFO] Application shutdown complete.
+[2024-04-10 17:09:40 -0400] [27954] [INFO] Application shutdown complete.
+[2024-04-10 17:09:40 -0400] [27958] [INFO] Finished server process [27958]
+[2024-04-10 17:09:40 -0400] [27954] [INFO] Finished server process [27954]
+[2024-04-10 17:09:40 -0400] [27950] [INFO] Worker exiting (pid: 27950)
+[2024-04-10 17:09:40 -0400] [27958] [INFO] Worker exiting (pid: 27958)
+[2024-04-10 17:09:40 -0400] [27954] [INFO] Worker exiting (pid: 27954)
+[2024-04-10 17:09:40 -0400] [27946] [INFO] Waiting for application shutdown.
+[2024-04-10 17:09:40 -0400] [27946] [INFO] Application shutdown complete.
+[2024-04-10 17:09:40 -0400] [27946] [INFO] Finished server process [27946]
+[2024-04-10 17:09:40 -0400] [27946] [INFO] Worker exiting (pid: 27946)
+[2024-04-10 17:09:40 -0400] [27933] [INFO] Waiting for application shutdown.
+[2024-04-10 17:09:40 -0400] [27933] [INFO] Application shutdown complete.
+[2024-04-10 17:09:40 -0400] [27933] [INFO] Finished server process [27933]
+[2024-04-10 17:09:40 -0400] [27933] [INFO] Worker exiting (pid: 27933)
+[2024-04-10 17:09:40 -0400] [27966] [INFO] Waiting for application shutdown.
+[2024-04-10 17:09:40 -0400] [27966] [INFO] Application shutdown complete.
+[2024-04-10 17:09:40 -0400] [27966] [INFO] Finished server process [27966]
+[2024-04-10 17:09:40 -0400] [27966] [INFO] Worker exiting (pid: 27966)
+[2024-04-10 17:09:40 -0400] [27941] [INFO] Waiting for application shutdown.
+[2024-04-10 17:09:40 -0400] [27941] [INFO] Application shutdown complete.
+[2024-04-10 17:09:40 -0400] [27941] [INFO] Finished server process [27941]
+[2024-04-10 17:09:40 -0400] [27964] [INFO] Waiting for application shutdown.
+[2024-04-10 17:09:40 -0400] [27964] [INFO] Application shutdown complete.
+[2024-04-10 17:09:40 -0400] [27964] [INFO] Finished server process [27964]
+[2024-04-10 17:09:40 -0400] [27941] [INFO] Worker exiting (pid: 27941)
+[2024-04-10 17:09:40 -0400] [27952] [INFO] Waiting for application shutdown.
+[2024-04-10 17:09:40 -0400] [27964] [INFO] Worker exiting (pid: 27964)
+[2024-04-10 17:09:40 -0400] [27952] [INFO] Application shutdown complete.
+[2024-04-10 17:09:40 -0400] [27952] [INFO] Finished server process [27952]
+[2024-04-10 17:09:40 -0400] [27952] [INFO] Worker exiting (pid: 27952)
+[2024-04-10 17:09:40 -0400] [27961] [INFO] Waiting for application shutdown.
+[2024-04-10 17:09:40 -0400] [27961] [INFO] Application shutdown complete.
+[2024-04-10 17:09:40 -0400] [27961] [INFO] Finished server process [27961]
+[2024-04-10 17:09:40 -0400] [27961] [INFO] Worker exiting (pid: 27961)
+[2024-04-10 17:09:40 -0400] [27956] [INFO] Waiting for application shutdown.
+[2024-04-10 17:09:40 -0400] [27948] [INFO] Waiting for application shutdown.
+[2024-04-10 17:09:40 -0400] [27956] [INFO] Application shutdown complete.
+[2024-04-10 17:09:40 -0400] [27948] [INFO] Application shutdown complete.
+[2024-04-10 17:09:40 -0400] [27956] [INFO] Finished server process [27956]
+[2024-04-10 17:09:40 -0400] [27948] [INFO] Finished server process [27948]
+[2024-04-10 17:09:40 -0400] [27956] [INFO] Worker exiting (pid: 27956)
+[2024-04-10 17:09:40 -0400] [27934] [INFO] Waiting for application shutdown.
+[2024-04-10 17:09:40 -0400] [27948] [INFO] Worker exiting (pid: 27948)
+[2024-04-10 17:09:40 -0400] [27934] [INFO] Application shutdown complete.
+[2024-04-10 17:09:40 -0400] [27934] [INFO] Finished server process [27934]
+[2024-04-10 17:09:40 -0400] [27934] [INFO] Worker exiting (pid: 27934)
+[2024-04-10 17:09:40 -0400] [27968] [INFO] Waiting for application shutdown.
+[2024-04-10 17:09:40 -0400] [27968] [INFO] Application shutdown complete.
+[2024-04-10 17:09:40 -0400] [27968] [INFO] Finished server process [27968]
+[2024-04-10 17:09:40 -0400] [27968] [INFO] Worker exiting (pid: 27968)
+[2024-04-10 17:09:40 -0400] [27919] [INFO] Shutting down: Master
+[2024-04-10 17:10:04 -0400] [32363] [DEBUG] Current configuration:
+  config: webserver/gunicorn_conf.py
+  wsgi_app: None
+  bind: ['unix:/tmp/gunicorn.sock']
+  backlog: 2048
+  workers: 21
+  worker_class: uvicorn.workers.UvicornWorker
+  threads: 1
+  worker_connections: 1000
+  max_requests: 0
+  max_requests_jitter: 0
+  timeout: 30
+  graceful_timeout: 30
+  keepalive: 2
+  limit_request_line: 4094
+  limit_request_fields: 100
+  limit_request_field_size: 8190
+  reload: False
+  reload_engine: auto
+  reload_extra_files: []
+  spew: False
+  check_config: False
+  print_config: False
+  preload_app: False
+  sendfile: None
+  reuse_port: False
+  chdir: /users/dorlando/netraiders
+  daemon: False
+  raw_env: []
+  pidfile: None
+  worker_tmp_dir: None
+  user: 0
+  group: 0
+  umask: 0
+  initgroups: False
+  tmp_upload_dir: None
+  secure_scheme_headers: {'X-FORWARDED-PROTOCOL': 'ssl', 'X-FORWARDED-PROTO': 'https', 'X-FORWARDED-SSL': 'on'}
+  forwarded_allow_ips: ['127.0.0.1']
+  accesslog: None
+  disable_redirect_access_to_syslog: False
+  access_log_format: %(h)s %(l)s %(u)s %(t)s "%(r)s" %(s)s %(b)s "%(f)s" "%(a)s"
+  errorlog: /users/dorlando/netraiders/error_log
+  loglevel: debug
+  capture_output: False
+  logger_class: gunicorn.glogging.Logger
+  logconfig: None
+  logconfig_dict: {}
+  syslog_addr: udp://localhost:514
+  syslog: False
+  syslog_prefix: None
+  syslog_facility: user
+  enable_stdio_inheritance: False
+  statsd_host: None
+  dogstatsd_tags: 
+  statsd_prefix: 
+  proc_name: None
+  default_proc_name: webserver.netraiders_server:app
+  pythonpath: None
+  paste: None
+  on_starting: <function OnStarting.on_starting at 0x7feb53fcfaf0>
+  on_reload: <function OnReload.on_reload at 0x7feb53fcfc10>
+  when_ready: <function WhenReady.when_ready at 0x7feb53fcfd30>
+  pre_fork: <function Prefork.pre_fork at 0x7feb53fcfe50>
+  post_fork: <function Postfork.post_fork at 0x7feb53fcff70>
+  post_worker_init: <function PostWorkerInit.post_worker_init at 0x7feb53fe20d0>
+  worker_int: <function WorkerInt.worker_int at 0x7feb53fe21f0>
+  worker_abort: <function WorkerAbort.worker_abort at 0x7feb53fe2310>
+  pre_exec: <function PreExec.pre_exec at 0x7feb53fe2430>
+  pre_request: <function PreRequest.pre_request at 0x7feb53fe2550>
+  post_request: <function PostRequest.post_request at 0x7feb53fe25e0>
+  child_exit: <function ChildExit.child_exit at 0x7feb53fe2700>
+  worker_exit: <function WorkerExit.worker_exit at 0x7feb53fe2820>
+  nworkers_changed: <function NumWorkersChanged.nworkers_changed at 0x7feb53fe2940>
+  on_exit: <function OnExit.on_exit at 0x7feb53fe2a60>
+  proxy_protocol: False
+  proxy_allow_ips: ['127.0.0.1']
+  keyfile: None
+  certfile: None
+  ssl_version: 2
+  cert_reqs: 0
+  ca_certs: None
+  suppress_ragged_eofs: True
+  do_handshake_on_connect: False
+  ciphers: None
+  raw_paste_global_conf: []
+  strip_header_spaces: False
+[2024-04-10 17:10:04 -0400] [32363] [INFO] Starting gunicorn 20.1.0
+[2024-04-10 17:10:04 -0400] [32363] [DEBUG] Arbiter booted
+[2024-04-10 17:10:04 -0400] [32363] [INFO] Listening at: unix:/tmp/gunicorn.sock (32363)
+[2024-04-10 17:10:04 -0400] [32363] [INFO] Using worker: uvicorn.workers.UvicornWorker
+[2024-04-10 17:10:04 -0400] [32370] [INFO] Booting worker with pid: 32370
+[2024-04-10 17:10:04 -0400] [32371] [INFO] Booting worker with pid: 32371
+[2024-04-10 17:10:04 -0400] [32372] [INFO] Booting worker with pid: 32372
+[2024-04-10 17:10:04 -0400] [32374] [INFO] Booting worker with pid: 32374
+[2024-04-10 17:10:04 -0400] [32375] [INFO] Booting worker with pid: 32375
+[2024-04-10 17:10:04 -0400] [32377] [INFO] Booting worker with pid: 32377
+[2024-04-10 17:10:04 -0400] [32378] [INFO] Booting worker with pid: 32378
+[2024-04-10 17:10:04 -0400] [32381] [INFO] Booting worker with pid: 32381
+[2024-04-10 17:10:04 -0400] [32370] [INFO] Started server process [32370]
+[2024-04-10 17:10:04 -0400] [32370] [INFO] Waiting for application startup.
+[2024-04-10 17:10:04 -0400] [32370] [INFO] Application startup complete.
+[2024-04-10 17:10:04 -0400] [32371] [INFO] Started server process [32371]
+[2024-04-10 17:10:04 -0400] [32371] [INFO] Waiting for application startup.
+[2024-04-10 17:10:04 -0400] [32371] [INFO] Application startup complete.
+[2024-04-10 17:10:04 -0400] [32386] [INFO] Booting worker with pid: 32386
+[2024-04-10 17:10:04 -0400] [32387] [INFO] Booting worker with pid: 32387
+[2024-04-10 17:10:05 -0400] [32372] [INFO] Started server process [32372]
+[2024-04-10 17:10:05 -0400] [32372] [INFO] Waiting for application startup.
+[2024-04-10 17:10:05 -0400] [32372] [INFO] Application startup complete.
+[2024-04-10 17:10:05 -0400] [32392] [INFO] Booting worker with pid: 32392
+[2024-04-10 17:10:05 -0400] [32394] [INFO] Booting worker with pid: 32394
+[2024-04-10 17:10:05 -0400] [32374] [INFO] Started server process [32374]
+[2024-04-10 17:10:05 -0400] [32374] [INFO] Waiting for application startup.
+[2024-04-10 17:10:05 -0400] [32374] [INFO] Application startup complete.
+[2024-04-10 17:10:05 -0400] [32397] [INFO] Booting worker with pid: 32397
+[2024-04-10 17:10:05 -0400] [32398] [INFO] Booting worker with pid: 32398
+[2024-04-10 17:10:05 -0400] [32375] [INFO] Started server process [32375]
+[2024-04-10 17:10:05 -0400] [32375] [INFO] Waiting for application startup.
+[2024-04-10 17:10:05 -0400] [32375] [INFO] Application startup complete.
+[2024-04-10 17:10:05 -0400] [32377] [INFO] Started server process [32377]
+[2024-04-10 17:10:05 -0400] [32377] [INFO] Waiting for application startup.
+[2024-04-10 17:10:05 -0400] [32377] [INFO] Application startup complete.
+[2024-04-10 17:10:05 -0400] [32399] [INFO] Booting worker with pid: 32399
+[2024-04-10 17:10:05 -0400] [32378] [INFO] Started server process [32378]
+[2024-04-10 17:10:05 -0400] [32378] [INFO] Waiting for application startup.
+[2024-04-10 17:10:05 -0400] [32378] [INFO] Application startup complete.
+[2024-04-10 17:10:05 -0400] [32381] [INFO] Started server process [32381]
+[2024-04-10 17:10:05 -0400] [32381] [INFO] Waiting for application startup.
+[2024-04-10 17:10:05 -0400] [32381] [INFO] Application startup complete.
+[2024-04-10 17:10:05 -0400] [32413] [INFO] Booting worker with pid: 32413
+[2024-04-10 17:10:05 -0400] [32415] [INFO] Booting worker with pid: 32415
+[2024-04-10 17:10:05 -0400] [32386] [INFO] Started server process [32386]
+[2024-04-10 17:10:05 -0400] [32386] [INFO] Waiting for application startup.
+[2024-04-10 17:10:05 -0400] [32386] [INFO] Application startup complete.
+[2024-04-10 17:10:05 -0400] [32417] [INFO] Booting worker with pid: 32417
+[2024-04-10 17:10:05 -0400] [32387] [INFO] Started server process [32387]
+[2024-04-10 17:10:05 -0400] [32387] [INFO] Waiting for application startup.
+[2024-04-10 17:10:05 -0400] [32387] [INFO] Application startup complete.
+[2024-04-10 17:10:05 -0400] [32392] [INFO] Started server process [32392]
+[2024-04-10 17:10:05 -0400] [32392] [INFO] Waiting for application startup.
+[2024-04-10 17:10:05 -0400] [32392] [INFO] Application startup complete.
+[2024-04-10 17:10:05 -0400] [32420] [INFO] Booting worker with pid: 32420
+[2024-04-10 17:10:05 -0400] [32394] [INFO] Started server process [32394]
+[2024-04-10 17:10:05 -0400] [32394] [INFO] Waiting for application startup.
+[2024-04-10 17:10:05 -0400] [32394] [INFO] Application startup complete.
+[2024-04-10 17:10:05 -0400] [32423] [INFO] Booting worker with pid: 32423
+[2024-04-10 17:10:05 -0400] [32397] [INFO] Started server process [32397]
+[2024-04-10 17:10:05 -0400] [32397] [INFO] Waiting for application startup.
+[2024-04-10 17:10:05 -0400] [32397] [INFO] Application startup complete.
+[2024-04-10 17:10:05 -0400] [32424] [INFO] Booting worker with pid: 32424
+[2024-04-10 17:10:05 -0400] [32398] [INFO] Started server process [32398]
+[2024-04-10 17:10:05 -0400] [32398] [INFO] Waiting for application startup.
+[2024-04-10 17:10:05 -0400] [32398] [INFO] Application startup complete.
+[2024-04-10 17:10:05 -0400] [32399] [INFO] Started server process [32399]
+[2024-04-10 17:10:05 -0400] [32399] [INFO] Waiting for application startup.
+[2024-04-10 17:10:05 -0400] [32399] [INFO] Application startup complete.
+[2024-04-10 17:10:05 -0400] [32363] [DEBUG] 21 workers
+[2024-04-10 17:10:05 -0400] [32413] [INFO] Started server process [32413]
+[2024-04-10 17:10:05 -0400] [32413] [INFO] Waiting for application startup.
+[2024-04-10 17:10:05 -0400] [32413] [INFO] Application startup complete.
+[2024-04-10 17:10:05 -0400] [32415] [INFO] Started server process [32415]
+[2024-04-10 17:10:05 -0400] [32415] [INFO] Waiting for application startup.
+[2024-04-10 17:10:05 -0400] [32415] [INFO] Application startup complete.
+[2024-04-10 17:10:05 -0400] [32417] [INFO] Started server process [32417]
+[2024-04-10 17:10:05 -0400] [32417] [INFO] Waiting for application startup.
+[2024-04-10 17:10:05 -0400] [32417] [INFO] Application startup complete.
+[2024-04-10 17:10:05 -0400] [32420] [INFO] Started server process [32420]
+[2024-04-10 17:10:05 -0400] [32420] [INFO] Waiting for application startup.
+[2024-04-10 17:10:05 -0400] [32420] [INFO] Application startup complete.
+[2024-04-10 17:10:05 -0400] [32423] [INFO] Started server process [32423]
+[2024-04-10 17:10:05 -0400] [32423] [INFO] Waiting for application startup.
+[2024-04-10 17:10:05 -0400] [32423] [INFO] Application startup complete.
+[2024-04-10 17:10:05 -0400] [32424] [INFO] Started server process [32424]
+[2024-04-10 17:10:05 -0400] [32424] [INFO] Waiting for application startup.
+[2024-04-10 17:10:05 -0400] [32424] [INFO] Application startup complete.
