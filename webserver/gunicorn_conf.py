@@ -6,5 +6,5 @@ workers = cpu_count() +1
 worker_class = 'uvicorn.workers.UvicornWorker'
 
 loglevel = 'debug'
-accessslog = '/users/dorlando/netraiders/access_log'
-errorlog = '/users/dorlando/netraiders/error_log'
+accessslog = '/users/dorlando/netraiders/bin/access_log'
+errorlog = '/users/dorlando/netraiders/bin/error_log'
