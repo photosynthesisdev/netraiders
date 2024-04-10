@@ -2,4 +2,4 @@
 
 ROOT="/users/dorlando/netraiders"
 source "/users/dorlando/netraiders/venv/bin/activate"
-/users/dorlando/netraiders/venv/bin/gunicorn -c webserver/gunicorn_conf.py webserver.netraiders_server:app
+/users/dorlando/netraiders/venv/bin/gunicorn -c webserver/gunicorn_conf.py webserver.api:app

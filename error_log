@@ -1865,3 +1865,306 @@ ModuleNotFoundError: No module named 'uvloop'
 [2024-04-10 17:10:05 -0400] [32424] [INFO] Started server process [32424]
 [2024-04-10 17:10:05 -0400] [32424] [INFO] Waiting for application startup.
 [2024-04-10 17:10:05 -0400] [32424] [INFO] Application startup complete.
+[2024-04-10 17:12:12 -0400] [32363] [INFO] Handling signal: term
+[2024-04-10 17:12:12 -0400] [32415] [INFO] Shutting down
+[2024-04-10 17:12:12 -0400] [32415] [INFO] Error while closing socket [Errno 9] Bad file descriptor
+[2024-04-10 17:12:12 -0400] [32378] [INFO] Shutting down
+[2024-04-10 17:12:12 -0400] [32378] [INFO] Error while closing socket [Errno 9] Bad file descriptor
+[2024-04-10 17:12:12 -0400] [32417] [INFO] Shutting down
+[2024-04-10 17:12:12 -0400] [32417] [INFO] Error while closing socket [Errno 9] Bad file descriptor
+[2024-04-10 17:12:12 -0400] [32392] [INFO] Shutting down
+[2024-04-10 17:12:12 -0400] [32392] [INFO] Error while closing socket [Errno 9] Bad file descriptor
+[2024-04-10 17:12:12 -0400] [32397] [INFO] Shutting down
+[2024-04-10 17:12:12 -0400] [32397] [INFO] Error while closing socket [Errno 9] Bad file descriptor
+[2024-04-10 17:12:12 -0400] [32398] [INFO] Shutting down
+[2024-04-10 17:12:12 -0400] [32398] [INFO] Error while closing socket [Errno 9] Bad file descriptor
+[2024-04-10 17:12:12 -0400] [32386] [INFO] Shutting down
+[2024-04-10 17:12:12 -0400] [32386] [INFO] Error while closing socket [Errno 9] Bad file descriptor
+[2024-04-10 17:12:12 -0400] [32375] [INFO] Shutting down
+[2024-04-10 17:12:12 -0400] [32375] [INFO] Error while closing socket [Errno 9] Bad file descriptor
+[2024-04-10 17:12:12 -0400] [32374] [INFO] Shutting down
+[2024-04-10 17:12:12 -0400] [32381] [INFO] Shutting down
+[2024-04-10 17:12:12 -0400] [32374] [INFO] Error while closing socket [Errno 9] Bad file descriptor
+[2024-04-10 17:12:12 -0400] [32381] [INFO] Error while closing socket [Errno 9] Bad file descriptor
+[2024-04-10 17:12:12 -0400] [32370] [INFO] Shutting down
+[2024-04-10 17:12:12 -0400] [32370] [INFO] Error while closing socket [Errno 9] Bad file descriptor
+[2024-04-10 17:12:12 -0400] [32394] [INFO] Shutting down
+[2024-04-10 17:12:12 -0400] [32394] [INFO] Error while closing socket [Errno 9] Bad file descriptor
+[2024-04-10 17:12:12 -0400] [32423] [INFO] Shutting down
+[2024-04-10 17:12:12 -0400] [32423] [INFO] Error while closing socket [Errno 9] Bad file descriptor
+[2024-04-10 17:12:12 -0400] [32387] [INFO] Shutting down
+[2024-04-10 17:12:12 -0400] [32387] [INFO] Error while closing socket [Errno 9] Bad file descriptor
+[2024-04-10 17:12:12 -0400] [32413] [INFO] Shutting down
+[2024-04-10 17:12:12 -0400] [32413] [INFO] Error while closing socket [Errno 9] Bad file descriptor
+[2024-04-10 17:12:12 -0400] [32377] [INFO] Shutting down
+[2024-04-10 17:12:12 -0400] [32377] [INFO] Error while closing socket [Errno 9] Bad file descriptor
+[2024-04-10 17:12:12 -0400] [32424] [INFO] Shutting down
+[2024-04-10 17:12:12 -0400] [32424] [INFO] Error while closing socket [Errno 9] Bad file descriptor
+[2024-04-10 17:12:12 -0400] [32399] [INFO] Shutting down
+[2024-04-10 17:12:12 -0400] [32399] [INFO] Error while closing socket [Errno 9] Bad file descriptor
+[2024-04-10 17:12:12 -0400] [32372] [INFO] Shutting down
+[2024-04-10 17:12:12 -0400] [32372] [INFO] Error while closing socket [Errno 9] Bad file descriptor
+[2024-04-10 17:12:12 -0400] [32420] [INFO] Shutting down
+[2024-04-10 17:12:12 -0400] [32420] [INFO] Error while closing socket [Errno 9] Bad file descriptor
+[2024-04-10 17:12:12 -0400] [32371] [INFO] Shutting down
+[2024-04-10 17:12:12 -0400] [32371] [INFO] Error while closing socket [Errno 9] Bad file descriptor
+[2024-04-10 17:12:12 -0400] [32415] [INFO] Waiting for application shutdown.
+[2024-04-10 17:12:12 -0400] [32415] [INFO] Application shutdown complete.
+[2024-04-10 17:12:12 -0400] [32415] [INFO] Finished server process [32415]
+[2024-04-10 17:12:12 -0400] [32415] [INFO] Worker exiting (pid: 32415)
+[2024-04-10 17:12:12 -0400] [32378] [INFO] Waiting for application shutdown.
+[2024-04-10 17:12:12 -0400] [32378] [INFO] Application shutdown complete.
+[2024-04-10 17:12:12 -0400] [32378] [INFO] Finished server process [32378]
+[2024-04-10 17:12:12 -0400] [32378] [INFO] Worker exiting (pid: 32378)
+[2024-04-10 17:12:12 -0400] [32417] [INFO] Waiting for application shutdown.
+[2024-04-10 17:12:12 -0400] [32417] [INFO] Application shutdown complete.
+[2024-04-10 17:12:12 -0400] [32417] [INFO] Finished server process [32417]
+[2024-04-10 17:12:12 -0400] [32417] [INFO] Worker exiting (pid: 32417)
+[2024-04-10 17:12:12 -0400] [32392] [INFO] Waiting for application shutdown.
+[2024-04-10 17:12:12 -0400] [32392] [INFO] Application shutdown complete.
+[2024-04-10 17:12:12 -0400] [32392] [INFO] Finished server process [32392]
+[2024-04-10 17:12:12 -0400] [32392] [INFO] Worker exiting (pid: 32392)
+[2024-04-10 17:12:12 -0400] [32397] [INFO] Waiting for application shutdown.
+[2024-04-10 17:12:12 -0400] [32397] [INFO] Application shutdown complete.
+[2024-04-10 17:12:12 -0400] [32397] [INFO] Finished server process [32397]
+[2024-04-10 17:12:12 -0400] [32397] [INFO] Worker exiting (pid: 32397)
+[2024-04-10 17:12:12 -0400] [32398] [INFO] Waiting for application shutdown.
+[2024-04-10 17:12:12 -0400] [32398] [INFO] Application shutdown complete.
+[2024-04-10 17:12:12 -0400] [32398] [INFO] Finished server process [32398]
+[2024-04-10 17:12:12 -0400] [32398] [INFO] Worker exiting (pid: 32398)
+[2024-04-10 17:12:12 -0400] [32386] [INFO] Waiting for application shutdown.
+[2024-04-10 17:12:12 -0400] [32386] [INFO] Application shutdown complete.
+[2024-04-10 17:12:12 -0400] [32386] [INFO] Finished server process [32386]
+[2024-04-10 17:12:12 -0400] [32386] [INFO] Worker exiting (pid: 32386)
+[2024-04-10 17:12:12 -0400] [32375] [INFO] Waiting for application shutdown.
+[2024-04-10 17:12:12 -0400] [32375] [INFO] Application shutdown complete.
+[2024-04-10 17:12:12 -0400] [32374] [INFO] Waiting for application shutdown.
+[2024-04-10 17:12:12 -0400] [32375] [INFO] Finished server process [32375]
+[2024-04-10 17:12:12 -0400] [32381] [INFO] Waiting for application shutdown.
+[2024-04-10 17:12:12 -0400] [32374] [INFO] Application shutdown complete.
+[2024-04-10 17:12:12 -0400] [32381] [INFO] Application shutdown complete.
+[2024-04-10 17:12:12 -0400] [32375] [INFO] Worker exiting (pid: 32375)
+[2024-04-10 17:12:12 -0400] [32374] [INFO] Finished server process [32374]
+[2024-04-10 17:12:12 -0400] [32381] [INFO] Finished server process [32381]
+[2024-04-10 17:12:12 -0400] [32374] [INFO] Worker exiting (pid: 32374)
+[2024-04-10 17:12:12 -0400] [32381] [INFO] Worker exiting (pid: 32381)
+[2024-04-10 17:12:12 -0400] [32370] [INFO] Waiting for application shutdown.
+[2024-04-10 17:12:12 -0400] [32370] [INFO] Application shutdown complete.
+[2024-04-10 17:12:12 -0400] [32370] [INFO] Finished server process [32370]
+[2024-04-10 17:12:12 -0400] [32394] [INFO] Waiting for application shutdown.
+[2024-04-10 17:12:12 -0400] [32370] [INFO] Worker exiting (pid: 32370)
+[2024-04-10 17:12:12 -0400] [32394] [INFO] Application shutdown complete.
+[2024-04-10 17:12:12 -0400] [32394] [INFO] Finished server process [32394]
+[2024-04-10 17:12:12 -0400] [32394] [INFO] Worker exiting (pid: 32394)
+[2024-04-10 17:12:12 -0400] [32423] [INFO] Waiting for application shutdown.
+[2024-04-10 17:12:12 -0400] [32423] [INFO] Application shutdown complete.
+[2024-04-10 17:12:12 -0400] [32423] [INFO] Finished server process [32423]
+[2024-04-10 17:12:12 -0400] [32423] [INFO] Worker exiting (pid: 32423)
+[2024-04-10 17:12:12 -0400] [32387] [INFO] Waiting for application shutdown.
+[2024-04-10 17:12:12 -0400] [32387] [INFO] Application shutdown complete.
+[2024-04-10 17:12:12 -0400] [32387] [INFO] Finished server process [32387]
+[2024-04-10 17:12:12 -0400] [32387] [INFO] Worker exiting (pid: 32387)
+[2024-04-10 17:12:12 -0400] [32413] [INFO] Waiting for application shutdown.
+[2024-04-10 17:12:12 -0400] [32413] [INFO] Application shutdown complete.
+[2024-04-10 17:12:12 -0400] [32413] [INFO] Finished server process [32413]
+[2024-04-10 17:12:12 -0400] [32377] [INFO] Waiting for application shutdown.
+[2024-04-10 17:12:12 -0400] [32377] [INFO] Application shutdown complete.
+[2024-04-10 17:12:12 -0400] [32413] [INFO] Worker exiting (pid: 32413)
+[2024-04-10 17:12:12 -0400] [32377] [INFO] Finished server process [32377]
+[2024-04-10 17:12:12 -0400] [32377] [INFO] Worker exiting (pid: 32377)
+[2024-04-10 17:12:12 -0400] [32424] [INFO] Waiting for application shutdown.
+[2024-04-10 17:12:12 -0400] [32424] [INFO] Application shutdown complete.
+[2024-04-10 17:12:12 -0400] [32424] [INFO] Finished server process [32424]
+[2024-04-10 17:12:12 -0400] [32424] [INFO] Worker exiting (pid: 32424)
+[2024-04-10 17:12:12 -0400] [32399] [INFO] Waiting for application shutdown.
+[2024-04-10 17:12:12 -0400] [32399] [INFO] Application shutdown complete.
+[2024-04-10 17:12:12 -0400] [32399] [INFO] Finished server process [32399]
+[2024-04-10 17:12:12 -0400] [32399] [INFO] Worker exiting (pid: 32399)
+[2024-04-10 17:12:12 -0400] [32372] [INFO] Waiting for application shutdown.
+[2024-04-10 17:12:12 -0400] [32372] [INFO] Application shutdown complete.
+[2024-04-10 17:12:12 -0400] [32372] [INFO] Finished server process [32372]
+[2024-04-10 17:12:12 -0400] [32372] [INFO] Worker exiting (pid: 32372)
+[2024-04-10 17:12:12 -0400] [32420] [INFO] Waiting for application shutdown.
+[2024-04-10 17:12:12 -0400] [32420] [INFO] Application shutdown complete.
+[2024-04-10 17:12:12 -0400] [32420] [INFO] Finished server process [32420]
+[2024-04-10 17:12:12 -0400] [32420] [INFO] Worker exiting (pid: 32420)
+[2024-04-10 17:12:12 -0400] [32371] [INFO] Waiting for application shutdown.
+[2024-04-10 17:12:12 -0400] [32371] [INFO] Application shutdown complete.
+[2024-04-10 17:12:12 -0400] [32371] [INFO] Finished server process [32371]
+[2024-04-10 17:12:12 -0400] [32371] [INFO] Worker exiting (pid: 32371)
+[2024-04-10 17:12:12 -0400] [32363] [INFO] Shutting down: Master
+[2024-04-10 17:12:13 -0400] [32668] [DEBUG] Current configuration:
+  config: webserver/gunicorn_conf.py
+  wsgi_app: None
+  bind: ['unix:/tmp/gunicorn.sock']
+  backlog: 2048
+  workers: 21
+  worker_class: uvicorn.workers.UvicornWorker
+  threads: 1
+  worker_connections: 1000
+  max_requests: 0
+  max_requests_jitter: 0
+  timeout: 30
+  graceful_timeout: 30
+  keepalive: 2
+  limit_request_line: 4094
+  limit_request_fields: 100
+  limit_request_field_size: 8190
+  reload: False
+  reload_engine: auto
+  reload_extra_files: []
+  spew: False
+  check_config: False
+  print_config: False
+  preload_app: False
+  sendfile: None
+  reuse_port: False
+  chdir: /users/dorlando/netraiders
+  daemon: False
+  raw_env: []
+  pidfile: None
+  worker_tmp_dir: None
+  user: 0
+  group: 0
+  umask: 0
+  initgroups: False
+  tmp_upload_dir: None
+  secure_scheme_headers: {'X-FORWARDED-PROTOCOL': 'ssl', 'X-FORWARDED-PROTO': 'https', 'X-FORWARDED-SSL': 'on'}
+  forwarded_allow_ips: ['127.0.0.1']
+  accesslog: None
+  disable_redirect_access_to_syslog: False
+  access_log_format: %(h)s %(l)s %(u)s %(t)s "%(r)s" %(s)s %(b)s "%(f)s" "%(a)s"
+  errorlog: /users/dorlando/netraiders/error_log
+  loglevel: debug
+  capture_output: False
+  logger_class: gunicorn.glogging.Logger
+  logconfig: None
+  logconfig_dict: {}
+  syslog_addr: udp://localhost:514
+  syslog: False
+  syslog_prefix: None
+  syslog_facility: user
+  enable_stdio_inheritance: False
+  statsd_host: None
+  dogstatsd_tags: 
+  statsd_prefix: 
+  proc_name: None
+  default_proc_name: webserver.api:app
+  pythonpath: None
+  paste: None
+  on_starting: <function OnStarting.on_starting at 0x7fc47f4b7af0>
+  on_reload: <function OnReload.on_reload at 0x7fc47f4b7c10>
+  when_ready: <function WhenReady.when_ready at 0x7fc47f4b7d30>
+  pre_fork: <function Prefork.pre_fork at 0x7fc47f4b7e50>
+  post_fork: <function Postfork.post_fork at 0x7fc47f4b7f70>
+  post_worker_init: <function PostWorkerInit.post_worker_init at 0x7fc47f4ca0d0>
+  worker_int: <function WorkerInt.worker_int at 0x7fc47f4ca1f0>
+  worker_abort: <function WorkerAbort.worker_abort at 0x7fc47f4ca310>
+  pre_exec: <function PreExec.pre_exec at 0x7fc47f4ca430>
+  pre_request: <function PreRequest.pre_request at 0x7fc47f4ca550>
+  post_request: <function PostRequest.post_request at 0x7fc47f4ca5e0>
+  child_exit: <function ChildExit.child_exit at 0x7fc47f4ca700>
+  worker_exit: <function WorkerExit.worker_exit at 0x7fc47f4ca820>
+  nworkers_changed: <function NumWorkersChanged.nworkers_changed at 0x7fc47f4ca940>
+  on_exit: <function OnExit.on_exit at 0x7fc47f4caa60>
+  proxy_protocol: False
+  proxy_allow_ips: ['127.0.0.1']
+  keyfile: None
+  certfile: None
+  ssl_version: 2
+  cert_reqs: 0
+  ca_certs: None
+  suppress_ragged_eofs: True
+  do_handshake_on_connect: False
+  ciphers: None
+  raw_paste_global_conf: []
+  strip_header_spaces: False
+[2024-04-10 17:12:13 -0400] [32668] [INFO] Starting gunicorn 20.1.0
+[2024-04-10 17:12:13 -0400] [32668] [DEBUG] Arbiter booted
+[2024-04-10 17:12:13 -0400] [32668] [INFO] Listening at: unix:/tmp/gunicorn.sock (32668)
+[2024-04-10 17:12:13 -0400] [32668] [INFO] Using worker: uvicorn.workers.UvicornWorker
+[2024-04-10 17:12:13 -0400] [32673] [INFO] Booting worker with pid: 32673
+[2024-04-10 17:12:13 -0400] [32678] [INFO] Booting worker with pid: 32678
+[2024-04-10 17:12:13 -0400] [32684] [INFO] Booting worker with pid: 32684
+[2024-04-10 17:12:13 -0400] [32685] [INFO] Booting worker with pid: 32685
+[2024-04-10 17:12:13 -0400] [32686] [INFO] Booting worker with pid: 32686
+[2024-04-10 17:12:13 -0400] [32687] [INFO] Booting worker with pid: 32687
+[2024-04-10 17:12:13 -0400] [32688] [INFO] Booting worker with pid: 32688
+[2024-04-10 17:12:13 -0400] [32691] [INFO] Booting worker with pid: 32691
+[2024-04-10 17:12:13 -0400] [32692] [INFO] Booting worker with pid: 32692
+[2024-04-10 17:12:13 -0400] [32694] [INFO] Booting worker with pid: 32694
+[2024-04-10 17:12:13 -0400] [32707] [INFO] Booting worker with pid: 32707
+[2024-04-10 17:12:13 -0400] [32673] [INFO] Started server process [32673]
+[2024-04-10 17:12:13 -0400] [32673] [INFO] Waiting for application startup.
+[2024-04-10 17:12:13 -0400] [32673] [INFO] Application startup complete.
+[2024-04-10 17:12:13 -0400] [32708] [INFO] Booting worker with pid: 32708
+[2024-04-10 17:12:13 -0400] [32711] [INFO] Booting worker with pid: 32711
+[2024-04-10 17:12:13 -0400] [32678] [INFO] Started server process [32678]
+[2024-04-10 17:12:13 -0400] [32678] [INFO] Waiting for application startup.
+[2024-04-10 17:12:13 -0400] [32678] [INFO] Application startup complete.
+[2024-04-10 17:12:13 -0400] [32684] [INFO] Started server process [32684]
+[2024-04-10 17:12:13 -0400] [32684] [INFO] Waiting for application startup.
+[2024-04-10 17:12:13 -0400] [32684] [INFO] Application startup complete.
+[2024-04-10 17:12:13 -0400] [32713] [INFO] Booting worker with pid: 32713
+[2024-04-10 17:12:14 -0400] [32685] [INFO] Started server process [32685]
+[2024-04-10 17:12:14 -0400] [32685] [INFO] Waiting for application startup.
+[2024-04-10 17:12:14 -0400] [32685] [INFO] Application startup complete.
+[2024-04-10 17:12:14 -0400] [32714] [INFO] Booting worker with pid: 32714
+[2024-04-10 17:12:14 -0400] [32715] [INFO] Booting worker with pid: 32715
+[2024-04-10 17:12:14 -0400] [32716] [INFO] Booting worker with pid: 32716
+[2024-04-10 17:12:14 -0400] [32717] [INFO] Booting worker with pid: 32717
+[2024-04-10 17:12:14 -0400] [32686] [INFO] Started server process [32686]
+[2024-04-10 17:12:14 -0400] [32686] [INFO] Waiting for application startup.
+[2024-04-10 17:12:14 -0400] [32686] [INFO] Application startup complete.
+[2024-04-10 17:12:14 -0400] [32687] [INFO] Started server process [32687]
+[2024-04-10 17:12:14 -0400] [32687] [INFO] Waiting for application startup.
+[2024-04-10 17:12:14 -0400] [32687] [INFO] Application startup complete.
+[2024-04-10 17:12:14 -0400] [32721] [INFO] Booting worker with pid: 32721
+[2024-04-10 17:12:14 -0400] [32688] [INFO] Started server process [32688]
+[2024-04-10 17:12:14 -0400] [32688] [INFO] Waiting for application startup.
+[2024-04-10 17:12:14 -0400] [32688] [INFO] Application startup complete.
+[2024-04-10 17:12:14 -0400] [32722] [INFO] Booting worker with pid: 32722
+[2024-04-10 17:12:14 -0400] [32724] [INFO] Booting worker with pid: 32724
+[2024-04-10 17:12:14 -0400] [32668] [DEBUG] 21 workers
+[2024-04-10 17:12:14 -0400] [32692] [INFO] Started server process [32692]
+[2024-04-10 17:12:14 -0400] [32692] [INFO] Waiting for application startup.
+[2024-04-10 17:12:14 -0400] [32692] [INFO] Application startup complete.
+[2024-04-10 17:12:14 -0400] [32694] [INFO] Started server process [32694]
+[2024-04-10 17:12:14 -0400] [32694] [INFO] Waiting for application startup.
+[2024-04-10 17:12:14 -0400] [32694] [INFO] Application startup complete.
+[2024-04-10 17:12:14 -0400] [32691] [INFO] Started server process [32691]
+[2024-04-10 17:12:14 -0400] [32691] [INFO] Waiting for application startup.
+[2024-04-10 17:12:14 -0400] [32691] [INFO] Application startup complete.
+[2024-04-10 17:12:14 -0400] [32707] [INFO] Started server process [32707]
+[2024-04-10 17:12:14 -0400] [32707] [INFO] Waiting for application startup.
+[2024-04-10 17:12:14 -0400] [32707] [INFO] Application startup complete.
+[2024-04-10 17:12:14 -0400] [32708] [INFO] Started server process [32708]
+[2024-04-10 17:12:14 -0400] [32708] [INFO] Waiting for application startup.
+[2024-04-10 17:12:14 -0400] [32708] [INFO] Application startup complete.
+[2024-04-10 17:12:14 -0400] [32711] [INFO] Started server process [32711]
+[2024-04-10 17:12:14 -0400] [32711] [INFO] Waiting for application startup.
+[2024-04-10 17:12:14 -0400] [32711] [INFO] Application startup complete.
+[2024-04-10 17:12:14 -0400] [32713] [INFO] Started server process [32713]
+[2024-04-10 17:12:14 -0400] [32713] [INFO] Waiting for application startup.
+[2024-04-10 17:12:14 -0400] [32713] [INFO] Application startup complete.
+[2024-04-10 17:12:14 -0400] [32714] [INFO] Started server process [32714]
+[2024-04-10 17:12:14 -0400] [32714] [INFO] Waiting for application startup.
+[2024-04-10 17:12:14 -0400] [32714] [INFO] Application startup complete.
+[2024-04-10 17:12:14 -0400] [32715] [INFO] Started server process [32715]
+[2024-04-10 17:12:14 -0400] [32715] [INFO] Waiting for application startup.
+[2024-04-10 17:12:14 -0400] [32715] [INFO] Application startup complete.
+[2024-04-10 17:12:14 -0400] [32717] [INFO] Started server process [32717]
+[2024-04-10 17:12:14 -0400] [32717] [INFO] Waiting for application startup.
+[2024-04-10 17:12:14 -0400] [32716] [INFO] Started server process [32716]
+[2024-04-10 17:12:14 -0400] [32716] [INFO] Waiting for application startup.
+[2024-04-10 17:12:14 -0400] [32717] [INFO] Application startup complete.
+[2024-04-10 17:12:14 -0400] [32716] [INFO] Application startup complete.
+[2024-04-10 17:12:14 -0400] [32721] [INFO] Started server process [32721]
+[2024-04-10 17:12:14 -0400] [32721] [INFO] Waiting for application startup.
+[2024-04-10 17:12:14 -0400] [32721] [INFO] Application startup complete.
+[2024-04-10 17:12:14 -0400] [32722] [INFO] Started server process [32722]
+[2024-04-10 17:12:14 -0400] [32722] [INFO] Waiting for application startup.
+[2024-04-10 17:12:14 -0400] [32722] [INFO] Application startup complete.
+[2024-04-10 17:12:14 -0400] [32724] [INFO] Started server process [32724]
+[2024-04-10 17:12:14 -0400] [32724] [INFO] Waiting for application startup.
+[2024-04-10 17:12:14 -0400] [32724] [INFO] Application startup complete.
