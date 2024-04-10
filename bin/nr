@@ -1,5 +1,0 @@
-#!/bin/bash -xe
-
-ROOT="/root/netraiders"
-cd "$ROOT"
-python3 webtransportserver.py /etc/letsencrypt/live/dilate.ai/fullchain.pem /etc/letsencrypt/live/dilate.ai/privkey.pem

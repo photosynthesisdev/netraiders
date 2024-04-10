@@ -1,0 +1,5 @@
+#!/bin/bash -xe
+
+ROOT="/users/dorlando/netraiders"
+# source "/root/stageapi/venv/bin/activate"
+/usr/bin/gunicorn -c gunicorn_conf.py netraiders_server:app 
