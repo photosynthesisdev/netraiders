@@ -5,28 +5,28 @@ import logging
 
 app = FastAPI()
 
-# WhoAmI will be in charge of giving the player a cookie
+
 @app.get("/whoami")
 def whoami(request : Request):
-    return request.headers
+    '''This endpoint will be in charge of issuing cookie to player for identifying them. Let them make persistent account, maintain leaderboard.'''
+    return "I am me."
 
-@app.post("/protoUpload")
-async def protoUpload(request : Request):
-    body_bytes = await request.body()
-    player = models_pb2.PlayerModel().FromString(body_bytes)
-    response_bytes = player.SerializeToString()
-    return Response(content=response_bytes, media_type="application/x-protobuf")
-
-# This is going to be core websocket of maintaining player state
 @app.websocket("/netraidersProtobuf")
 async def netraidersProtobuf(websocket : WebSocket):
+    '''Websocket for testing Protobuf Serialization/Deserialization speed.'''
     await websocket.accept()
+    # use the protobuf that we build in proto_files folder for PlayerModel (super sipmle, just name & score)
     player = models_pb2.PlayerModel(name="Basic Client", score=0)
     try:
+        # websocket's while true loop.
         while True:
-            await websocket.send_text(player.SerializeToString()) # Send a default model to PlayerModel - make name="Basic Client", score = 0
-            inputs_bytes = await websocket.receive_bytes() # Receive PlayerInputs - if input is true, iterate player's score by +=1
+            # send the players current 'state' to them. When game starts, this will just be default values (score is zero). 
+            await websocket.send_text(player.SerializeToString())
+            # receive from the player their inputs (pressed WASD, space, clicked)
+            inputs_bytes = await websocket.receive_bytes()
             inputs = models_pb2.PlayerInputs().FromString(inputs_bytes)
+            # if player was 'pressing a key' add 1 to their score. In the current unity build, this is just true by default.
+            # However, in the actual game build, this is where any arbitrary logic would go where we would process the players inputs to compute their new 'state'
             if inputs.pressed_key:
                 player.score += 1
     except Exception as e:
@@ -35,17 +35,19 @@ async def netraidersProtobuf(websocket : WebSocket):
         except Exception as e:
             logging.error(e)
     finally:
+        # any cleanup logic we need goes here (such as notifying other players of this players disconnect, closing database connection, etc.)
         ...
 
 @app.websocket("/netraidersJson")
 async def netraidersJson(websocket : WebSocket):
+    '''Websocket for testing JSON speed. See Protobuf socket for comments on how that works'''
     from .models import PlayerModel, PlayerInputs
     await websocket.accept()
     player = PlayerModel(name="Json Client", score = 0)
     try:
         while True:
-            await websocket.send_text(player.json()) # Send a default model to PlayerModel - make name="Basic Client", score = 0
-            input_str = (await websocket.receive()).get("text", "") # Receive PlayerInputs - if input is true, iterate player's score by +=1
+            await websocket.send_text(player.json())
+            input_str = (await websocket.receive()).get("text", "") 
             #inputs = PlayerInputs.parse_obj(json.loads(input_str))
             #if inputs.pressed_key:
             player.score += 1
