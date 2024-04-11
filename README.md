@@ -2,9 +2,8 @@
 
 ## Milestone #1 Notes:
 ### WEBSERVER SETUP
-- With the completion of Milestone 1 we have setup our basic infastructure for FAST client/server communication.
-- We have setup a simple NGINX/FastAPI WebServer
 - We have discarded the idea of using QUIC / WebTransport for our games networking, as these protocols are too new and have too little support to actively develop with them
+- We have setup a simple NGINX/FastAPI WebServer. We will use WebSockets for our bi-directional client/server communication. 
 
 ### UNITY BUILD & PERFORMANCE TESTS:
 - A (very basic) Unity Build is live on http://spock.cs.colgate.edu
