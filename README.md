@@ -7,11 +7,12 @@
 
 ### UNITY BUILD & PERFORMANCE TESTS:
 - A (very basic) Unity Build is live on http://spock.cs.colgate.edu
+- The counter of 'total messages sent' iterates only when a "round trip" of client --> server --> back to client is complete.
+- The live build contains performance tests comparing the speed of WebSockets serializing/deserializing data with Protobufs vs with JSON
+- Protobufs perform consistently better than JSON (on my wifi I get ~190 msgs/second with protobufs, ~175 msg/second with json)
+- We expect the performance increase from protobufs to become a lot more pronounced as our datastructures become larger in size, as json will take longer to serialize and deserialize the data
 - Static content is served from NGINX (cdn in future?)
 - WebSockets connect to FastAPI backend (see /webserver/api.py script)
-- The live build contains performance tests for over Websockets, comparing Protobufs to JSON
-- Protobufs perform consistently better than JSON (on my wifi I consistently get ~190 msgs/second with protobufs, ~175 msg/second with json)
-- We expect the performance increase from protobufs to become a lot more pronounced as our datastructures become larger in size, as json will take longer to serialize and deserialize the data
 
 ### OTHER NOTES:
 - The codebase isn't super 'robust' yet, we first had to take the time to get everything configured properly (i.e. setup NGINX, setup FastAPI, setup NGINX to distribute static files and talk to FastAPI, setup Protobufs in C# and Python, get everyone on same Unity Project, build Unity to Web version, etc). We also spent a good amount of time learning about WebTransport/QUIC/HTTP/3, which wasn't in vein as its super interesting and cutting edge knowledge, but it doesn't directly apply to our new milestone 1 goals.
