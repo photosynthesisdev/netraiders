@@ -2,6 +2,7 @@ from fastapi import (Request, Response, FastAPI, WebSocket)
 from .proto_files import models_pb2
 import base64
 import logging
+import json
 
 app = FastAPI()
 
@@ -10,6 +11,40 @@ app = FastAPI()
 def whoami(request : Request):
     '''This endpoint will be in charge of issuing cookie to player for identifying them. Let them make persistent account, maintain leaderboard.'''
     return "I am me."
+
+@app.websocket("/netraiderConnect")
+async def netraider(websocket : WebSocket):
+    from .models import NetRaiderPlayer, NetRaiderInput
+    await websocket.accept()
+    player = NetRaiderPlayer(user_id = 1, username = "BasicUser")
+    try:
+        # websocket's while true loop.
+        while True:
+            # send the players current 'state' to them. When game starts, this will just be default values (score is zero). 
+            await websocket.send_text(player.json())
+            # receive from the player their inputs (pressed WASD, space, clicked)
+            raw_input_json = (await websocket.receive()).get("text", "") 
+            # player inputs
+            player_inputs = json.loads(raw_input_json)
+            # PROCESS INPUTS
+            if player_inputs['up']:
+                player.y += 15
+            if player_inputs['down']:
+                player.y -= 15
+            if player_inputs['left']:
+                player.x -= 15
+            if player_inputs['right']:
+                player.x += 15
+    except Exception as e:
+        try:
+            logging.error(f'WebSocket Close --- {e}')
+            await websocket.close()
+        except Exception as e:
+            logging.error(e)
+    finally:
+        # any cleanup logic we need goes here (such as notifying other players of this players disconnect, closing database connection, etc.)
+        logging.error(f'WebSocket Finally closed')
+    
 
 @app.websocket("/netraidersProtobuf")
 async def netraidersProtobuf(websocket : WebSocket):
