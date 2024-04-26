@@ -1,6 +1,9 @@
 from pydantic import BaseModel
 import time
 import asyncio
+import etcd3
+import json
+import logging
 
 # Defines how many hertz (ticks per second) that the network simulation will run at.
 # Tick should always be a positive integer.
@@ -46,7 +49,7 @@ class NetraidersSimulation:
     def start_simulation(self, connected_player : NetraiderPlayer):
         self.local_player = connected_player
         asyncio.create_task(self.start_simulation_thread())
-        # NOTE: apply whatever operations to player in rest of this function for initialization, such as spawn point, inital speed, health, etc.
+        # NOTE: apply whatever initialization to player in rest of this function such as spawn point, inital speed, health, etc.
         # Once we make this network simulation more than one player, the players server_tick should also match whatever the current tick is of match they joined
 
     async def start_simulation_thread(self):
@@ -61,16 +64,20 @@ class NetraidersSimulation:
         self.server_tick += 1
 
     
-    def handle_client_input(self, netraider_input : NetraiderInput):
+    def handle_client_input(self, netraider_input):
         '''Called when input is received from client.'''
-        if netraider_input <= local_player.tick or netraider_input > self.server_tick:
+        logging.error("entering function")
+        # NOTE: Where we left off. The RTT that client is getting at start is zero (b/c we don't have first rountrip yet)
+        # So this will keep returning... although its not printing the error statement, so idk whats going on. 
+        if netraider_input['expected_tick'] <= local_player.tick or netraider_input['expected_tick'] > self.server_tick:
             # Player is cheating (or our code is poorly written)! Log it.
             # Their new input can't be less than or equal to old otherwise they are trying to change old gamestate input!
             # It also can't be greater than the current server tick because clients are always behind the server in the simulation!
             logging.error("Netraider input has bad tick - cheating likely.")
             return
         # mark the tick that this input was for
-        self.local_player.tick = netraider_input.expected_tick
+        self.local_player.tick = netraider_input['expected_tick']
+        logging.error("Local Tick")
         # update the users 
         if netraider_input['up']:
             self.local_player.y += self.local_player.speed
@@ -81,7 +88,8 @@ class NetraidersSimulation:
         if netraider_input['right']:
             self.local_player.x -= self.local_player.speed
         # save users input so that other players can replicate the changes.
-        self.database.put(f'/queued_inputs/basicuser/{netraider_input['expected_tick']}', value=json.dumps(netraider_input))        
+        logging.error("putting in database")
+        self.database.put(f"/queued_inputs/basicuser/{netraider_input['expected_tick']}", value=json.dumps(netraider_input))        
     
 
 
