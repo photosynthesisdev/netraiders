@@ -5,7 +5,7 @@ import logging
 import json
 import etcd3
 import time
-from .models import NetraiderPlayer, NetraiderInput, NetraidersSimulation
+from .netraidersimulation import *
 
 app = FastAPI()
 
