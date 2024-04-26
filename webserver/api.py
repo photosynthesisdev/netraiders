@@ -5,6 +5,7 @@ import logging
 import json
 import etcd3
 import time
+from .models import NetRaiderPlayer, NetraiderInput, NetraidersSimulation
 
 app = FastAPI()
 
@@ -13,14 +14,45 @@ def whoami(request : Request):
     '''This endpoint will be in charge of issuing cookie to player for identifying them. Let them make persistent account, maintain leaderboard.'''
     return {"user": "BasicUser"}
 
+
 @app.websocket("/netraiderConnect")
 async def netraider(websocket : WebSocket):
-    from .models import NetRaiderPlayer, NetraiderInput, ServerSimulation
+    await websocket.accept()
+    player = NetraiderPlayer(user_id = 1, username = "BasicUser")
+    simulation = NetraidersSimulation()
+    simulation.start_simulation()
+    try:
+        while True:
+            rtt_start = time.time()
+            # send players most recent state
+            await websocket.send_text(player.json())
+            # collect users inputs
+            user_inputs = json.loads(await websocket.receive().get("text", ""))
+            # takes client input and RTT and updates simulation
+            simulation.handle_client_input(user_inputs)
+            # set the RTT of the player and inform them of what it is.
+            rtt_end = time.time()
+            rtt = rtt_end - rtt_start
+            player.rtt = rtt
+            player.tick_rtt = rtt * simulation.tick_rate
+    except Exception as e:
+        try:
+            await websocket.close()
+        except Exception as e:
+            logging.error(e)
+    finally:
+        logging.error(f'WebSocket Finally closed')
+
+
+
+@app.websocket("/netraiderConnect")
+async def netraider(websocket : WebSocket):
+    from .models import NetraiderPlayer, NetraiderInput, ServerSimulation
     await websocket.accept()
     # create a simulation object (the game room)
     simulation = ServerSimulation()
     # create our player object
-    player = NetRaiderPlayer(user_id = 1, username = "BasicUser")
+    player = NetraiderPlayer(user_id = 1, username = "BasicUser")
     # create our database connection. We use ETCD for fast reliable key value store.
     database = etcd3.client(host='localhost', port=2379)
     # in order to get proper client side prediction, clients must know what their RTT is to server.
