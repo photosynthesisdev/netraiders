@@ -28,12 +28,15 @@ async def netraider(websocket : WebSocket):
     player.tick_rtt = (rtt_end - rtt_start) * simulation.tick_rate
     try:
         while True:
-            logging.error(f"users tick rtt: {player.tick_rtt}")
+            '''
+            TODO: The control flow of sending/receiving in same order seems like it might be problematic.. look at this again for better control of how we are 
+            sending / receiving
+            '''
             rtt_start = time.perf_counter()
             # send players most recent state
             await websocket.send_text(player.json())
             # collect users inputs
-            user_inputs = json.loads((await websocket.receive()).get("text", ""))        
+            user_inputs = json.loads((await websocket.receive()).get("text", ""))       
             # takes client input and RTT and updates simulation
             simulation.handle_client_input(user_inputs)
             # rtt end.

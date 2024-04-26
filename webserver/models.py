@@ -24,7 +24,7 @@ class NetraiderPlayer(BaseModel):
     # the most recent authoritative tick that the player is on.
     tick : int = 0
     # what the players rtt is to the server, in terms of ticks instead of seconds
-    tick_rtt : int = 0
+    tick_rtt : float = 0
     # what is the tick rate that the player should be using in their simulation?
     tick_rate : int = TICK_RATE
     # speed of player
@@ -61,21 +61,17 @@ class NetraidersSimulation:
         '''This function should be run on its own thread at the start of the simulation'''
         # wait a tick
         await asyncio.sleep(self.tick_seconds)
-        logging.error(f"TICK = {self.server_tick}")
         self.server_tick += 1
 
     
     def handle_client_input(self, netraider_input):
         '''Called when input is received from client.'''
-        # NOTE: Where we left off. The RTT that client is getting at start is zero (b/c we don't have first rountrip yet)
-        # So this will keep returning... although its not printing the error statement, so idk whats going on. 
         logging.error(f"Expected: {netraider_input['expected_tick']}, Local Tick: {self.local_player.tick}, Server Tick: {self.server_tick}")
         if netraider_input['expected_tick'] <= self.local_player.tick or netraider_input['expected_tick'] > self.server_tick:
             # Player is cheating (or our code is poorly written)! Log it.
-            # Their new input can't be less than or equal to old otherwise they are trying to change old gamestate input!
-            # It also can't be greater than the current server tick because clients are always behind the server in the simulation!
             return
         # mark the tick that this input was for
+        # TODO: Accumulate ticks inbetween frames. If player sends 10 inputs in one tick, don't process input ten times but just combine all inputs and process once.
         self.local_player.tick = int(netraider_input['expected_tick'])
         # update the users 
         if netraider_input['up']:
