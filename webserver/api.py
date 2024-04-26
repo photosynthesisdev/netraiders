@@ -15,7 +15,7 @@ def whoami(request : Request):
 
 @app.websocket("/netraiderConnect")
 async def netraider(websocket : WebSocket):
-    from .models import NetRaiderPlayer, NetRaiderInput, ServerSimulation
+    from .models import NetRaiderPlayer, NetraiderInput, ServerSimulation
     await websocket.accept()
     # create a simulation object (the game room)
     simulation = ServerSimulation()
@@ -23,7 +23,6 @@ async def netraider(websocket : WebSocket):
     player = NetRaiderPlayer(user_id = 1, username = "BasicUser")
     # create our database connection. We use ETCD for fast reliable key value store.
     database = etcd3.client(host='localhost', port=2379)
-
     # in order to get proper client side prediction, clients must know what their RTT is to server.
     start_time = time.time()
     await websocket.send_text("ping")
@@ -35,8 +34,13 @@ async def netraider(websocket : WebSocket):
     player.tick_rtt = tick_rtt
     try:
         while True:
+            await ...
             now_unix = time.time()
             if now_unix > (simulation.last_time_step + (1/simulation.tick_rate)):
+                simulation.last_time_step = now_unix
+                simulation.tick += 1
+                users_input_for_tick = database.get(f'/queued_inputs/basicuser/{simulation.tick}')
+
                 # Read all of a user's inputs from database and sort them.
                 raw_database_tuples = list(database.get_prefix(f'/queued_inputs/basicuser'))
                 inputs = [json.loads(_tuple[0].decode()) for _tuple in raw_database_tuples] if len(raw_database_tuples) > 0 else []
@@ -61,7 +65,8 @@ async def netraider(websocket : WebSocket):
                 await websocket.send_text(player.json())
             raw_input_json = (await websocket.receive()).get("text", "")
             player_inputs = json.loads(raw_input_json)
-            database.put(f'/queued_inputs/basicuser/{player_inputs["tick"]}', value=raw_input_json)
+            database.put(f'/queued_inputs/basicuser/{player_inputs["expected_tick"]}', value=raw_input_json)
+            
     except Exception as e:
         try:
             logging.error(f'WebSocket Close --- {e}')
