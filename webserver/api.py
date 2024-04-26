@@ -23,39 +23,45 @@ async def netraider(websocket : WebSocket):
     player = NetRaiderPlayer(user_id = 1, username = "BasicUser")
     # create our database connection. We use ETCD for fast reliable key value store.
     database = etcd3.client(host='localhost', port=2379)
+
+    # in order to get proper client side prediction, clients must know what their RTT is to server.
+    start_time = time.time()
+    await websocket.send_text("ping")
+    await websocket.receive_text()
+    end_time = time.time()
+    # get rtt in terms of ticks
+    tick_rtt = (end_time-start_time) * simulation.tick_rate
+    # attach to players object
+    player.tick_rtt = tick_rtt
     try:
         while True:
             now_unix = time.time()
-            if now_unix > (simulation.last_time_step + (1/simulation.time_step)):
-                # Read all of a user's inputs from database. 
-                raw_database_tuples = database.get_prefix(f'/queued_inputs/basicuser')
-                # A 'network iteration' has passed. Update player of all other players states.
-                inputs = [json.loads(_tuple[0].decode()) for _tuple in raw_database_tuples]
-                # sort all inputs by order they were received in
-                inputs = sorted(inputs, key=lambda x: x['seq_num'])
-                # Initialize movement deltas
-                dx, dy = 0, 0
-                # user may have many inputs. Normalize them.
-                input_time_fraction = 0.1 / len(inputs) if inputs else 0
-                # Process all inputs for the tick
+            if now_unix > (simulation.last_time_step + (1/simulation.tick_rate)):
+                # Read all of a user's inputs from database and sort them.
+                raw_database_tuples = list(database.get_prefix(f'/queued_inputs/basicuser'))
+                inputs = [json.loads(_tuple[0].decode()) for _tuple in raw_database_tuples] if len(raw_database_tuples) > 0 else []
+                inputs = sorted(inputs, key=lambda x: x.get('tick', 0), reverse=True)
+                # aggregate all inputs that user sent in time step.
+                aggregate_inputs = {'up': 0, 'down': 0, 'left': 0, 'right': 0}
                 for player_input in inputs:
-                    if player_input['up']:
-                        dy += player.speed * input_time_fraction
-                    if player_input['down']:
-                        dy -= player.speed * input_time_fraction
-                    if player_input['left']:
-                        dx -= player.speed * input_time_fraction
-                    if player_input['right']:
-                        dx += player.speed * input_time_fraction
-                player.x += dx
-                player.y += dy
+                    for key in aggregate_inputs:
+                        if player_input.get(key, False):
+                            aggregate_inputs[key] += 1
+                # normalize each aggregated input.
+                num_inputs = len(inputs)
+                if num_inputs > 0:
+                    dx = (aggregate_inputs['right'] - aggregate_inputs['left']) * (player.speed / num_inputs)
+                    dy = (aggregate_inputs['up'] - aggregate_inputs['down']) * (player.speed / num_inputs)
+                    # Apply normalized movement
+                    player.x += dx
+                    player.y += dy
                 simulation.last_time_step = now_unix
                 # delete knowledge of inputs
                 database.delete_prefix(f'/queued_inputs/basicuser')
                 await websocket.send_text(player.json())
             raw_input_json = (await websocket.receive()).get("text", "")
             player_inputs = json.loads(raw_input_json)
-            database.put(f'/queued_inputs/basicuser/{player_inputs.seq_num}', value=player_inputs.json())
+            database.put(f'/queued_inputs/basicuser/{player_inputs["tick"]}', value=raw_input_json)
     except Exception as e:
         try:
             logging.error(f'WebSocket Close --- {e}')
