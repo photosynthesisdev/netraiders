@@ -21,23 +21,24 @@ async def netraider(websocket : WebSocket):
     player = NetraiderPlayer(user_id = 1, username = "BasicUser")
     simulation = NetraidersSimulation()
     simulation.start_simulation(player)
-    rtt_start = time.time()
+    rtt_start = time.perf_counter()
     await websocket.send_text("ping")
     await websocket.receive()
-    rtt_end = time.time()
+    rtt_end = time.perf_counter()
     player.tick_rtt = (rtt_end - rtt_start) * simulation.tick_rate
     try:
         while True:
-            rtt_start = time.time()
-            # send players most recent state
             logging.error(f"users tick rtt: {player.tick_rtt}")
+            rtt_start = time.perf_counter()
+            # send players most recent state
             await websocket.send_text(player.json())
             # collect users inputs
-            user_inputs = json.loads((await websocket.receive()).get("text", ""))
+            user_inputs = json.loads((await websocket.receive()).get("text", ""))        
             # takes client input and RTT and updates simulation
             simulation.handle_client_input(user_inputs)
+            # rtt end.
+            rtt_end = time.perf_counter()
             # set the RTT of the player and inform them of what it is.
-            rtt_end = time.time()
             player.tick_rtt = (rtt_end - rtt_start) * simulation.tick_rate
     except Exception as e:
         try:

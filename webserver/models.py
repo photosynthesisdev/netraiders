@@ -7,12 +7,12 @@ import logging
 
 # Defines how many hertz (ticks per second) that the network simulation will run at.
 # Tick should always be a positive integer.
-TICK_RATE = 30
+TICK_RATE = 60
 
 # Defines this inputs of the user. 
 # This contains the tick at which they predict the server to currently be on, as well as the keys they pressed.
 class NetraiderInput(BaseModel):
-    expected_tick : int = 0
+    expected_tick : float = 0
     up : bool
     down : bool
     left : bool
@@ -61,6 +61,7 @@ class NetraidersSimulation:
         '''This function should be run on its own thread at the start of the simulation'''
         # wait a tick
         await asyncio.sleep(self.tick_seconds)
+        logging.error(f"TICK = {self.server_tick}")
         self.server_tick += 1
 
     
@@ -68,14 +69,14 @@ class NetraidersSimulation:
         '''Called when input is received from client.'''
         # NOTE: Where we left off. The RTT that client is getting at start is zero (b/c we don't have first rountrip yet)
         # So this will keep returning... although its not printing the error statement, so idk whats going on. 
+        logging.error(f"Expected: {netraider_input['expected_tick']}, Local Tick: {self.local_player.tick}, Server Tick: {self.server_tick}")
         if netraider_input['expected_tick'] <= self.local_player.tick or netraider_input['expected_tick'] > self.server_tick:
             # Player is cheating (or our code is poorly written)! Log it.
             # Their new input can't be less than or equal to old otherwise they are trying to change old gamestate input!
             # It also can't be greater than the current server tick because clients are always behind the server in the simulation!
-            logging.error(f"Expected: {netraider_input['expected_tick']}, Local Tick: {self.local_player.tick}, Server Tick: {self.server_tick}")
             return
         # mark the tick that this input was for
-        self.local_player.tick = netraider_input['expected_tick']
+        self.local_player.tick = int(netraider_input['expected_tick'])
         # update the users 
         if netraider_input['up']:
             self.local_player.y += self.local_player.speed
