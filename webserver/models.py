@@ -7,7 +7,7 @@ import logging
 
 # Defines how many hertz (ticks per second) that the network simulation will run at.
 # Tick should always be a positive integer.
-TICK_RATE = 10
+TICK_RATE = 30
 
 # Defines this inputs of the user. 
 # This contains the tick at which they predict the server to currently be on, as well as the keys they pressed.
@@ -66,29 +66,26 @@ class NetraidersSimulation:
     
     def handle_client_input(self, netraider_input):
         '''Called when input is received from client.'''
-        logging.error("entering function")
         # NOTE: Where we left off. The RTT that client is getting at start is zero (b/c we don't have first rountrip yet)
         # So this will keep returning... although its not printing the error statement, so idk whats going on. 
-        if netraider_input['expected_tick'] <= local_player.tick or netraider_input['expected_tick'] > self.server_tick:
+        if netraider_input['expected_tick'] <= self.local_player.tick or netraider_input['expected_tick'] > self.server_tick:
             # Player is cheating (or our code is poorly written)! Log it.
             # Their new input can't be less than or equal to old otherwise they are trying to change old gamestate input!
             # It also can't be greater than the current server tick because clients are always behind the server in the simulation!
-            logging.error("Netraider input has bad tick - cheating likely.")
+            logging.error(f"Expected: {netraider_input['expected_tick']}, Local Tick: {self.local_player.tick}, Server Tick: {self.server_tick}")
             return
         # mark the tick that this input was for
         self.local_player.tick = netraider_input['expected_tick']
-        logging.error("Local Tick")
         # update the users 
         if netraider_input['up']:
             self.local_player.y += self.local_player.speed
         if netraider_input['down']:
             self.local_player.y -= self.local_player.speed
         if netraider_input['left']:
-            self.local_player.x += self.local_player.speed
-        if netraider_input['right']:
             self.local_player.x -= self.local_player.speed
-        # save users input so that other players can replicate the changes.
-        logging.error("putting in database")
+        if netraider_input['right']:
+            self.local_player.x += self.local_player.speed
+        # save users input so that other players can replicate the changes.ç
         self.database.put(f"/queued_inputs/basicuser/{netraider_input['expected_tick']}", value=json.dumps(netraider_input))        
     
 
