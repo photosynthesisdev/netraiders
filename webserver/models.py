@@ -10,15 +10,6 @@ from typing import List
 # Tick should always be a positive integer.
 TICK_RATE = 20
 
-# Defines this inputs of the user. 
-# This contains the tick at which they predict the server to currently be on, as well as the keys they pressed.
-class NetraiderInput(BaseModel):
-    expected_tick : float = 0
-    up : bool
-    down : bool
-    left : bool
-    right : bool
-
 class NetraiderPlayer(BaseModel):
     user_id : int
     username : str
@@ -35,6 +26,7 @@ class NetraiderPlayer(BaseModel):
     y : float = 0
     z : float = 0
 
+
 class NetraiderSnapshot(BaseModel):
     local_player_id : int
     # what is server's most recent known tick (keeps client in sync)
@@ -43,5 +35,16 @@ class NetraiderSnapshot(BaseModel):
     tick_rate : int = TICK_RATE
     # all of our players
     players : List[NetraiderPlayer] = []
+
+# Defines this inputs of the user. 
+# This contains the tick at which they predict the server to currently be on, as well as the keys they pressed.
+class NetraiderInput(BaseModel):
+    expected_tick : float = 0
+    up : bool
+    down : bool
+    left : bool
+    right : bool
+
+
 
 

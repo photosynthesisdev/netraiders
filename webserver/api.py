@@ -23,7 +23,9 @@ async def netraider(websocket : WebSocket):
             if isinstance(event, etcd3.events.PutEvent):
                 simulation.update_player(NetraiderPlayer.parse_obj(json.loads(event.value.decode("utf-8"))))
             elif isinstance(event, etcd3.events.DeleteEvent):
-                logging.error('Player logged out')
+                exited_user_id = int(event.key.decode('utf-8').split("/")[-1])
+                logging.error(f'DELETE EVENT FOR: {exited_user_id}')
+                simulation.remove_player(exited_user_id)
 
     await websocket.accept()
     user_id = random.randint(1, 100000)
@@ -49,12 +51,13 @@ async def netraider(websocket : WebSocket):
             # send players most recent state
             if last_sent_tick < player.tick:
                 last_sent_tick = player.tick
-                await websocket.send_text((NetraiderSnapshot(
-                    server_tick = simulation.server_tick,
-                    local_player_id = user_id, 
-                    players=simulation.players).json()
-                    )
-                )
+                await websocket.send_text((
+                        NetraiderSnapshot(
+                            server_tick = simulation.server_tick,
+                            local_player_id = user_id, 
+                            players=simulation.players
+                        ).json()
+                    ))
             # collect users inputs
             user_inputs = json.loads((await websocket.receive()).get("text", ""))       
             # takes client input and RTT and updates simulation
@@ -63,6 +66,7 @@ async def netraider(websocket : WebSocket):
             rtt_end = time.perf_counter()
             # set the RTT of the player and inform them of what it is.
             player.tick_rtt = (rtt_end - rtt_start) * simulation.tick_rate
+            #TODO: MAKE WEIGHTED RTT
     except Exception as e:
         try:
             logging.error(e)
@@ -72,4 +76,5 @@ async def netraider(websocket : WebSocket):
     finally:
         simulation.database.cancel_watch(watch_id=watch_player_id)
         simulation.database.delete(f'/connected_players/{user_id}')
+        simulation.simulation_task.cancel()
         logging.error(f'WebSocket Finally closed')
