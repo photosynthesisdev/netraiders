@@ -7043,3 +7043,135 @@ Traceback (most recent call last):
   File "/users/dorlando/netraiders/webserver/netraidersimulation.py", line 12, in __init__
     self.tick_rate : int = TICK_RATE
 NameError: name 'TICK_RATE' is not defined
+[2024-04-28 19:16:09 -0400] [109599] [ERROR] Exception in worker process
+Traceback (most recent call last):
+  File "/users/dorlando/netraiders/venv/lib/python3.8/site-packages/gunicorn/arbiter.py", line 589, in spawn_worker
+    worker.init_process()
+  File "/users/dorlando/netraiders/venv/lib/python3.8/site-packages/uvicorn/workers.py", line 66, in init_process
+    super(UvicornWorker, self).init_process()
+  File "/users/dorlando/netraiders/venv/lib/python3.8/site-packages/gunicorn/workers/base.py", line 134, in init_process
+    self.load_wsgi()
+  File "/users/dorlando/netraiders/venv/lib/python3.8/site-packages/gunicorn/workers/base.py", line 146, in load_wsgi
+    self.wsgi = self.app.wsgi()
+  File "/users/dorlando/netraiders/venv/lib/python3.8/site-packages/gunicorn/app/base.py", line 67, in wsgi
+    self.callable = self.load()
+  File "/users/dorlando/netraiders/venv/lib/python3.8/site-packages/gunicorn/app/wsgiapp.py", line 58, in load
+    return self.load_wsgiapp()
+  File "/users/dorlando/netraiders/venv/lib/python3.8/site-packages/gunicorn/app/wsgiapp.py", line 48, in load_wsgiapp
+    return util.import_app(self.app_uri)
+  File "/users/dorlando/netraiders/venv/lib/python3.8/site-packages/gunicorn/util.py", line 359, in import_app
+    mod = importlib.import_module(module)
+  File "/usr/lib/python3.8/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1014, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 991, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 975, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 671, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 783, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/users/dorlando/netraiders/webserver/api.py", line 8, in <module>
+    from .netraidersimulation import *
+  File "/users/dorlando/netraiders/webserver/netraidersimulation.py", line 7, in <module>
+    from .models import NetraiderPlayer, NetraiderInput, TICK_RATE
+  File "/users/dorlando/netraiders/webserver/models.py", line 39, in <module>
+    class NetraiderSnapshot(BaseModel):
+  File "/users/dorlando/netraiders/webserver/models.py", line 40, in NetraiderSnapshot
+    players : List[NetraiderPlayer] = []
+NameError: name 'List' is not defined
+[2024-04-28 19:16:09 -0400] [109600] [ERROR] Exception in worker process
+Traceback (most recent call last):
+  File "/users/dorlando/netraiders/venv/lib/python3.8/site-packages/gunicorn/arbiter.py", line 589, in spawn_worker
+    worker.init_process()
+  File "/users/dorlando/netraiders/venv/lib/python3.8/site-packages/uvicorn/workers.py", line 66, in init_process
+    super(UvicornWorker, self).init_process()
+  File "/users/dorlando/netraiders/venv/lib/python3.8/site-packages/gunicorn/workers/base.py", line 134, in init_process
+    self.load_wsgi()
+  File "/users/dorlando/netraiders/venv/lib/python3.8/site-packages/gunicorn/workers/base.py", line 146, in load_wsgi
+    self.wsgi = self.app.wsgi()
+  File "/users/dorlando/netraiders/venv/lib/python3.8/site-packages/gunicorn/app/base.py", line 67, in wsgi
+    self.callable = self.load()
+  File "/users/dorlando/netraiders/venv/lib/python3.8/site-packages/gunicorn/app/wsgiapp.py", line 58, in load
+    return self.load_wsgiapp()
+  File "/users/dorlando/netraiders/venv/lib/python3.8/site-packages/gunicorn/app/wsgiapp.py", line 48, in load_wsgiapp
+    return util.import_app(self.app_uri)
+  File "/users/dorlando/netraiders/venv/lib/python3.8/site-packages/gunicorn/util.py", line 359, in import_app
+    mod = importlib.import_module(module)
+  File "/usr/lib/python3.8/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1014, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 991, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 975, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 671, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 783, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/users/dorlando/netraiders/webserver/api.py", line 8, in <module>
+    from .netraidersimulation import *
+  File "/users/dorlando/netraiders/webserver/netraidersimulation.py", line 7, in <module>
+    from .models import NetraiderPlayer, NetraiderInput, TICK_RATE
+  File "/users/dorlando/netraiders/webserver/models.py", line 39, in <module>
+    class NetraiderSnapshot(BaseModel):
+  File "/users/dorlando/netraiders/webserver/models.py", line 40, in NetraiderSnapshot
+    players : List[NetraiderPlayer] = []
+NameError: name 'List' is not defined
+[2024-04-28 19:16:49 -0400] [109717] [ERROR] Exception in ASGI application
+Traceback (most recent call last):
+  File "/users/dorlando/netraiders/venv/lib/python3.8/site-packages/uvicorn/protocols/websockets/websockets_impl.py", line 238, in run_asgi
+    result = await self.app(self.scope, self.asgi_receive, self.asgi_send)
+  File "/users/dorlando/netraiders/venv/lib/python3.8/site-packages/uvicorn/middleware/proxy_headers.py", line 78, in __call__
+    return await self.app(scope, receive, send)
+  File "/users/dorlando/netraiders/venv/lib/python3.8/site-packages/fastapi/applications.py", line 270, in __call__
+    await super().__call__(scope, receive, send)
+  File "/users/dorlando/netraiders/venv/lib/python3.8/site-packages/starlette/applications.py", line 124, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/users/dorlando/netraiders/venv/lib/python3.8/site-packages/starlette/middleware/errors.py", line 149, in __call__
+    await self.app(scope, receive, send)
+  File "/users/dorlando/netraiders/venv/lib/python3.8/site-packages/starlette/middleware/exceptions.py", line 79, in __call__
+    raise exc
+  File "/users/dorlando/netraiders/venv/lib/python3.8/site-packages/starlette/middleware/exceptions.py", line 68, in __call__
+    await self.app(scope, receive, sender)
+  File "/users/dorlando/netraiders/venv/lib/python3.8/site-packages/fastapi/middleware/asyncexitstack.py", line 21, in __call__
+    raise e
+  File "/users/dorlando/netraiders/venv/lib/python3.8/site-packages/fastapi/middleware/asyncexitstack.py", line 18, in __call__
+    await self.app(scope, receive, send)
+  File "/users/dorlando/netraiders/venv/lib/python3.8/site-packages/starlette/routing.py", line 706, in __call__
+    await route.handle(scope, receive, send)
+  File "/users/dorlando/netraiders/venv/lib/python3.8/site-packages/starlette/routing.py", line 341, in handle
+    await self.app(scope, receive, send)
+  File "/users/dorlando/netraiders/venv/lib/python3.8/site-packages/starlette/routing.py", line 82, in app
+    await func(session)
+  File "/users/dorlando/netraiders/venv/lib/python3.8/site-packages/fastapi/routing.py", line 289, in app
+    await dependant.call(**values)
+  File "/users/dorlando/netraiders/webserver/api.py", line 28, in netraider
+    user_id = random.randint(0, 100000)
+NameError: name 'random' is not defined
+[2024-04-28 19:17:32 -0400] [109850] [ERROR] Exception in ASGI application
+Traceback (most recent call last):
+  File "/users/dorlando/netraiders/venv/lib/python3.8/site-packages/uvicorn/protocols/websockets/websockets_impl.py", line 238, in run_asgi
+    result = await self.app(self.scope, self.asgi_receive, self.asgi_send)
+  File "/users/dorlando/netraiders/venv/lib/python3.8/site-packages/uvicorn/middleware/proxy_headers.py", line 78, in __call__
+    return await self.app(scope, receive, send)
+  File "/users/dorlando/netraiders/venv/lib/python3.8/site-packages/fastapi/applications.py", line 270, in __call__
+    await super().__call__(scope, receive, send)
+  File "/users/dorlando/netraiders/venv/lib/python3.8/site-packages/starlette/applications.py", line 124, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/users/dorlando/netraiders/venv/lib/python3.8/site-packages/starlette/middleware/errors.py", line 149, in __call__
+    await self.app(scope, receive, send)
+  File "/users/dorlando/netraiders/venv/lib/python3.8/site-packages/starlette/middleware/exceptions.py", line 79, in __call__
+    raise exc
+  File "/users/dorlando/netraiders/venv/lib/python3.8/site-packages/starlette/middleware/exceptions.py", line 68, in __call__
+    await self.app(scope, receive, sender)
+  File "/users/dorlando/netraiders/venv/lib/python3.8/site-packages/fastapi/middleware/asyncexitstack.py", line 21, in __call__
+    raise e
+  File "/users/dorlando/netraiders/venv/lib/python3.8/site-packages/fastapi/middleware/asyncexitstack.py", line 18, in __call__
+    await self.app(scope, receive, send)
+  File "/users/dorlando/netraiders/venv/lib/python3.8/site-packages/starlette/routing.py", line 706, in __call__
+    await route.handle(scope, receive, send)
+  File "/users/dorlando/netraiders/venv/lib/python3.8/site-packages/starlette/routing.py", line 341, in handle
+    await self.app(scope, receive, send)
+  File "/users/dorlando/netraiders/venv/lib/python3.8/site-packages/starlette/routing.py", line 82, in app
+    await func(session)
+  File "/users/dorlando/netraiders/venv/lib/python3.8/site-packages/fastapi/routing.py", line 289, in app
+    await dependant.call(**values)
+  File "/users/dorlando/netraiders/webserver/api.py", line 28, in netraider
+    user_id = random.randint(0, 100000)
+NameError: name 'random' is not defined
