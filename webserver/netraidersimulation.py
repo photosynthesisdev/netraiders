@@ -20,7 +20,7 @@ class NetraidersSimulation:
 
     @property
     def tick_seconds(self):
-        return 1 / self.a
+        return 1 / self.tick_rate
 
     @property
     def next_tick_unix(self):
