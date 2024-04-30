@@ -20,7 +20,7 @@ class NetraiderPlayer(BaseModel):
     # how many ticks ahead is the client
     ticks_ahead : int = 0
     # speed of player
-    speed : float = 250
+    speed : float = 500
     # x,y,z coordinates of player
     x : float = 0
     y : float = 0
