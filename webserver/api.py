@@ -50,12 +50,12 @@ def clearEtcd():
 @app.websocket("/netraiderConnect")
 async def netraider(websocket : WebSocket):
     await websocket.accept()
+    data = json.loads((await websocket.receive()).get("text", ""))
+    username = data['username']
     user_id = random.randint(1, 100000)
-    player = NetraiderPlayer(user_id = user_id, username = f"Username")
-
+    player = NetraiderPlayer(user_id = user_id, username = username)
     simulation = NetraidersSimulation()
     simulation.start_simulation(player)
-
     rtt_start = time.perf_counter()
     await websocket.send_text("ping")
     await websocket.receive()

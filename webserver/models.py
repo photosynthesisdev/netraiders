@@ -10,6 +10,7 @@ import math
 # Defines how many hertz (ticks per second) that the network simulation will run at.
 # Tick should always be a positive integer.
 TICK_RATE = 20
+SCALING_MULTIPLIER = ...
 
 #### A pythonic representation of Unity3D's Vector2 Struct
 class Vector2:
@@ -37,15 +38,30 @@ class Vector2:
         return math.sqrt((b.x - a.x) ** 2 + (b.y - a.y) ** 2)
 
 class Circle:
-    def __init__(position : Vector2, radius : float):
+    def __init__(self, position : Vector2, radius : float):
         self.position = position
         self.radius = radius
     
+    @staticmethod
     def check_collision(ball1, ball2) -> bool:
         '''Takes two circle objects (player & byte) and determines if they are colliding with one another'''
         distance_squared = (ball1.position.x - ball2.position.x) ** 2 + (ball1.position.y - ball2.position.y) ** 2
         sum_of_radii_squared = (ball1.radius + ball2.radius) ** 2
         return distance_squared <= sum_of_radii_squared
+
+    @staticmethod
+    def check_full_overlap(ball1, ball2) -> bool:
+        '''Checks if one circle is completely within another and if the smaller one's scale is <= 85% of the larger one's scale'''
+        distance = math.sqrt((ball1.position.x - ball2.position.x) ** 2 + (ball1.position.y - ball2.position.y) ** 2)
+        if ball1.radius > ball2.radius:
+            larger = ball1
+            smaller = ball2
+        else:
+            larger = ball2
+            smaller = ball1
+        if distance + smaller.radius <= larger.radius and smaller.radius <= 0.85 * larger.radius:
+            return True
+        return False
 
 
 class BitPickup(BaseModel):
@@ -63,9 +79,8 @@ class NetraiderPlayer(BaseModel):
     # x,y coordinates of player
     x : float = 0
     y : float = 0
-    # starting diameter of 1, increases as our size increases
-    diameter : float = 1
     # how many bytes have been transmitted vs not transmitted.
+    scale : float = 1
     untransmitted : int = 0
     transmitted : int = 0
 
@@ -80,7 +95,7 @@ class NetraiderSnapshot(BaseModel):
     spawn_pickups : List[BitPickup] = []
     despawn_players : List[int] = []
     despawn_pickups : List[int] = []
-
+    at_wap : bool = False
 # Defines this inputs of the user. 
 # This contains the tick at which they predict the server to currently be on, as well as the keys they pressed.
 class NetraiderInput(BaseModel):
