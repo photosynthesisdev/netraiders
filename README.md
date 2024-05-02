@@ -4,6 +4,42 @@
 
 ## 👾 PLAY NOW 👾 -> https://spock.cs.colgate.edu
 
+Netraiders is designed to be an educational tool for Computer Networks (COSC465) students. The goal is to help students see each of the 'concepts' integrated into a practical enviroment. We cover 15/18 concepts in this project.
+
+
+# TODO: Include how each of these concepts was integrated into the project. 
+For example, 
+1) Certificates when we used TLS certs for site
+2) Access Control & WAPs in game --> more players at WAP, less data is transmiited
+3) Distance Vector Routing
+
+**Direct links**
+
+- Encoding: modulation and framing
+- Encoding: bandwidth and latency
+- Reliability: interference, error detection, and error correction
+- Reliability: stop-and-wait automatic repeat request
+- Resource allocation: multiplexing
+- Resource allocation: access control
+
+**Multiple Hops**
+- Addressing: Domain Name System
+- Addressing: Internet Protocol addresses
+- Routing: distance vector and link state
+- Routing: Internet structure and economics
+- Routing/Resource allocation: content distribution networks and traffic engineering*
+
+**End-to-End**
+- Reliability: timeouts
+- Reliability: sliding window automatic repeat request
+- Resource allocation: exponential backoff, slow start, and fast retransmit/fast recovery
+- Resource allocation: cubic and congestion avoidance
+- Resource allocation: video streaming
+- Security: denial-of-service attacks
+- Security: man-in-the-middle attacks and certificates
+
+
+
 ### KEY TERMS
 - **Network Update Loop** refers to the while True loop running in the '/netraider' websocket, which can be found in the [`api.py`](webserver/api.py#L50-L90). This is where all important player state information, such as position, scale, or score, are computed and stored. 
 - **Unity Update Loop** refers to the main Unity Engine loop. This is where all visual rendering is done.
