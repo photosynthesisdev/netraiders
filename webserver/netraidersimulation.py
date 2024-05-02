@@ -11,19 +11,28 @@ from .models import NetraiderPlayer, NetraiderInput, NetraiderSnapshot, TICK_RAT
 
 
 class NetraidersSimulation:
+    ''''Starts/Ends/Updates all core player informatino during a match. See functions below for more info.'''
     def __init__(self):
+        # what is tick rate of the game? (20 hertz default)
         self.tick_rate : int = TICK_RATE
+        # what tick is the server currently on? This is the authoritative tick.
         self._server_tick : int = 0
+        # what tick is the client connected to the websocket on?
         self.client_tick : int = 0
+        # database connection so we can replicate data to other players in matchs
         self.database = etcd3.client(host='localhost', port=2379)
-        # represents local player of this simulation
+        # represents local player of this simulation, AKA who is connected to the websocket?
         self.local_player : NetraiderPlayer = None
+        # last tick in unix time
         self.last_tick_unix : float = -1
+        # uwhen did the network simulation start?
         self.unix_start = None
+        # ignore
         self.watch_ids = []
         self.active_spawns : List[BitPickup] = []
         # just stores deltas for player changes - this is what gets sent in snapshot
         self.player_deltas : List[NetraiderPlayer] = []
+        # store any pickups to be spawned over network.
         self.spawn_pickups : List[BitPickup] = []
         # Any player IDs to despawn?
         self.despawn_players : List[int] = []
@@ -32,34 +41,30 @@ class NetraidersSimulation:
         
     @property
     def tick_seconds(self):
+        '''How many seconds is one tick?'''
         return 1 / self.tick_rate
 
     @property
     def server_tick(self):
-        '''The current tick that server is on. This is the authoritative tick.'''
         return self._server_tick
 
     @property
     def wap_alpha(self):
+        '''How close is the player to a Wireless Access Point?'''
         player_position = (self.local_player.x, self.local_player.y)
-        # Define the geometric centers of the corners within a -10 to 10 coordinate system
         corner_data = {
-            (-10, -10): (-8.75, -8.75),  # Center of quadrant A1
-            (10, -10): (8.75, -8.75),    # Center of quadrant A5
-            (-10, 10): (-8.75, 8.75),    # Center of quadrant E1
-            (10, 10): (8.75, 8.75)       # Center of quadrant E5
+            (-10, -10): (-8.75, -8.75),  
+            (10, -10): (8.75, -8.75),    
+            (-10, 10): (-8.75, 8.75),   
+            (10, 10): (8.75, 8.75)
         }
-        quadrant_radius = 2.5  # Half the width/height of a 5x5 quadrant from center to edge
-
-        # Determine the closest corner center based on the player's position
+        quadrant_radius = 2.5
         for corner_center in corner_data.values():
-            if math.fabs(player_position[0] - corner_center[0]) <= quadrant_radius and \
-            math.fabs(player_position[1] - corner_center[1]) <= quadrant_radius:
-                # Calculate the Euclidean distance from the player to the quadrant center
+            if math.fabs(player_position[0] - corner_center[0]) <= quadrant_radius and math.fabs(player_position[1] - corner_center[1]) <= quadrant_radius:
                 distance = math.sqrt((player_position[0] - corner_center[0])**2 + (player_position[1] - corner_center[1])**2)
                 normalized_distance = distance / quadrant_radius
-                return 1 - normalized_distance  # Return 1 minus the normalized distance for the alpha value
-        return 0  # Return 0 if player is outside the corner quadrants
+                return 1 - normalized_distance 
+        return 0
 
     def replicate_player_updates(self, watch_response):
         '''This function listens for any updates to players in the database.'''
@@ -88,6 +93,7 @@ class NetraidersSimulation:
                         return
 
     def get_snapshot(self) -> NetraiderSnapshot:
+        '''Called when server is ready to send update to the client'''
         player_deltas_copy = self.player_deltas[:]
         spawn_pickups_copy = self.spawn_pickups[:]
         despawn_players_copy = self.despawn_players[:]
