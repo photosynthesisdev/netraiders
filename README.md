@@ -1,7 +1,5 @@
-# NetRaiders
-
+# Netraiders
 ## Final Artifacts
-
 ## 👾 PLAY NOW 👾 -> https://spock.cs.colgate.edu
 
 Netraiders is designed to be an educational tool for Computer Networks (COSC465) students. The goal is to help students see each of the 'concepts' integrated into a practical enviroment. We cover 15/18 concepts in this project.
