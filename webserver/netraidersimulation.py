@@ -91,8 +91,8 @@ class NetraidersSimulation:
     def start_simulation(self, connected_player : NetraiderPlayer):
         now = time.time()
         unix_start = now
-        self.watch_ids.append(simulation.database.add_watch_prefix_callback(f"/connected_players", self.replicate_player_updates)) #watch for notifications
-        self.watch_ids.append(simulation.database.add_watch_prefix_callback(f"/pickups", self.replicate_pickup_spawns))
+        self.watch_ids.append(self.database.add_watch_prefix_callback(f"/connected_players", self.replicate_player_updates)) #watch for notifications
+        self.watch_ids.append(self.database.add_watch_prefix_callback(f"/pickups", self.replicate_pickup_spawns))
         # if this is first player to join, make sure they mark UNIX time of when match started.
         if len(self.get_all_connected_players()) == 0:
             self.database.put(f'/startTime', value=json.dumps(now))
@@ -111,6 +111,7 @@ class NetraidersSimulation:
         self.spawning_task = asyncio.create_task(self.start_spawning_thread())
 
     def end_simulation(self):
+        '''Cleans up any resources.'''
         for watch_id in self.watch_ids:
             self.database.cancel_watch(watch_id=watch_id)
         self.database.delete(f'/connected_players/{self.local_player.user_id}')
@@ -130,17 +131,11 @@ class NetraidersSimulation:
     async def start_simulation_thread(self):
         '''Iterates the servers tick on its own thread.'''
         while True:
-            start_time = time.time()
-            self.iterate_timestep()
-            elapsed = time.time() - start_time
+            now = time.time()
+            self._server_tick = int((now-self.unix_start)/self.tick_seconds)
+            elapsed = time.time() - now
             if elapsed < self.tick_seconds:
                 await asyncio.sleep(self.tick_seconds - elapsed)
-
-    def iterate_timestep(self):
-        '''This function should be run on its own thread at the start of the simulation'''
-        # wait a tick
-        now = time.time()
-        self._server_tick = int((now-self.unix_start)/self.tick_seconds)
 
     def custom_lerp(self, a : float, b: float, t: float):
         if t < 0:
@@ -167,22 +162,18 @@ class NetraidersSimulation:
         ticks_ahead = netraider_input['expected_tick']-self.server_tick
         if int(netraider_input['expected_tick']) > self.server_tick:
             logging.error(f"---- CLIENT AHEAD OF SERVER BY: {ticks_ahead}")
-
         #### ACTUAL PROCESSING OF CLIENT STATE HAPPENS HERE
         self.local_player.tick = int(netraider_input['expected_tick'])
+        # Performs calculations based on user state of where they should be on the next tick.
+        # If the client isn't cheating, the value this produces should be identical to what the client has already predicted
+        # If this value isn't identical, then the client will be snapped back to the authoritative position that the server gave.
         current_position = Vector2(x = self.local_player.x, y = self.local_player.y)
         input_vector = Vector2(x = netraider_input['x'], y = netraider_input['y'])
         distance = Vector2.distance(current_position, input_vector)
         current_speed = self.custom_lerp(0, 1, distance/1)
         new_user_position = self.clamp_vector_to_world_bounds(Vector2.move_towards(current_position, input_vector, current_speed * self.tick_seconds))
-        if round(self.local_player.x, 3) != round(new_user_position.y, 3) or round(self.local_player.y, 3) != round(new_user_position.y, 3):
-            '''Only write to database if there are actually significant changes'''
-            logging.error(f"Prior Position: ({self.local_player.x}, {self.local_player.y}) -- New Position: ({input_vector.x}, {input_vector.y})")
-            self.local_player.x = round(new_user_position.x, 5)
-            self.local_player.y = round(new_user_position.y, 5)
-            # store new player state in database
-            self.database.put(f'/connected_players/{self.local_player.user_id}', value = self.local_player.json())
-        else:
-            logging.error("Not enough of difference to give deltas")
-        
-
+        # Write the new position that server calculated to users state        
+        self.local_player.x = round(new_user_position.x, 5)
+        self.local_player.y = round(new_user_position.y, 5)
+        # Store new player state in database
+        self.database.put(f'/connected_players/{self.local_player.user_id}', value = self.local_player.json())

@@ -8386,3 +8386,69 @@ Traceback (most recent call last):
   File "/users/dorlando/netraiders/webserver/api.py", line 96, in netraider
     simiulation.spawning_task.cancel()
 NameError: name 'simiulation' is not defined
+[2024-05-01 20:24:05 -0400] [172443] [ERROR] Exception in ASGI application
+Traceback (most recent call last):
+  File "/users/dorlando/netraiders/venv/lib/python3.8/site-packages/uvicorn/protocols/websockets/websockets_impl.py", line 238, in run_asgi
+    result = await self.app(self.scope, self.asgi_receive, self.asgi_send)
+  File "/users/dorlando/netraiders/venv/lib/python3.8/site-packages/uvicorn/middleware/proxy_headers.py", line 78, in __call__
+    return await self.app(scope, receive, send)
+  File "/users/dorlando/netraiders/venv/lib/python3.8/site-packages/fastapi/applications.py", line 270, in __call__
+    await super().__call__(scope, receive, send)
+  File "/users/dorlando/netraiders/venv/lib/python3.8/site-packages/starlette/applications.py", line 124, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/users/dorlando/netraiders/venv/lib/python3.8/site-packages/starlette/middleware/errors.py", line 149, in __call__
+    await self.app(scope, receive, send)
+  File "/users/dorlando/netraiders/venv/lib/python3.8/site-packages/starlette/middleware/exceptions.py", line 79, in __call__
+    raise exc
+  File "/users/dorlando/netraiders/venv/lib/python3.8/site-packages/starlette/middleware/exceptions.py", line 68, in __call__
+    await self.app(scope, receive, sender)
+  File "/users/dorlando/netraiders/venv/lib/python3.8/site-packages/fastapi/middleware/asyncexitstack.py", line 21, in __call__
+    raise e
+  File "/users/dorlando/netraiders/venv/lib/python3.8/site-packages/fastapi/middleware/asyncexitstack.py", line 18, in __call__
+    await self.app(scope, receive, send)
+  File "/users/dorlando/netraiders/venv/lib/python3.8/site-packages/starlette/routing.py", line 706, in __call__
+    await route.handle(scope, receive, send)
+  File "/users/dorlando/netraiders/venv/lib/python3.8/site-packages/starlette/routing.py", line 341, in handle
+    await self.app(scope, receive, send)
+  File "/users/dorlando/netraiders/venv/lib/python3.8/site-packages/starlette/routing.py", line 82, in app
+    await func(session)
+  File "/users/dorlando/netraiders/venv/lib/python3.8/site-packages/fastapi/routing.py", line 289, in app
+    await dependant.call(**values)
+  File "/users/dorlando/netraiders/webserver/api.py", line 57, in netraider
+    simulation.start_simulation(player)
+  File "/users/dorlando/netraiders/webserver/netraidersimulation.py", line 94, in start_simulation
+    self.watch_ids.append(simulation.database.add_watch_prefix_callback(f"/connected_players", self.replicate_player_updates)) #watch for notifications
+NameError: name 'simulation' is not defined
+[2024-05-01 20:24:07 -0400] [172434] [ERROR] Exception in ASGI application
+Traceback (most recent call last):
+  File "/users/dorlando/netraiders/venv/lib/python3.8/site-packages/uvicorn/protocols/websockets/websockets_impl.py", line 238, in run_asgi
+    result = await self.app(self.scope, self.asgi_receive, self.asgi_send)
+  File "/users/dorlando/netraiders/venv/lib/python3.8/site-packages/uvicorn/middleware/proxy_headers.py", line 78, in __call__
+    return await self.app(scope, receive, send)
+  File "/users/dorlando/netraiders/venv/lib/python3.8/site-packages/fastapi/applications.py", line 270, in __call__
+    await super().__call__(scope, receive, send)
+  File "/users/dorlando/netraiders/venv/lib/python3.8/site-packages/starlette/applications.py", line 124, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/users/dorlando/netraiders/venv/lib/python3.8/site-packages/starlette/middleware/errors.py", line 149, in __call__
+    await self.app(scope, receive, send)
+  File "/users/dorlando/netraiders/venv/lib/python3.8/site-packages/starlette/middleware/exceptions.py", line 79, in __call__
+    raise exc
+  File "/users/dorlando/netraiders/venv/lib/python3.8/site-packages/starlette/middleware/exceptions.py", line 68, in __call__
+    await self.app(scope, receive, sender)
+  File "/users/dorlando/netraiders/venv/lib/python3.8/site-packages/fastapi/middleware/asyncexitstack.py", line 21, in __call__
+    raise e
+  File "/users/dorlando/netraiders/venv/lib/python3.8/site-packages/fastapi/middleware/asyncexitstack.py", line 18, in __call__
+    await self.app(scope, receive, send)
+  File "/users/dorlando/netraiders/venv/lib/python3.8/site-packages/starlette/routing.py", line 706, in __call__
+    await route.handle(scope, receive, send)
+  File "/users/dorlando/netraiders/venv/lib/python3.8/site-packages/starlette/routing.py", line 341, in handle
+    await self.app(scope, receive, send)
+  File "/users/dorlando/netraiders/venv/lib/python3.8/site-packages/starlette/routing.py", line 82, in app
+    await func(session)
+  File "/users/dorlando/netraiders/venv/lib/python3.8/site-packages/fastapi/routing.py", line 289, in app
+    await dependant.call(**values)
+  File "/users/dorlando/netraiders/webserver/api.py", line 57, in netraider
+    simulation.start_simulation(player)
+  File "/users/dorlando/netraiders/webserver/netraidersimulation.py", line 94, in start_simulation
+    self.watch_ids.append(simulation.database.add_watch_prefix_callback(f"/connected_players", self.replicate_player_updates)) #watch for notifications
+NameError: name 'simulation' is not defined
