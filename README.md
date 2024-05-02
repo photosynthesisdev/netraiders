@@ -1,26 +1,22 @@
-# netraiders
+# NetRaiders
 
-## Milestone #1 Notes:
-### WEBSERVER SETUP
-- We have discarded the idea of using QUIC / WebTransport for our games networking, as these protocols are too new and have too little support to actively develop with them
-- We have setup a simple NGINX/FastAPI WebServer. We will use WebSockets for our bi-directional client/server communication. 
+## Final Artifacts
 
-### UNITY BUILD & PERFORMANCE TESTS:
-- A (very basic) Unity Build is live on http://spock.cs.colgate.edu
-- The counter of 'total messages sent' iterates only when a "round trip" of client --> server --> back to client is complete.
-- The live build contains performance tests comparing the speed of WebSockets serializing/deserializing data with Protobufs vs with JSON
-- Protobufs perform consistently better than JSON (on my wifi I get ~190 msgs/second with protobufs, ~175 msg/second with json)
-- We expect the performance increase from protobufs to become a lot more pronounced as our datastructures become larger in size, as json will take longer to serialize and deserialize the data
-- Static content is served from NGINX (cdn in future?)
-- WebSockets connect to FastAPI backend (see /webserver/api.py script)
+### KEY TERMS
+- **Network Update Loop** refers to the while True loop running in the '/netraider' websocket, which can be found in the [`api.py`](webserver/api.py#L22-L81). This is where all important player state information, such as position, scale, or score, are computed and stored. 
+- **Unity Update Loop** refers to the main Unity Engine loop. This is where all visual rendering is done.
 
-### OTHER NOTES:
-- The codebase isn't super 'robust' yet, we first had to take the time to get everything configured properly (i.e. setup NGINX, setup FastAPI, setup NGINX to distribute static files and talk to FastAPI, setup Protobufs in C# and Python, get everyone on same Unity Project, build Unity to Web version, etc). We also spent a good amount of time learning about WebTransport/QUIC/HTTP/3, which wasn't in vein as its super interesting and cutting edge knowledge, but it doesn't directly apply to our new milestone 1 goals.
-- It is difficult to setup Unity with Github, as the file sizes of many Unity assets are very large (excluding scripts). Gotta figure this out. 
+### ARCHITECTURE
+- **Authoritative Simulation** is the type of multiplayer architecture in netraiders. Players simply send their keyboard and mouse inputs to the server, and the server processes the clients new state. This is done 20 times a second. This means that it is impossible for players to commit the most egregious of hacks like getting an unlimited score.
+- **Tick Based Simulation** is a way of simulating a game over a network. If implemented properly, it allows for consistent time across all clients. Each game 'tick' in a tick based simulation represents a discrete update cycle where user inputs from the previous tick are processed.
 
-## Next Milestone Goals:
-- Design the entire repository to be educational. The repository should feel like a Networks Lab. Simple, clear to follow, and well documented. Explain everything as if the person looking at the code has never heard of NGINX, has no clue what a WebSocket is, and has no idea what Unity is.
-- Have a playable gamemode that can support 8+ players at once
-- Clean and crispy UI/UX
-- Players fully networked to one another, compensate for lag and disconnects.
-- Figure out how to link Unity code base/assets to this github (don't want to fragment codebases in different repositories)
+### SMOOTH LOCAL CLIENT VISUALS
+- **Client Side Prediction** allows for smooth gameplay for the *local player*. The Unity Update loop can run at a few hundred frames a second. The Network Update Loop runs at a strict 20 frames (ticks) per second, because networks just can't transmit data that fast (especially over TCP/IP).
+- **Server Reconcilliation:** sometimes, the server takes a long time to respond to a client. But because we implemetned client side prediction, our character is still smoothly moving along the screen even though the server hasn't told us of our newest authoritative state! When the server eventually responds, our client will be so far away from the state the server sent, and thus when their position is corrected, they will get snapped back in time to an older position. This makes for choppy and jittery visuals. To account for this, clients cache their "in flight' inputs. In flight inputs are inputs which the client has sent to the server, but the server has not yet sent back the players new state. Then, when the server sends us an older, out of date, authoritative state, we correct ourselves to that position, and reapply all inputs that are in flight. If the client was lying about their position, it will be corrected. If the client is telling the truth about their inputs, their prediction should be 1:1 identical to the servers call. 
+
+### SMOOTH REMOTE CLIENT VISUALS
+- **Remote Player Interpolation:** Any player other than the one local one playing the game is referred to as a 'remote player'. We can't do client side prediction with remote players. Why? Because client side prediction is dependent on knowing what inputs the player has. The local client know's what thier inputs are, but doesn't know what the inputs of other players in the world are! Client1 must wait 1/2RTT(client2 -> server) + 1/2RTT(server -> client1) in order get another update. We simply lag client inputs by one, and the interpolate between those.
+
+
+
+GOING TO ADD MORE TO GITHUB SOON + UPDATE WEBESITE WITH 1-2 MORE PROPER THINGS!!!
