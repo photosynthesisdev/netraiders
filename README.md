@@ -19,7 +19,7 @@ For example,
 
 **- Encoding: modulation and framing:** Modulation and Framing: Our use of WebSocket communications and the underlying TCP/IP protocols ensure that messages are properly segmented and reassembled across the network. Having a foundational understanding can help build students' understanding of how WebSockets are built and used. Tracing and recreating code such as: 
 
-  '''python
+  ```python
   @app.websocket("/netraiderConnect")
 async def netraider(websocket : WebSocket):
     await websocket.accept()
@@ -35,7 +35,7 @@ async def netraider(websocket : WebSocket):
     rtt_end = time.perf_counter()
     player.tick_rtt = (rtt_end - rtt_start) * simulation.tick_rate
     last_sent_tick = -1
-  '''
+  ```
 - Encoding: bandwidth and latency
 - Reliability: interference, error detection, and error correction
 - Reliability: stop-and-wait automatic repeat request
