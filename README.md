@@ -20,26 +20,26 @@ For example,
 **- Encoding: modulation and framing:** Modulation and Framing:
 
 **- Encoding: bandwidth and latency** Multiplayer games account for players will all different latencies. The server must account for all players RTTs in order to sync everyone in the same match. 
-- Reliability: interference, error detection, and error correction
-- Reliability: stop-and-wait automatic repeat request
-- Resource allocation: multiplexing
-- Resource allocation: access control
+**- Reliability: interference, error detection, and error correction** Multiplayer games must constantly deal with players lagging out, unstable ping, and server issues.  
+**- Reliability: stop-and-wait automatic repeat request**
+**- Resource allocation: multiplexing**
+**- Resource allocation: access control** 
 
 **Multiple Hops**
-- Addressing: Domain Name System
-- Addressing: Internet Protocol addresses
-- Routing: distance vector and link state
-- Routing: Internet structure and economics
-- Routing/Resource allocation: content distribution networks and traffic engineering*
+**- Addressing: Domain Name System** 
+**- Addressing: Internet Protocol addresses** IP Addresses are used to assign each joining user a unique ID. This helps to keep track of player state and interactions, as well as player input data such as username. 
+**- Routing: distance vector and link state**
+**- Routing: Internet structure and economics**
+**- Routing/Resource allocation: content distribution networks and traffic engineering***
 
 **End-to-End**
-- Reliability: timeouts
-- Reliability: sliding window automatic repeat request
-- Resource allocation: exponential backoff, slow start, and fast retransmit/fast recovery
-- Resource allocation: cubic and congestion avoidance
-- Resource allocation: video streaming
-- Security: denial-of-service attacks
-- Security: man-in-the-middle attacks and certificates
+**- Reliability: timeouts**
+**- Reliability: sliding window automatic repeat request**
+**- Resource allocation: exponential backoff, slow start, and fast retransmit/fast recovery**
+**- Resource allocation: cubic and congestion avoidance**
+**- Resource allocation: video streaming**
+**- Security: denial-of-service attacks**
+**- Security: man-in-the-middle attacks and certificates**
 
 
 
