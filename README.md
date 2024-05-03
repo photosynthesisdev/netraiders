@@ -9,29 +9,17 @@ The game is structured in the format of a Computer Networks lab - everything is 
 Netraiders uses a client / server model, where the server is the authoritative state on knowledge. This makes it difficult for any malicious player to cheat.
 
 
-# TODO: Include how each of these concepts was integrated into the project. 
-For example, 
-1) Certificates when we used TLS certs for site
-2) Access Control & WAPs in game --> more players at WAP, less data is transmiited
-3) Distance Vector Routing
 
 ### Direct links
 
-**- Encoding: modulation and framing:** 
 
 **- Encoding: bandwidth and latency** Multiplayer games account for players will all different latencies. The server must account for all players RTTs in order to sync everyone in the same match. 
 
 **- Reliability: interference, error detection, and error correction** Multiplayer games must constantly deal with players lagging out, unstable ping, and server issues. 
 
-**- Reliability: stop-and-wait automatic repeat request** 
-
-**- Resource allocation: multiplexing**
-
 **- Resource allocation: access control** In NetRaiders, with more players at any WAP, data transmission for all players will be slowed. 
 
 ### Multiple Hops
-
-**- Addressing: Domain Name System** 
 
 **- Addressing: Internet Protocol addresses** IP Addresses are used to assign each joining user a unique ID. This helps to keep track of player state and interactions, as well as player input data such as username. 
 
@@ -44,15 +32,8 @@ For example,
 
 **End-to-End**
 
-**- Reliability: timeouts**
 
 **- Reliability: sliding window automatic repeat request** Timeouts and packet loss are frequent in multiplayer games, including NetRaiders. To ensure data is sent and recieved, sliding window ARQs are used. 
-
-**- Resource allocation: exponential backoff, slow start, and fast retransmit/fast recovery** 
-
-**- Resource allocation: cubic and congestion avoidance** 
-
-**- Resource allocation: video streaming** 
 
 **- Security: denial-of-service attacks** NetRaiders is hosted on a local server, which makes it defacto immune from DDoS attacks. However, for multiplayer games, DDoS attacks are a massive security risk. A DDos attack can bring down the server, damaging the players' experiences and adversely impacting the game hosters revenue.
 
@@ -71,7 +52,7 @@ For example,
 
 ### CHALLENGE OF LOW-FREQUENCY UPDATES
 With a server running at a limited number of ticks per second, the amount of updates a player experiences can be jittery. In a third of a second, a plane moves at over 250 feet per second. Comparing this to game visualization and interaction mechanics, a lot can happen in just a fraction of a second. It is often not feasible to have a tick rate so fast that the game can run due to the limations of networks. A frame(tick) rate of 120 or 60 can cause a massive amount of lag as the server attempts to process all this data. To ensure that players don't experience jittery gameplay with a smaller tickrate, three techniques have been implemented into NetRaiders, as is standard in many online games. 
- ![Low-Frequency update visualization graph](![image](https://github.com/photosynthesisdev/netraiders/assets/143653205/535e5633-616c-4247-90e6-fb7f83d32a94)
+ ![Low-Frequency Update Visualization Graph](![image](https://github.com/photosynthesisdev/netraiders/assets/143653205/535e5633-616c-4247-90e6-fb7f83d32a94)
 )
 <sub>Image credit: [Gabriel Gambetta](https://www.gabrielgambetta.com)</sub>
 
@@ -87,5 +68,3 @@ With a server running at a limited number of ticks per second, the amount of upd
 <sub>Image credit: [Gabriel Gambetta](https://www.gabrielgambetta.com)</sub>
 
 
-
-GOING TO ADD MORE TO GITHUB SOON + UPDATE WEBESITE WITH 1-2 MORE PROPER THINGS!!!
