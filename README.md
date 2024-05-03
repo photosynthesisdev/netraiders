@@ -21,13 +21,13 @@ For example,
 
 **- Encoding: bandwidth and latency** Multiplayer games account for players will all different latencies. The server must account for all players RTTs in order to sync everyone in the same match. 
 
-**- Reliability: interference, error detection, and error correction** Multiplayer games must constantly deal with players lagging out, unstable ping, and server issues.
+**- Reliability: interference, error detection, and error correction** Multiplayer games must constantly deal with players lagging out, unstable ping, and server issues. 
 
-**- Reliability: stop-and-wait automatic repeat request**
+**- Reliability: stop-and-wait automatic repeat request** 
 
 **- Resource allocation: multiplexing**
 
-**- Resource allocation: access control** 
+**- Resource allocation: access control** With more players at any WAP, data transmission for all players will be slowed. 
 
 ### Multiple Hops
 
@@ -35,7 +35,7 @@ For example,
 
 **- Addressing: Internet Protocol addresses** IP Addresses are used to assign each joining user a unique ID. This helps to keep track of player state and interactions, as well as player input data such as username. 
 
-**- Routing: distance vector and link state**
+**- Routing: distance vector and link state** Proper routing graphs have to be established for multiplayer games to run in the first place. Even  games connected locally to Colgate's server, like NetRaiders, need to have proper network graphs based on LSAs to ensure player connectivity. 
 
 **- Routing: Internet structure and economics**
 
