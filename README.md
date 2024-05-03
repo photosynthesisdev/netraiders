@@ -30,7 +30,7 @@ Netraiders uses a client / server model, where the server is the authoritative s
 **- Routing/Resource allocation: content distribution networks and traffic engineering*** CDNs and the routing methods they use, such as ECMP, help to lower latency for players in multiplayer games. This improves the player experience and makes gaming more enjoyable for all. 
 
 
-**End-to-End**
+### End-to-End
 
 
 **- Reliability: sliding window automatic repeat request** Timeouts and packet loss are frequent in multiplayer games, including NetRaiders. To ensure data is sent and recieved, sliding window ARQs are used. 
