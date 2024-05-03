@@ -7,8 +7,7 @@ Netraiders is designed to be an **educational tool** for Computer Networks (COSC
 All code, as well as this readme, are designed so that future students can easily replicate making a multiplayer game network simulation. 
 Netraiders uses a client / server model, where the server is the authoritative state on knowledge. This makes it difficult for any malicious player to cheat.
 
-
-![Starting Popup](starting_popup.png)
+ <img src="starting_popup.png" width="400" alt="Starting Popup"> 
 
 ### KEY TERMS
 - **Network Update Loop** refers to the while True loop running in the '/netraider' websocket, which can be found in the [`api.py`](webserver/api.py#L50-L90). This is where all important player state information, such as position, scale, or score, are computed and stored. 
