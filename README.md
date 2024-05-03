@@ -36,7 +36,7 @@ async def netraider(websocket : WebSocket):
     player.tick_rtt = (rtt_end - rtt_start) * simulation.tick_rate
     last_sent_tick = -1
   ```
-- Encoding: bandwidth and latency
+**- Encoding: bandwidth and latency** Maintaining consistent gameplay across various latencies is a crucial part of multiplayer networks. To manage server data transmission efficiently without overwhelming the bandwidth, data exchange is regulated in timed intervals known as **ticks**. Recreating and tracing the NetRaiders code can help students learn the significance of synchronization and data flow control.
 - Reliability: interference, error detection, and error correction
 - Reliability: stop-and-wait automatic repeat request
 - Resource allocation: multiplexing
