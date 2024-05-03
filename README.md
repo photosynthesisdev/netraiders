@@ -35,11 +35,11 @@ For example,
 
 **- Addressing: Internet Protocol addresses** IP Addresses are used to assign each joining user a unique ID. This helps to keep track of player state and interactions, as well as player input data such as username. 
 
-**- Routing: distance vector and link state** Proper routing graphs have to be established for multiplayer games to run in the first place. Even  games connected locally to Colgate's server, like NetRaiders, need to have proper network graphs based on LSAs to ensure player connectivity. 
+**- Routing: distance vector and link state** Games connected locally to Colgate's server, like NetRaiders, need to have proper network graphs based on LSAs to ensure player connectivity. 
 
-**- Routing: Internet structure and economics**
+**- Routing: Internet structure and economics** For broader network multiplayer games, proper AS relationship practices are required to allow a player in New York to compete with a player in California, and everywhere inbetween. 
 
-**- Routing/Resource allocation: content distribution networks and traffic engineering***
+**- Routing/Resource allocation: content distribution networks and traffic engineering*** CDNs and the routing methods they use, such as ECMP, help to lower latency for players in multiplayer games. This improves the player experience and makes gaming more enjoyable for all. 
 
 
 **End-to-End**
