@@ -17,7 +17,7 @@ For example,
 
 ### Direct links
 
-**- Encoding: modulation and framing:** Modulation and Framing:
+**- Encoding: modulation and framing:** 
 
 **- Encoding: bandwidth and latency** Multiplayer games account for players will all different latencies. The server must account for all players RTTs in order to sync everyone in the same match. 
 
@@ -27,7 +27,7 @@ For example,
 
 **- Resource allocation: multiplexing**
 
-**- Resource allocation: access control** With more players at any WAP, data transmission for all players will be slowed. 
+**- Resource allocation: access control** In NetRaiders, with more players at any WAP, data transmission for all players will be slowed. 
 
 ### Multiple Hops
 
@@ -46,17 +46,17 @@ For example,
 
 **- Reliability: timeouts**
 
-**- Reliability: sliding window automatic repeat request**
+**- Reliability: sliding window automatic repeat request** Timeouts and packet loss are frequent in multiplayer games, including NetRaiders. To ensure data is sent and recieved, sliding window ARQs are used. 
 
-**- Resource allocation: exponential backoff, slow start, and fast retransmit/fast recovery**
+**- Resource allocation: exponential backoff, slow start, and fast retransmit/fast recovery** 
 
-**- Resource allocation: cubic and congestion avoidance**
+**- Resource allocation: cubic and congestion avoidance** 
 
-**- Resource allocation: video streaming**
+**- Resource allocation: video streaming** 
 
-**- Security: denial-of-service attacks**
+**- Security: denial-of-service attacks** NetRaiders is hosted on a local server, which makes it defacto immune from DDoS attacks. However, for multiplayer games, DDoS attacks are a massive security risk. A DDos attack can bring down the server, damaging the players' experiences and adversely impacting the game hosters revenue.
 
-**- Security: man-in-the-middle attacks and certificates**
+**- Security: man-in-the-middle attacks and certificates** To connect NetRaiders to spock.cs.colgate.edu, we used a TLS Certificate. Certificates are a critical part of ensuring proper authority to prevent man-in-the-middle attacks. 
 
 
 
