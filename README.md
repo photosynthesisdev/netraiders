@@ -17,26 +17,9 @@ For example,
 
 ### Direct links
 
-**- Encoding: modulation and framing:** Modulation and Framing: Our use of WebSocket communications and the underlying TCP/IP protocols ensure that messages are properly segmented and reassembled across the network. Having a foundational understanding can help build students' understanding of how WebSockets are built and used. Tracing and recreating code such as the snippet provided helps illustrate the practical application of these concepts.
+**- Encoding: modulation and framing:** Modulation and Framing:
 
-  ```python
-  @app.websocket("/netraiderConnect")
-async def netraider(websocket : WebSocket):
-    await websocket.accept()
-    data = json.loads((await websocket.receive()).get("text", ""))
-    username = data['username']
-    user_id = random.randint(1, 100000)
-    player = NetraiderPlayer(user_id = user_id, username = username)
-    simulation = NetraidersSimulation()
-    simulation.start_simulation(player)
-    rtt_start = time.perf_counter()
-    await websocket.send_text("ping")
-    await websocket.receive()
-    rtt_end = time.perf_counter()
-    player.tick_rtt = (rtt_end - rtt_start) * simulation.tick_rate
-    last_sent_tick = -1
-  ```
-**- Encoding: bandwidth and latency** Maintaining consistent gameplay across various latencies is a crucial part of multiplayer networks. To manage server data transmission efficiently without overwhelming the bandwidth, data exchange is regulated in timed intervals known as **ticks**. Recreating and tracing the NetRaiders code can help students learn the significance of synchronization and data flow control.
+**- Encoding: bandwidth and latency** Multiplayer games account for players will all different latencies. The server must account for all players RTTs in order to sync everyone in the same match. 
 - Reliability: interference, error detection, and error correction
 - Reliability: stop-and-wait automatic repeat request
 - Resource allocation: multiplexing
