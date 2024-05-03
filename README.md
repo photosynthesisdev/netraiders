@@ -15,7 +15,7 @@ For example,
 2) Access Control & WAPs in game --> more players at WAP, less data is transmiited
 3) Distance Vector Routing
 
-###Direct links
+### Direct links
 
 **- Encoding: modulation and framing:** Modulation and Framing: Our use of WebSocket communications and the underlying TCP/IP protocols ensure that messages are properly segmented and reassembled across the network. Having a foundational understanding can help build students' understanding of how WebSockets are built and used. Tracing and recreating code such as the snippet provided helps illustrate the practical application of these concepts.
 
