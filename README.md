@@ -17,7 +17,7 @@ For example,
 
 ###Direct links
 
-**- Encoding: modulation and framing:** Modulation and Framing: Our use of WebSocket communications and the underlying TCP/IP protocols ensure that messages are properly segmented and reassembled across the network. Having a foundational understanding can help build students' understanding of how WebSockets are built and used. Tracing and recreating code such as: 
+**- Encoding: modulation and framing:** Modulation and Framing: Our use of WebSocket communications and the underlying TCP/IP protocols ensure that messages are properly segmented and reassembled across the network. Having a foundational understanding can help build students' understanding of how WebSockets are built and used. Tracing and recreating code such as the snippet provided helps illustrate the practical application of these concepts.
 
   ```python
   @app.websocket("/netraiderConnect")
