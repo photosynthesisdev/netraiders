@@ -40,37 +40,3 @@ With a server running at a limited number of ticks per second, the amount of upd
  <img src="remote_entity_interpolation.png" width="400" alt="Remote Entity Interpolation"> 
  <sub>Image credit: [Gabriel Gambetta](https://www.gabrielgambetta.com)</sub>
 
-
-## How Netraiders Relates to inclass Topics
-
-### Direct links
-
-
-**- Encoding: bandwidth and latency** Multiplayer games account for players will all different latencies. The server must account for all players RTTs in order to sync everyone in the same match. 
-
-**- Reliability: interference, error detection, and error correction** Multiplayer games must constantly deal with players lagging out, unstable ping, and server issues. 
-
-**- Resource allocation: access control** In NetRaiders, with more players at any WAP, data transmission for all players will be slowed. 
-
-### Multiple Hops
-
-**- Addressing: Internet Protocol addresses** IP Addresses are used to assign each joining user a unique ID. This helps to keep track of player state and interactions, as well as player input data such as username. 
-
-**- Routing: distance vector and link state** Games connected locally to Colgate's server, like NetRaiders, need to have proper network graphs based on LSAs to ensure player connectivity. 
-
-**- Routing: Internet structure and economics** For broader network multiplayer games, proper AS relationship practices are required to allow a player in New York to compete with a player in California, and everywhere inbetween. 
-
-**- Routing/Resource allocation: content distribution networks and traffic engineering*** CDNs and the routing methods they use, such as ECMP, help to lower latency for players in multiplayer games. This improves the player experience and makes gaming more enjoyable for all. 
-
-
-### End-to-End
-
-
-**- Reliability: sliding window automatic repeat request** Timeouts and packet loss are frequent in multiplayer games, including NetRaiders. To ensure data is sent and recieved, sliding window ARQs are used. 
-
-**- Security: denial-of-service attacks** NetRaiders is hosted on a local server, which makes it defacto immune from DDoS attacks. However, for multiplayer games, DDoS attacks are a massive security risk. A DDos attack can bring down the server, damaging the players' experiences and adversely impacting the game hosters revenue.
-
-**- Security: man-in-the-middle attacks and certificates** To connect NetRaiders to spock.cs.colgate.edu, we used a TLS Certificate. Certificates are a critical part of ensuring proper authority to prevent man-in-the-middle attacks. 
-
-
-
