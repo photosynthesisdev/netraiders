@@ -1,0 +1,6 @@
+OVERALL: Satisfactory
+
+* I do not understand how remote entity interpolation works, even though I read the description of remote entity interpretation in the README multiple times
+* It would be nice if the report discussed how the various components–e.g., NetraiderSimulation and web sockets–interacted
+* Remote players appear somewhat jittery even with remote entity interpolation
+* You put in a lot of work to get websockets and smooth network gameplay working
